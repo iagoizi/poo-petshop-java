@@ -13,13 +13,13 @@ import java.util.List;
  */
 public class Usuario {
     private String nome;
-    private int cargo;
+    private TipoFuncionario cargo;
     private String usuario;
     private String senha;
     private double salario;
     public Cliente[] Cliente; /*não lembro se inicializa kk*/
     
-    public Usuario(String nome, int cargo, String usuario, String senha,double salario) {
+    public Usuario(String nome, TipoFuncionario cargo, String usuario, String senha,double salario) {
         this.nome = nome;
         this.cargo = cargo;
         this.usuario = usuario;
@@ -44,14 +44,14 @@ public class Usuario {
     /**
      * @return the cargo
      */
-    public int getCargo() {
+    public TipoFuncionario getCargo() {
         return cargo;
     }
 
     /**
      * @param cargo the cargo to set
      */
-    public void setCargo(int cargo) {
+    public void setCargo(TipoFuncionario cargo) {
         this.cargo = cargo;
     }
 
