@@ -133,5 +133,4 @@ public class Cliente {
     public boolean equals(Cliente cliente) {
         return (cliente.getCpf() == this.cpf);
     }
-    
 }
