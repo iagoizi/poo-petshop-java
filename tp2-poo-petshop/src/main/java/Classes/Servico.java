@@ -16,6 +16,17 @@ public class Servico {
     /**
      * @return the nome
      */
+    
+    public Servico() {
+    }
+
+    public Servico(String nome, double preco, long id) {
+        this.nome = nome;
+        this.preco = preco;
+        this.id = id;
+    }
+    
+
     public String getNome() {
         return nome;
     }

@@ -18,10 +18,24 @@ public class Cliente {
     private String endereco;
     private long telefone;
     private long cpf;
-    /*ArrayList<Compras> aulas = new ArrayList<>();* a ser adicionado/
+    /*ArrayList<Compras> compras = new ArrayList<>();* a ser adicionado/
     /**
      * @return the nome
      */
+
+    public Cliente() {
+    }
+
+    public Cliente(String nome, String tipoAnimal, String nomePet, String endereco, long telefone, long cpf) {
+        this.nome = nome;
+        this.tipoAnimal = tipoAnimal;
+        this.nomePet = nomePet;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.cpf = cpf;
+    }
+    
+    
     public String getNome() {
         return nome;
     }
