@@ -60,6 +60,12 @@ public class MainTeste {
         clientes.add(cliente1);
         clientes.add(cliente2);
         System.out.println("Dados: ");
+        Cliente clone = cliente2.clone();
+        clientes.add(clone);
+        // teste de clonegem profunda:
+        clone.setNome("Nome do clone mudado");
+        clone.setNomePet("Pet do clone");
+        
         for(Cliente cli:  clientes){
             System.out.println(cli.toString());
         }

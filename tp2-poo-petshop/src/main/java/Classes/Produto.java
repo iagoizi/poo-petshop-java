@@ -80,12 +80,21 @@ public class Produto {
     public void setId(long id) {
         this.id = id;
     }
-    
+    @Override
     public String toString() {
         return "" + 
                 this.id + "|" + this.nome + "|" + 
                 this.preco + "|" + this.quantidade;
     }
+
+    @Override
+    public Produto clone(){
+        return new Produto(this.getNome(), this.getPreco(), this.getQuantidade(), this.getId()); 
+    }
+    public boolean equals(Produto prod) {
+        return (prod.getId() == this.id);
+    }
+    
     
     
 }

@@ -71,7 +71,13 @@ public class Servico {
                 this.id + "|" + this.nome + "|" + 
                 this.preco;
     }
-    
+    @Override
+    public Servico clone(){
+        return new Servico(this.getNome(), this.getPreco(), this.getId()); 
+    }
+    public boolean equals(Servico servico) {
+        return (servico.getId() == this.id);
+    }
     
 }
 

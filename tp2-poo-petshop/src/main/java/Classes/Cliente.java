@@ -124,6 +124,14 @@ public class Cliente {
                 " " + this.nomePet + " " + this.tipoAnimal + " " +
                 " " /*this.compras.toString();*/;
      }
-   
+       @Override
+    public Cliente clone(){
+         return new Cliente(this.nome, this.tipoAnimal, 
+                 this.nomePet, this.endereco, this.telefone, this.cpf);
+         
+    }
+    public boolean equals(Cliente cliente) {
+        return (cliente.getCpf() == this.cpf);
+    }
     
 }
