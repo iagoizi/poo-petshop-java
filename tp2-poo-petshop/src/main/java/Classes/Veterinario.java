@@ -4,42 +4,32 @@
  * and open the template in the editor.
  */
 package Classes;
-import Classes.Lib;
-import Classes.OrdemServico;
 
 /**
  *
  * @author danilo
  */
-public class Veterinario {
-     /*private PetShop petshop; */
-    private String nome;
-    private String cargo;
-    private String usuario;
-    private String senha;
-    private double salario;
+public class Veterinario extends Usuario{
 
-    public Veterinario(/* PetShop PetShop ,*/ String nome, String cargo, String usuario, senha nome, double salario){
+    public Veterinario(String nome, String usuario, String senha, double salario) {
+        super(nome, 1, usuario, senha, salario);
     }
     
-     
-    public Veterinario() {
-    }
-    
-    
-    public void registrarTratamento(/*OrdemServico &ordem */, String tratamento){
+    public void registrarTratamento(OrdemServico ordem , String tratamento){
         
-        //usar hasNext()
-        for (ArrayList <OrdemServico> i = this->petshop->getOrdemServico().begin();i < this->petshop->getOrdemServico().end().i++)
-        {  
-            if (*it == ordem)
-            {
-                System.out.printf("Removendo");
-                //Remove a ordem de servico
-                this->petshop->getOrdemServico().remove(i);
-                //this->petshop->getOrdemServico().delete(i);
+       List <OrdemServico> list = new ArrayList();
+        for (Iterator <OrdemServico> iterator = list.iterator(); iterator.hasNext();) {
+          Object obj = iterator.next();
+            if (obj.equals("1")) {
+
+               System.out.printf("Removendo");
+               iterator.remove();
             }
         }
+
+        ordem.setObservacao(tratamento);
+        //petshop->getHistoricoServico().add(ordem);
+        
     }
     
     public OrdemServico buscarOrdemServico(int id, bool sucess){

@@ -13,11 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author vitor
  */
-public class Vendedor {
-    private String nome;
-    private String usuario;
-    private String senha;
-    private double salario;
+public class Vendedor extends Usuario{
+
+    public Vendedor(String nome, String usuario, String senha, double salario) {
+        super(nome, 2, usuario, senha, salario);
+    }
+
     
     
     public Cliente cadastrarCliente(String nome, String tipo_animal, String nome_pet, String endereco, long telefone, long cpf){
@@ -30,40 +31,41 @@ public class Vendedor {
     }
     
     public Produto buscarProduto(long id, boolean sucess){
-        for(int i=0; i<Produto.length-1; i++){
-            if(Produto[i].getId() == id){
+        for(Produto produtos: petshop.getProdutos()){
+            if(produtos.getId() == id){
                 sucess = true;
-                return Produto[i];
-            }else{
+                return produtos;
+            }
+            else{
                 sucess = false;
-                return null; /*não sei o que retornar?*/
+                return null;
             }
         }
-        return null; /*sugerido pela porcaria do netbeans*/
+        return null;
     }
     
     public void listarProdutos(){
-        for(Produto prod :  produto){/*ta errado*/
-            System.out.println(prod.toString());
+        for(Produto produtos :  petshop.getProdutos()){
+            System.out.println(produtos.toString());
         }
     }
     
     public Servico buscarServicos(long id, boolean sucess){
-        for(int i=0; i<Servico.length-1; i++){
-            if(Servico[i].getId() == id){
+        for(Servico servicos: petshop.getServicos()){
+            if(servicos.getId() == id){
                 sucess = true;
-                return Servico[i];
-            }else{
+                return servicos;
+            }
+            else{
                 sucess = false;
-                return null; /*não sei o que retornar?*/
+                return null;
             }
         }
-        return null; /*sugerido pela porcaria do netbeans*/
+        return null;
     }
     
     public void listarServicos(){
-        Iterable<Servico> servico = null; //n sei se ta ok
-        for(Servico serv :  servico){/*ta errado*/
+        for(Servico servicos :  petshop.getServicos()){
             System.out.println(serv.toString());
         }
     }

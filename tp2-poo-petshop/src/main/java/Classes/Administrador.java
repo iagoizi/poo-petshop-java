@@ -44,18 +44,18 @@ public class Administrador {
         this.cargo = cargo;
     }
 
-    public void reposicaoEstoque(Produto produto, int quantidade, String descricao, double preco){
+    /*public void reposicaoEstoque(Produto produto, int quantidade, String descricao, double preco){
         Compra compra = new Compra(descricao, preco);
         compra.pagar();
         ArrayList<Compra> compras = new ArrayList<>();
         compras.add(compra);
-        /*criar arraylist de compras*/
-        /*this->petshop->getCompras().push_back(compra);*/
+        //criar arraylist de compras
+        //this->petshop->getCompras().push_back(compra);
         //getCompras().push_back(compra);
-    }
+    }*/
     
     public void cadastrarVeterinario(String nome, String usuario, String senha, double salario){
-        Veterinario veterinario = new Veterinario(/*this->petshop,*/ nome, usuario, senha, salario);
+        Veterinario veterinario = new Veterinario(/*this->petshop,*/ nome,  usuario, senha, salario);
         ArrayList<Veterinario> veterinarios = new ArrayList<>();
         veterinarios.add(veterinario);
         /*this->petshop->getUsuarios().push_back(veterinario);*/
@@ -71,7 +71,7 @@ public class Administrador {
     }
     
     public void cadastrarProduto(String nome, double preco, int quantidade, long id){
-        Produto produto = new Produto(/*this->petshop,*/ nome, preco, id);
+        Produto produto = new Produto(/*this->petshop,*/ nome, preco, quantidade, id);
         ArrayList<Produto> produtos = new ArrayList<>();
         produtos.add(produto);
         /*this->petshop->getUsuarios().push_back(produto);*/
@@ -86,14 +86,8 @@ public class Administrador {
         //getServicos().add(servico);
     }
 
-    public void listarFuncionarios(){
-        for (int i=0; i<petshop.getUsuarios().length-1; i++){
-             JOptionPane.showMessageDialog(null,"Os funcionários são:" + petshop[i].getUsuarios());
-        }
-    }
-
-    public void pagarConta(String descricao, /*Data dataVencimento,*/ double valor){
-        Conta conta = new Conta(descricao, /*dataVencimento,*/ valor);
+    public void pagarConta(String descricao, Data dataVencimento, double valor){
+        Conta conta = new Conta(descricao, dataVencimento, valor);
         conta.pagar();
         ArrayList<Conta> contas = new ArrayList<>();
         contas.add(conta);
@@ -108,6 +102,12 @@ public class Administrador {
         compras.add(compra);
         /*this->petshop->getCompras().push_back(compra);*/
         //getCompras().add(compra);
+    }
+    
+    public void listarFuncionarios(){
+        for (int i=0; i<petshop.getUsuarios().size -1; i++){
+             JOptionPane.showMessageDialog(null,"Os funcionários são:" + petshop[i].getUsuarios());
+        }
     }
 
 }

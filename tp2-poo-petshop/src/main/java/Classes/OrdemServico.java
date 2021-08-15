@@ -4,36 +4,34 @@
  * and open the template in the editor.
  */
 package Classes;
-import Classes.Lib;
-import Classes.Servico;
 
 /**
  *
  * @author danilo
  */
 public class OrdemServico {
+
+    /**
+     * @return the data
+     */
     
     private Servico servico;
     private Cliente cliente;
-    /*
     private Data data; 
-    */
     private int id;
-    private String observacao;  /* -> anteriormente era um vetor de char*/
+    private String observacao; 
      
     
-    public OrdemServico (/*Servico servico, Cliente cliente, Data data,*/ int id, String observacao) {
-        /*setServico(servico);*/
-        /*setCliente(cliente);*/
-        /*setData(data); */
+    public OrdemServico (Servico servico, Cliente cliente, Data data, int id, String observacao) {
+        setServico(servico);
+        setCliente(cliente);
+        setData(data);
         setId(id);
         setObservacao(observacao);
     }
     
     public OrdemServico (){
     }
-    
-    /*Getters*/
    
     public Servico getServico (){
         return servico;
@@ -43,11 +41,9 @@ public class OrdemServico {
         return cliente;
     }
     
-    /*
-    public getData (){
+    public Data getData() {
         return data;
     }
-    */
     
     public String getObservacao(){
         return observacao;
@@ -57,8 +53,6 @@ public class OrdemServico {
         return id;
     }
     
-    /*Setters*/
-    
     public void setServico(Servico servico){
         this.servico = servico;
     }    
@@ -67,12 +61,10 @@ public class OrdemServico {
         this.cliente = cliente;
     }
     
-    /*
     public void setData(Data data){
         this.data = data;
     }
-    */
-    
+       
     public void setObservacao (String observacao){
         this.observacao = observacao;
     }
@@ -85,7 +77,6 @@ public class OrdemServico {
         return this.id == comp.id;
     }
     
-    /*
     @Override
     public String toString() {
         return "" + 
@@ -93,6 +84,5 @@ public class OrdemServico {
                 this.servico + "|" + this.cliente.getNome() 
                 + "|" + this.observacao;
     }
-    */
     
 }   

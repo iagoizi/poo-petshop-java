@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Classes;
-import Classes.Lib;
+
 /**
  *
  * @author danny
@@ -14,12 +14,10 @@ public class Produto {
     private double preco;
     private int quantidade;
     private long id;
+    
     /**
      * @return the nome
      */
-    
-    public Produto() {
-    }
 
     public Produto(String nome, double preco, int quantidade, long id) {
         this.nome = nome;

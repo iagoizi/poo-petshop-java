@@ -124,7 +124,7 @@ public class Cliente {
                 " " + this.nomePet + " " + this.tipoAnimal + " " +
                 " " /*this.compras.toString();*/;
      }
-       @Override
+    @Override
     public Cliente clone(){
          return new Cliente(this.nome, this.tipoAnimal, 
                  this.nomePet, this.endereco, this.telefone, this.cpf);
