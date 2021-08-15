@@ -15,11 +15,9 @@ import javax.swing.JOptionPane;
  */
 public class Vendedor extends Usuario{
 
-    public Vendedor(String nome, String usuario, String senha, double salario) {
-        super(nome, 2, usuario, senha, salario);
+    public Vendedor(PetShop petshop, String nome, String usuario, String senha, double salario) {
+        super(petshop, nome, TipoFuncionario.VENDEDOR, usuario, senha, salario);
     }
-
-    
     
     public Cliente cadastrarCliente(String nome, String tipo_animal, String nome_pet, String endereco, long telefone, long cpf){
         /*criando um novo cliente de acordo com as informações passadas por referência*/
@@ -65,7 +63,7 @@ public class Vendedor extends Usuario{
     }
     
     public void listarServicos(){
-        for(Servico servicos :  PetShop.getServicos()){
+        for(Servico servicos :  petshop.getServicos()){
             System.out.println(servicos.toString());
         }
     }

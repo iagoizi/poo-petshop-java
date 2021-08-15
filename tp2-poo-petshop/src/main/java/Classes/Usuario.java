@@ -99,16 +99,14 @@ public class Usuario {
     }
     
     public Cliente buscarCadastro(long cpf, boolean sucess){
-        for(int i=0; i<Cliente.length-1; i++){
-            if(Cliente[i].getCpf() == cpf){
+        for(Cliente clientes : petshop.getClientes()){
+            if(clientes.getCpf() == cpf){
                 sucess = true;
-                return Cliente[i];
-            }else{
-                sucess = false;
-                return null; /*não sei o que retornar?*/
+                return clientes;
             }
         }
-        return null; /*sugerido pela porcaria do netbeans*/
+        sucess = false;
+        return null;  
     }
     
 }    
