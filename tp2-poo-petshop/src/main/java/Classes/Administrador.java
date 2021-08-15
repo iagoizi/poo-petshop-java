@@ -12,9 +12,11 @@ import javax.swing.JOptionPane;
  *
  * @author vitor
  */
-public class Administrador {
-    private String nome;
-    private String cargo;
+public class Administrador extends Usuario {
+
+    public Administrador(PetShop petshop, String nome,  String usuario, String senha, double salario) {
+        super(petshop, nome, TipoFuncionario.ADMINISTRADOR, usuario, senha, salario);
+    }
     
     /**
      * @return the nome
@@ -28,20 +30,6 @@ public class Administrador {
      */
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    /**
-     * @return the cargo
-     */
-    public String getCargo() {
-        return cargo;
-    }
-
-    /**
-     * @param cargo the cargo to set
-     */
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
     }
 
     /*public void reposicaoEstoque(Produto produto, int quantidade, String descricao, double preco){
@@ -105,7 +93,7 @@ public class Administrador {
     }
     
     public void listarFuncionarios(){
-        for (int i=0; i<petshop.getUsuarios().size -1; i++){
+        for (int i=0; i<this.petshop.getUsuarios().size -1; i++){
              JOptionPane.showMessageDialog(null,"Os funcionários são:" + petshop[i].getUsuarios());
         }
     }

@@ -12,12 +12,12 @@ import java.util.List;
  * @author vitor
  */
 public class Usuario {
-    private PetShop petshop;
-    private String nome;
-    private TipoFuncionario cargo;
-    private String usuario;
-    private String senha;
-    private double salario;
+    protected PetShop petshop;
+    protected String nome;
+    protected TipoFuncionario cargo;
+    protected String usuario;
+    protected String senha;
+    protected double salario;
     public Cliente[] Cliente; /*não lembro se inicializa kk*/
     
     public Usuario(PetShop petshop, String nome, TipoFuncionario cargo, String usuario, String senha,double salario) {

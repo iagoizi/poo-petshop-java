@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Classes;
+import java.util.Iterator;
 
 /**
  *
@@ -11,44 +12,36 @@ package Classes;
  */
 public class Veterinario extends Usuario{
 
-    public Veterinario(String nome, String usuario, String senha, double salario) {
-        super(nome, 1, usuario, senha, salario);
+    public Veterinario(PetShop petshop, String nome, TipoFuncionario cargo, String usuario, String senha, double salario) {
+        super(petshop, nome, cargo, usuario, senha, salario);
     }
-    
-    public void registrarTratamento(OrdemServico ordem , String tratamento){
-        
-       List <OrdemServico> list = new ArrayList();
-        for (Iterator <OrdemServico> iterator = list.iterator(); iterator.hasNext();) {
-          Object obj = iterator.next();
-            if (obj.equals("1")) {
 
-               System.out.printf("Removendo");
-               iterator.remove();
+    public void registrarTratamento(OrdemServico ordem , String tratamento){
+            
+        Iterator <OrdemServico> itr = petshop.getOrdemServicos().iterator();        
+        while (itr.hasNext()) {
+            if (itr.getId() == ordem.getId()) {
+                itr.remove();
             }
-        }
+        } 
 
         ordem.setObservacao(tratamento);
-        //petshop->getHistoricoServico().add(ordem);
-        
+        this.petshop.getHistoricoServicos().add(ordem);
     }
     
-    public OrdemServico buscarOrdemServico(int id, bool sucess){
+    public OrdemServico buscarOrdemServico(int id, boolean sucess){
         
-// Laço que passa pelos Id das ordens de servico para encontrar a buscada
-        for (ArrayList <OrdemServico> i = this->petshop->getOrdemServico().begin(); i != this->petshop->getOrdemServico().end(); i++)
-        {
-            //Condição que verifica se é o ID buscado
-            if ((i).getId() == id)
-            {
+        Iterator <OrdemServico> itr = petshop.getOrdemServicos().iterator();        
+        while (itr.hasNext()) {
+          
+            if (itr.getId() == id) {                
                 sucess = true;
-                return i;
+                return (OrdemServico) itr;        
             }
-        }
-
-        //Caso não seja encontrado a ordem buscado
-        sucess = false;
-        return {};
+        } 
         
+        sucess = false;
+        return null;        
     }
     
     public void listarOrdemServico(){
