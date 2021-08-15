@@ -6,6 +6,7 @@
 package Classes;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -22,9 +23,7 @@ public class Vendedor extends Usuario{
     public Cliente cadastrarCliente(String nome, String tipo_animal, String nome_pet, String endereco, long telefone, long cpf){
         /*criando um novo cliente de acordo com as informações passadas por referência*/
         Cliente cliente = new Cliente(nome, tipo_animal, nome_pet, endereco, telefone, cpf);
-        ArrayList<Cliente> clientes = new ArrayList<>();
-        clientes.add(cliente);
-        /*this->petshop->getClientes().push_back(cliente);*/
+        petshop.getClientes().add(cliente);
         return cliente;
     }
     
@@ -68,9 +67,18 @@ public class Vendedor extends Usuario{
         }
     }
     
+    public void vendaServico(Cliente cliente, Servico servico, Data dataServico){
+        int id = 0;
+        //Se o vetor não estiver vazio, passamos para o próximo id
+        if (!petshop.getOrdemServicos().isEmpty())
+        {
+            Iterator <OrdemServico> last = petshop.getOrdemServicos().iterator();
+            while (last.hasNext()){
+                id = petshop.getOrdemServicos().get(petshop.getOrdemServicos().size()-1).getId() + 1;
+            }
+        }
+        //criamos a ordem de serviço utilizando as informações presentes no vetor
+        OrdemServico ordemservico = new OrdemServico(servico, cliente, dataServico, id, "");
+        petshop.getOrdemServicos().add(ordemservico);
+    }
 }
-
-/*
-venda de produtos
-venda de serviços
-*/

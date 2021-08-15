@@ -32,15 +32,19 @@ public class Administrador extends Usuario {
         this.nome = nome;
     }
 
-    /*public void reposicaoEstoque(Produto produto, int quantidade, String descricao, double preco){
+    public void reposicaoEstoque(Produto produto, int quantidade, String descricao, double preco){
         Compra compra = new Compra(descricao, preco);
         compra.pagar();
-        ArrayList<Compra> compras = new ArrayList<>();
-        compras.add(compra);
-        //criar arraylist de compras
-        //this->petshop->getCompras().push_back(compra);
-        //getCompras().push_back(compra);
-    }*/
+        petshop.getCompras().add(compra);
+        for(Produto produtos : petshop.getProdutos()){
+            if(produtos == produto){ //não sei se ta certo
+                produtos.setQuantidade(produtos.getQuantidade() + quantidade);
+                if(produtos.getQuantidade() < 0){
+                    produtos.setQuantidade(0);
+                }
+            }
+        }
+    }
     
     public void cadastrarVeterinario(String nome, String usuario, String senha, double salario){
         Veterinario veterinario = new Veterinario(petshop, nome,  usuario, senha, salario);
@@ -81,7 +85,3 @@ public class Administrador extends Usuario {
     }
 
 }
-
-/*
-reposição de estoque
-*/
