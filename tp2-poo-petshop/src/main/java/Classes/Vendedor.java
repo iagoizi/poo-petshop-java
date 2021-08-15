@@ -65,8 +65,8 @@ public class Vendedor extends Usuario{
     }
     
     public void listarServicos(){
-        for(Servico servicos :  petshop.getServicos()){
-            System.out.println(serv.toString());
+        for(Servico servicos :  PetShop.getServicos()){
+            System.out.println(servicos.toString());
         }
     }
     

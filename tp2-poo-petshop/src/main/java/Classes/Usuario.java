@@ -12,6 +12,7 @@ import java.util.List;
  * @author vitor
  */
 public class Usuario {
+    private PetShop petshop;
     private String nome;
     private TipoFuncionario cargo;
     private String usuario;
@@ -19,7 +20,7 @@ public class Usuario {
     private double salario;
     public Cliente[] Cliente; /*não lembro se inicializa kk*/
     
-    public Usuario(String nome, TipoFuncionario cargo, String usuario, String senha,double salario) {
+    public Usuario(PetShop petshop, String nome, TipoFuncionario cargo, String usuario, String senha,double salario) {
         this.nome = nome;
         this.cargo = cargo;
         this.usuario = usuario;
