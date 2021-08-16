@@ -97,12 +97,16 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(195, 195, 195)
+                .addComponent(jLabel23)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel20)
@@ -116,10 +120,6 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                             .addComponent(jTextFieldUsuario6)
                             .addComponent(jTextFieldUsuario7, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE))))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(195, 195, 195)
-                .addComponent(jLabel23)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,9 +142,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(jTextFieldUsuario9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -207,61 +207,13 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonEntrar;
-    private javax.swing.JButton jButtonEntrar1;
-    private javax.swing.JButton jButtonEntrar2;
-    private javax.swing.JButton jButtonEntrar3;
-    private javax.swing.JButton jButtonEntrar4;
-    private javax.swing.JButton jButtonEntrar5;
-    private javax.swing.JButton jButtonSair;
-    private javax.swing.JButton jButtonSair1;
-    private javax.swing.JButton jButtonSair2;
-    private javax.swing.JButton jButtonSair3;
-    private javax.swing.JButton jButtonSair4;
-    private javax.swing.JButton jButtonSair5;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPasswordField jPasswordFieldSenhaUsuario;
-    private javax.swing.JPasswordField jPasswordFieldSenhaUsuario1;
-    private javax.swing.JPasswordField jPasswordFieldSenhaUsuario2;
-    private javax.swing.JPasswordField jPasswordFieldSenhaUsuario3;
-    private javax.swing.JPasswordField jPasswordFieldSenhaUsuario4;
-    private javax.swing.JPasswordField jPasswordFieldSenhaUsuario5;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldUsuario;
-    private javax.swing.JTextField jTextFieldUsuario1;
-    private javax.swing.JTextField jTextFieldUsuario2;
-    private javax.swing.JTextField jTextFieldUsuario3;
-    private javax.swing.JTextField jTextFieldUsuario4;
-    private javax.swing.JTextField jTextFieldUsuario5;
     private javax.swing.JTextField jTextFieldUsuario6;
     private javax.swing.JTextField jTextFieldUsuario7;
     private javax.swing.JTextField jTextFieldUsuario8;
