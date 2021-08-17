@@ -18,7 +18,8 @@ public class Cliente {
     private String endereco;
     private long telefone;
     private long cpf;
-    /*ArrayList<Compras> compras = new ArrayList<>();* a ser adicionado/
+    ArrayList<Compra> compras;
+    
     /**
      * @return the nome
      */
@@ -33,6 +34,7 @@ public class Cliente {
         this.endereco = endereco;
         this.telefone = telefone;
         this.cpf = cpf;
+        this.compras = new ArrayList<>();
     }
     
     
@@ -115,6 +117,14 @@ public class Cliente {
      */
     public void setCpf(long cpf) {
         this.cpf = cpf;
+    }
+    
+    public ArrayList<Compra> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(ArrayList<Compra> compras) {
+        this.compras = compras;
     }
 
     @Override

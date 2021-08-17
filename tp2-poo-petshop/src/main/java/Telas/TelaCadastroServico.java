@@ -170,10 +170,6 @@ public class TelaCadastroServico extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
-        System.out.println("\n\n\n\n\n");
-        for(Servico servico : this.petshop.getServicos()){
-            System.out.println(servico);
-        }
     }//GEN-LAST:event_onClick
 
     private void inputNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeActionPerformed
