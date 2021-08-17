@@ -83,5 +83,25 @@ public class Administrador extends Usuario {
              JOptionPane.showMessageDialog(null,"Os funcionários são:" + this.petshop.getUsuarios().get(i));
         }
     }
+    
+    public ArrayList<Conta> listarContas(){
+        return this.petshop.getContas();
+    }
+    
+    public ArrayList<Compra> listarCompras(){
+        return this.petshop.getCompras();
+    }
+    
+    public ArrayList<Compra> listarVendas(){
+        return this.petshop.getVendas();
+    }
+    
+    public ArrayList<OrdemServico> listarOrdensServicos(){
+        return this.petshop.getOrdemServicos();
+    }
 
+    public ArrayList<OrdemServico> listarHistoricoServicos(){
+        return this.petshop.getHistoricoServicos();
+    }
+    
 }
