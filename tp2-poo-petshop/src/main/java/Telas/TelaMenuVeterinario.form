@@ -89,7 +89,7 @@
                   <Component id="jButtonBuscarOrdensDeServio" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButtonRegistrarTratamento" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace pref="29" max="32767" attributes="0"/>
+                  <EmptySpace pref="31" max="32767" attributes="0"/>
                   <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -98,6 +98,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Ubuntu" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Menu Veterin&#xe1;rio"/>
           </Properties>
         </Component>

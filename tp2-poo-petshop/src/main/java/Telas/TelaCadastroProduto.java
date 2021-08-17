@@ -82,7 +82,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         });
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel22.setText("Salário");
+        jLabel22.setText("ID");
 
         jTextFieldUsuario9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

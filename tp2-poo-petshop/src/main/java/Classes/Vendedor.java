@@ -1,3 +1,5 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -80,5 +82,67 @@ public class Vendedor extends Usuario{
         //criamos a ordem de serviço utilizando as informações presentes no vetor
         OrdemServico ordemservico = new OrdemServico(servico, cliente, dataServico, id, "");
         petshop.getOrdemServicos().add(ordemservico);
+    }
+    
+    public void vendaProduto(Cliente cliente, ArrayList <Produto> carrinho){
+        
+        String descricaoCompra;
+        double preco = 0.0;
+         
+        Iterator <Produto> it;
+        while (it.hasNext()){
+            
+            Produto p = it.next();
+       
+            String precoString = Integer.toString(p.getPreco()) + Integer.toString((p.getPreco() - (p.getPreco()) * 100));
+             
+            descricaoCompra += Integer.toString(p.getQuantidade()) + "x " + p.getNome() + " (R$ + precoString + cada)";
+             
+            
+            if(p.getId() != carrinho.getId(size() -1.getId()) ){
+                
+            descricaoCompra += ", ";
+            }
+            
+            preco += it.getPreco() * it.getQuantidade();
+            
+            Iterator <Produto> produtoEstoque;
+            while (produtoEstoque.hasNext()) {
+                Produto pAux = produtoEstoque.next();
+                
+                if(p == pAux){
+                    produtoEstoque.setQuantidade(produtoEstoque.getQuantidade() - it.getQuantidade());
+                    if(produtoEstoque.getQuantidade() < 0){
+                        produtoEstoque.setQuantidade(0);
+                    }
+                }
+                
+            }     
+        } 
+        
+        Compra venda = Compra(descricaoCompra, preco);
+        
+        venda.pagar();
+        
+        this.petshop.getVendas().add(venda);
+        
+        
+        Iterator <Cliente> itr;
+        while (itr.hasNext()) {
+            Cliente c = itr.next();
+            
+            if(c == cliente){
+                
+                c.getCompras().add(venda);
+            }
+            
+        }
+        
+        
+        
+        
+        
+        
+        
     }
 }

@@ -11,8 +11,9 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author lucas
+ * @author iagoi
  */
+
 public class ModeloTabelaOrdemServico extends AbstractTableModel {
 
     private ArrayList<OrdemServico> listaOrdens;
@@ -38,7 +39,6 @@ public class ModeloTabelaOrdemServico extends AbstractTableModel {
     public void setIncluirObservacao(boolean incluirObservacao) {
         this.incluirObservacao = incluirObservacao;
     }
-
     
     @Override
     public int getRowCount() {
@@ -73,7 +73,7 @@ public class ModeloTabelaOrdemServico extends AbstractTableModel {
     }
 
     @Override
-    public String getColumnName(int coluna) {
+    public String getColumnName(int coluna){
         switch(coluna){
             case 0:{
                 return "Id";

@@ -11,7 +11,7 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author lucas
+ * @author iagoi
  */
 public class ModeloTabelaConta extends AbstractTableModel {
 
