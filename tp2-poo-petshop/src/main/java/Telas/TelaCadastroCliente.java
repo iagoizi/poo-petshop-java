@@ -39,6 +39,10 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jTextFieldUsuario9 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jTextFieldUsuario10 = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jTextFieldUsuario11 = new javax.swing.JTextField();
 
         jTextField1.setText("jTextField1");
 
@@ -47,7 +51,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
 
-        jButton1.setText("Avançar");
+        jButton1.setText("Concluir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -93,6 +97,24 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel23.setText("Cadastro de Clientes");
 
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel24.setText("Tipo do Pet");
+
+        jTextFieldUsuario10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUsuario10ActionPerformed(evt);
+            }
+        });
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel25.setText("Nome do Pet");
+
+        jTextFieldUsuario11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUsuario11ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,24 +123,32 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 .addGap(195, 195, 195)
                 .addComponent(jLabel23)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel20)
                             .addComponent(jLabel19)
                             .addComponent(jLabel21)
                             .addComponent(jLabel22))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldUsuario7, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldUsuario8, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldUsuario9)
+                            .addComponent(jTextFieldUsuario6)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel25))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsuario9)
-                            .addComponent(jTextFieldUsuario8)
-                            .addComponent(jTextFieldUsuario6)
-                            .addComponent(jTextFieldUsuario7, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE))))
+                            .addComponent(jTextFieldUsuario11)
+                            .addComponent(jTextFieldUsuario10, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -142,9 +172,17 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(jTextFieldUsuario9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jTextFieldUsuario11, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(jTextFieldUsuario10, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -169,6 +207,14 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private void jTextFieldUsuario9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUsuario9ActionPerformed
+
+    private void jTextFieldUsuario10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUsuario10ActionPerformed
+
+    private void jTextFieldUsuario11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUsuario11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,7 +259,11 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldUsuario10;
+    private javax.swing.JTextField jTextFieldUsuario11;
     private javax.swing.JTextField jTextFieldUsuario6;
     private javax.swing.JTextField jTextFieldUsuario7;
     private javax.swing.JTextField jTextFieldUsuario8;
