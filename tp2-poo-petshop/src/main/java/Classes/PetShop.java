@@ -121,7 +121,7 @@ public class PetShop {
         return this.sessaoAtual;
     }
     
-    boolean login(String usuario, String senha){
+    public boolean login(String usuario, String senha){
         for (Usuario item : this.usuarios)
     {
         if (item.getUsuario().equals(usuario) && item.getSenha().equals(senha))
