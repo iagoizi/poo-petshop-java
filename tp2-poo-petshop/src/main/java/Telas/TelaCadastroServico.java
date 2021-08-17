@@ -5,17 +5,27 @@
  */
 package Telas;
 
+import Classes.Administrador;
+import Classes.Compra;
+import Classes.Conta;
+import Classes.Data;
+import Classes.PetShop;
+import Classes.Servico;
+import Classes.TipoFuncionario;
+import Classes.Vendedor;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author vitor
  */
 public class TelaCadastroServico extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaCadastroCliente
-     */
-    public TelaCadastroServico() {
+    private PetShop petshop;
+
+    public TelaCadastroServico(PetShop petshop) {
         initComponents();
+        this.petshop = petshop;
     }
 
     /**
@@ -31,11 +41,11 @@ public class TelaCadastroServico extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
-        jTextFieldUsuario6 = new javax.swing.JTextField();
+        inputNome = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jTextFieldUsuario7 = new javax.swing.JTextField();
+        inputPreco = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextFieldUsuario8 = new javax.swing.JTextField();
+        inputId = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
@@ -43,39 +53,39 @@ public class TelaCadastroServico extends javax.swing.JFrame {
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButton1.setText("Concluir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                onClick(evt);
             }
         });
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel19.setText("Nome");
 
-        jTextFieldUsuario6.addActionListener(new java.awt.event.ActionListener() {
+        inputNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario6ActionPerformed(evt);
+                inputNomeActionPerformed(evt);
             }
         });
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel20.setText("Preço");
 
-        jTextFieldUsuario7.addActionListener(new java.awt.event.ActionListener() {
+        inputPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario7ActionPerformed(evt);
+                inputPrecoActionPerformed(evt);
             }
         });
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel21.setText("ID");
 
-        jTextFieldUsuario8.addActionListener(new java.awt.event.ActionListener() {
+        inputId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario8ActionPerformed(evt);
+                inputIdActionPerformed(evt);
             }
         });
 
@@ -103,9 +113,9 @@ public class TelaCadastroServico extends javax.swing.JFrame {
                             .addComponent(jLabel21))
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsuario8)
-                            .addComponent(jTextFieldUsuario6)
-                            .addComponent(jTextFieldUsuario7, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE))))
+                            .addComponent(inputId)
+                            .addComponent(inputNome)
+                            .addComponent(inputPreco, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -116,15 +126,15 @@ public class TelaCadastroServico extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jTextFieldUsuario6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputNome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jTextFieldUsuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jTextFieldUsuario8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -133,21 +143,50 @@ public class TelaCadastroServico extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void onClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClick
 
-    private void jTextFieldUsuario6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario6ActionPerformed
+        if (inputNome.getText().isEmpty() || inputPreco.getText().isEmpty() || inputPreco.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-    private void jTextFieldUsuario7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario7ActionPerformed
+        String nome = inputNome.getText();
+        long id = Long.parseLong(inputId.getText());
+        double preco = Double.parseDouble(inputPreco.getText());
 
-    private void jTextFieldUsuario8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario8ActionPerformed
+        //Se o usuário for administrador...
+        if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR) {
+            Administrador admin = (Administrador) petshop.getSessaoAtual();
+            boolean sucesso = admin.cadastrarServico(nome, preco, id);
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this,  "Produto cadastrado com sucesso", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this, "Produto já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            inputNome.setText("");
+            inputId.setText("");
+            inputPreco.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+
+        System.out.println("\n\n\n\n\n");
+        for(Servico servico : this.petshop.getServicos()){
+            System.out.println(servico);
+        }
+    }//GEN-LAST:event_onClick
+
+    private void inputNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario8ActionPerformed
+    }//GEN-LAST:event_inputNomeActionPerformed
+
+    private void inputPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPrecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputPrecoActionPerformed
+
+    private void inputIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,15 +218,37 @@ public class TelaCadastroServico extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
+        //Testes feitos na mão pra ver se tá funcionando.
+        PetShop petshop = new PetShop("s");
+        Administrador admin = new Administrador(petshop, "samira", "samira", "samira", 1.0);
+        Vendedor vend = new Vendedor(petshop, "vend", "vend", "vend", 55.5);
+        petshop.getUsuarios().add(admin);
+        petshop.getUsuarios().add(vend);
+        petshop.login("samira", "samira");
+        petshop.getContas().add(new Conta("Conta de luz", new Data(11, 12, 2021), new Data(10, 12, 2021), 33.3));
+        petshop.getContas().add(new Conta("Conta de água", new Data(25, 12, 2021), new Data(22, 12, 2021), 555));
+
+        petshop.getCompras().add(new Compra("Ferramenta X", new Data(25, 12, 2021), 35.9));
+        petshop.getCompras().add(new Compra("Abobrinha ", new Data(12, 12, 2021), 769));
+
+        petshop.getVendas().add(new Compra("Negócio de dog", new Data(25, 12, 2021), 35.9));
+        petshop.getVendas().add(new Compra("Ração", new Data(12, 12, 2021), 769));
+        petshop.getVendas().add(new Compra("Bala", new Data(12, 12, 2021), 769));
+        petshop.getVendas().add(new Compra("Alguma coisa", new Data(12, 12, 2021), 769));
+        petshop.getVendas().add(new Compra("Semente", new Data(12, 12, 2021), 769));
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroServico().setVisible(true);
+                new TelaCadastroServico(petshop).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField inputId;
+    private javax.swing.JTextField inputNome;
+    private javax.swing.JTextField inputPreco;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel19;
@@ -195,8 +256,5 @@ public class TelaCadastroServico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldUsuario6;
-    private javax.swing.JTextField jTextFieldUsuario7;
-    private javax.swing.JTextField jTextFieldUsuario8;
     // End of variables declaration//GEN-END:variables
 }
