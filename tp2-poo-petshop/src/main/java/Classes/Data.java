@@ -98,7 +98,15 @@ public class Data {
 
     @Override
     public boolean equals(Object obj) {
-        return true;
+        if (!(obj instanceof Data)) return false;
+     else{
+         Data comp = (Data) obj;
+         return this.dia == comp.getDia() &&
+           this.mes == comp.getMes() &&
+           this.ano == comp.getAno() &&
+           this.hora == comp.getHora() &&
+           this.minuto == comp.getMinuto();
+     }
     }
     
     
