@@ -26,6 +26,7 @@ public class Usuario {
         this.usuario = usuario;
         this.senha = senha;
         this.salario = salario;
+        this.petshop = petshop;
     }
     
     /**
