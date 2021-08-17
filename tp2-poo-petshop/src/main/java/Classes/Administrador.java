@@ -61,9 +61,13 @@ public class Administrador extends Usuario {
         petshop.getProdutos().add(produto);
     }
     
-    public void cadastrarServico(String nome, double preco, long id){
+    public boolean cadastrarServico(String nome, double preco, long id){
         Servico servico = new Servico(nome, preco, id);
+        if(petshop.getServicos().contains(servico)){
+            return false;
+        }
         petshop.getServicos().add(servico);
+        return true;
     }
 
     public void pagarConta(String descricao, Data dataVencimento, double valor){

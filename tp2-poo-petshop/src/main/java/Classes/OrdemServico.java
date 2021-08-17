@@ -18,11 +18,11 @@ public class OrdemServico {
     private Servico servico;
     private Cliente cliente;
     private Data data; 
-    private int id;
+    private long id;
     private String observacao; 
      
     
-    public OrdemServico (Servico servico, Cliente cliente, Data data, int id, String observacao) {
+    public OrdemServico (Servico servico, Cliente cliente, Data data, long id, String observacao) {
         setServico(servico);
         setCliente(cliente);
         setData(data);
@@ -49,7 +49,7 @@ public class OrdemServico {
         return observacao;
     }
     
-    public int getId(){
+    public long getId(){
         return id;
     }
     
@@ -69,13 +69,21 @@ public class OrdemServico {
         this.observacao = observacao;
     }
     
-    public void setId(int id){
+    public void setId(long id){
         this.id = id;
     }
-    
-    public boolean equals(OrdemServico comp) {
-        return this.id == comp.id;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof OrdemServico)) return false;
+     else{
+         OrdemServico comp = (OrdemServico) obj;
+         return this.id == comp.getId();
+     }
     }
+    
+    
+    
     
     @Override
     public String toString() {

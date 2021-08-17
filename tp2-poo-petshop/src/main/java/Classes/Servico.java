@@ -75,9 +75,14 @@ public class Servico {
     public Servico clone(){
         return new Servico(this.getNome(), this.getPreco(), this.getId()); 
     }
-    public boolean equals(Servico servico) {
-        return (servico.getId() == this.id);
-    }
     
+    @Override
+    public boolean equals(Object obj) {
+     if (!(obj instanceof Servico)) return false;
+     else{
+         Servico comp = (Servico) obj;
+         return this.id == comp.getId();
+     }
+    }
 }
 
