@@ -5,8 +5,12 @@
  */
 package Telas;
 
+import Classes.Administrador;
 import Classes.Lib;
 import Classes.PetShop;
+import Classes.TipoFuncionario;
+import Classes.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +19,7 @@ import Classes.PetShop;
 public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
     private PetShop petshop;
+
     /**
      * Creates new form TelaCadastroCliente
      */
@@ -43,8 +48,8 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         labelSalario = new javax.swing.JLabel();
         inputSalario = new javax.swing.JTextField();
         tituloPagina = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        radioVendedor = new javax.swing.JRadioButton();
+        radioVeterinario = new javax.swing.JRadioButton();
         labelCargo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,11 +106,11 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         tituloPagina.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tituloPagina.setText("Cadastro de Funcionários");
 
-        selectCargo.add(jRadioButton1);
-        jRadioButton1.setText("Vendedor");
+        selectCargo.add(radioVendedor);
+        radioVendedor.setText("Vendedor");
 
-        selectCargo.add(jRadioButton2);
-        jRadioButton2.setText("Veterinário");
+        selectCargo.add(radioVeterinario);
+        radioVeterinario.setText("Veterinário");
 
         labelCargo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelCargo.setText("Cargo");
@@ -129,9 +134,9 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
+                        .addComponent(radioVendedor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton2)
+                        .addComponent(radioVeterinario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(inputSalario, javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,8 +170,8 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton1)
-                        .addComponent(jRadioButton2)
+                        .addComponent(radioVendedor)
+                        .addComponent(radioVeterinario)
                         .addComponent(labelCargo)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
@@ -195,7 +200,44 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_inputSalarioActionPerformed
 
     private void botaoCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoCadastrarMouseClicked
-        // TODO add your handling code here:
+        if (inputNome.getText().isEmpty() || inputSalario.getText().isEmpty() || inputSenha.getText().isEmpty() || inputUsuario.getText().isEmpty() || (!radioVendedor.isSelected() && !radioVeterinario.isSelected())) {
+            JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //Se o usuário for administrador...
+        if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR) {
+
+            String nome = inputNome.getText();
+            String usuario = inputUsuario.getText();
+            String senha = inputSenha.getText();
+            double salario = Double.parseDouble(inputSalario.getText());
+            Administrador admin = (Administrador) petshop.getSessaoAtual();
+            boolean sucesso = false;
+            if (radioVendedor.isSelected()) {
+                admin.cadastrarVendedor(nome, usuario, senha, salario);
+                sucesso = true;
+            } else if (radioVeterinario.isSelected()) {
+                admin.cadastrarVeterinario(nome, usuario, senha, salario);
+                sucesso = true;
+            }
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this, "Funcionário cadastrado com sucesso", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Funcionário já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            inputNome.setText("");
+            inputUsuario.setText("");
+            inputSalario.setText("");
+            inputSenha.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        System.out.println("\n\n\n\n\n\n");
+        for(Usuario user : this.petshop.getUsuarios()){
+            System.out.println(user);
+        }
     }//GEN-LAST:event_botaoCadastrarMouseClicked
 
     /**
@@ -231,7 +273,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
+
         //Testes feitos na mão pra ver se tá funcionando.
         PetShop petshop = Lib.testesManuais();
 
@@ -249,13 +291,13 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField inputSalario;
     private javax.swing.JTextField inputSenha;
     private javax.swing.JTextField inputUsuario;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JLabel labelCargo;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelSalario;
     private javax.swing.JLabel labelSenha;
     private javax.swing.JLabel labelUsuario;
+    private javax.swing.JRadioButton radioVendedor;
+    private javax.swing.JRadioButton radioVeterinario;
     private javax.swing.ButtonGroup selectCargo;
     private javax.swing.JLabel tituloPagina;
     // End of variables declaration//GEN-END:variables
