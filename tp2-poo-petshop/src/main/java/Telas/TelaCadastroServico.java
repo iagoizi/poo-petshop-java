@@ -145,7 +145,7 @@ public class TelaCadastroServico extends javax.swing.JFrame {
 
     private void onClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClick
 
-        if (inputNome.getText().isEmpty() || inputPreco.getText().isEmpty() || inputPreco.getText().isEmpty()) {
+        if (inputNome.getText().isEmpty() || inputPreco.getText().isEmpty() || inputId.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -159,9 +159,9 @@ public class TelaCadastroServico extends javax.swing.JFrame {
             Administrador admin = (Administrador) petshop.getSessaoAtual();
             boolean sucesso = admin.cadastrarServico(nome, preco, id);
             if (sucesso) {
-                JOptionPane.showMessageDialog(this,  "Produto cadastrado com sucesso", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this,  "Serviço cadastrado com sucesso", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
             }else{
-                JOptionPane.showMessageDialog(this, "Produto já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Serviço já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
             }
             inputNome.setText("");
             inputId.setText("");

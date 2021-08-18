@@ -16,7 +16,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-      <Color id="Cursor de Movimento"/>
+      <Color id="Cursor Padr&#xe3;o"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -48,7 +48,7 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="onClick" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -59,10 +59,10 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldUsuario9" max="32767" attributes="0"/>
-                          <Component id="jTextFieldUsuario8" max="32767" attributes="0"/>
-                          <Component id="jTextFieldUsuario6" max="32767" attributes="0"/>
-                          <Component id="jTextFieldUsuario7" pref="436" max="32767" attributes="0"/>
+                          <Component id="inputID" max="32767" attributes="0"/>
+                          <Component id="inputQuantidade" max="32767" attributes="0"/>
+                          <Component id="inputNome" max="32767" attributes="0"/>
+                          <Component id="inputPreco" pref="436" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -78,37 +78,37 @@
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUsuario6" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="inputNome" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUsuario7" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="inputPreco" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUsuario8" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="inputQuantidade" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUsuario9" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="inputID" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="37" max="-2" attributes="0"/>
+              <Component id="onClick" min="-2" pref="37" max="-2" attributes="0"/>
               <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="onClick">
       <Properties>
         <Property name="text" type="java.lang.String" value="Concluir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onClickActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel19">
@@ -119,9 +119,9 @@
         <Property name="text" type="java.lang.String" value="Nome"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldUsuario6">
+    <Component class="javax.swing.JTextField" name="inputNome">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUsuario6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputNomeActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel20">
@@ -132,9 +132,9 @@
         <Property name="text" type="java.lang.String" value="Pre&#xe7;o"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldUsuario7">
+    <Component class="javax.swing.JTextField" name="inputPreco">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUsuario7ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputPrecoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel21">
@@ -145,9 +145,9 @@
         <Property name="text" type="java.lang.String" value="Quantidade"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldUsuario8">
+    <Component class="javax.swing.JTextField" name="inputQuantidade">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUsuario8ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputQuantidadeActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel22">
@@ -158,9 +158,9 @@
         <Property name="text" type="java.lang.String" value="ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldUsuario9">
+    <Component class="javax.swing.JTextField" name="inputID">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUsuario9ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputIDActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel23">

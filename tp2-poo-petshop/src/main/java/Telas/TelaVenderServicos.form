@@ -87,18 +87,11 @@
                           <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldUsuario11" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldUsuario12" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="jTextFieldUsuario10" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jTextFieldUsuario11" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jTextFieldUsuario12" max="32767" attributes="0"/>
+                          <Component id="jTextFieldUsuario10" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -191,6 +184,9 @@
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Deseja agendar algum servi&#xe7;o?"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor Padr&#xe3;o"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldUsuario9">

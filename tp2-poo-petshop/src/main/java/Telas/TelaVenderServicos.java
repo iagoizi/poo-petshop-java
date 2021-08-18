@@ -73,6 +73,7 @@ public class TelaVenderServicos extends javax.swing.JFrame {
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel24.setText("Deseja agendar algum serviço?");
+        jLabel24.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jTextFieldUsuario9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,15 +177,11 @@ public class TelaVenderServicos extends javax.swing.JFrame {
                             .addComponent(jLabel25)
                             .addComponent(jLabel26)
                             .addComponent(jLabel27))
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldUsuario11, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextFieldUsuario12)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jTextFieldUsuario10))))
+                            .addComponent(jTextFieldUsuario11, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldUsuario12)
+                            .addComponent(jTextFieldUsuario10)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

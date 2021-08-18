@@ -5,17 +5,25 @@
  */
 package Telas;
 
+import Classes.Administrador;
+import Classes.PetShop;
+import Classes.TipoFuncionario;
+import javax.swing.JOptionPane;
+import Classes.Produto;
+
 /**
  *
  * @author vitor
  */
 public class TelaCadastroProduto extends javax.swing.JFrame {
 
+    private PetShop petshop;
     /**
      * Creates new form TelaCadastroCliente
      */
-    public TelaCadastroProduto() {
+    public TelaCadastroProduto(/*PetShop petshop*/) {
         initComponents();
+        this.petshop = petshop;
     }
 
     /**
@@ -29,15 +37,15 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
 
         jTextField1 = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        onClick = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
-        jTextFieldUsuario6 = new javax.swing.JTextField();
+        inputNome = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jTextFieldUsuario7 = new javax.swing.JTextField();
+        inputPreco = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextFieldUsuario8 = new javax.swing.JTextField();
+        inputQuantidade = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jTextFieldUsuario9 = new javax.swing.JTextField();
+        inputID = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
@@ -45,48 +53,48 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jButton1.setText("Concluir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        onClick.setText("Concluir");
+        onClick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                onClickActionPerformed(evt);
             }
         });
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel19.setText("Nome");
 
-        jTextFieldUsuario6.addActionListener(new java.awt.event.ActionListener() {
+        inputNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario6ActionPerformed(evt);
+                inputNomeActionPerformed(evt);
             }
         });
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel20.setText("Preço");
 
-        jTextFieldUsuario7.addActionListener(new java.awt.event.ActionListener() {
+        inputPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario7ActionPerformed(evt);
+                inputPrecoActionPerformed(evt);
             }
         });
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel21.setText("Quantidade");
 
-        jTextFieldUsuario8.addActionListener(new java.awt.event.ActionListener() {
+        inputQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario8ActionPerformed(evt);
+                inputQuantidadeActionPerformed(evt);
             }
         });
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setText("ID");
 
-        jTextFieldUsuario9.addActionListener(new java.awt.event.ActionListener() {
+        inputID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario9ActionPerformed(evt);
+                inputIDActionPerformed(evt);
             }
         });
 
@@ -106,7 +114,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(onClick, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel20)
@@ -115,10 +123,10 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                             .addComponent(jLabel22))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsuario9)
-                            .addComponent(jTextFieldUsuario8)
-                            .addComponent(jTextFieldUsuario6)
-                            .addComponent(jTextFieldUsuario7, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE))))
+                            .addComponent(inputID)
+                            .addComponent(inputQuantidade)
+                            .addComponent(inputNome)
+                            .addComponent(inputPreco, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -129,46 +137,73 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jTextFieldUsuario6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputNome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jTextFieldUsuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jTextFieldUsuario8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextFieldUsuario9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputID, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(onClick, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void onClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClickActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if (inputNome.getText().isEmpty() || inputPreco.getText().isEmpty() || inputQuantidade.getText().isEmpty() || inputID.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-    private void jTextFieldUsuario6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario6ActionPerformed
+        String nome = inputNome.getText();
+        double preco = Double.parseDouble(inputPreco.getText());
+        int quantidade = Integer.parseInt(inputQuantidade.getText());
+        long id = Long.parseLong(inputID.getText());
+        
+        //Se o usuário for administrador...
+        if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR) {
+            Administrador admin = (Administrador) petshop.getSessaoAtual();
+            boolean sucesso = admin.cadastrarProduto(nome, preco, quantidade, id);
+            
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this,  "Produto cadastrado com sucesso", "Concluir", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this, "Produto já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            inputNome.setText("");
+            inputPreco.setText("");
+            inputID.setText("");
+            inputQuantidade.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_onClickActionPerformed
 
-    private void jTextFieldUsuario7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario7ActionPerformed
+    private void inputNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario7ActionPerformed
+    }//GEN-LAST:event_inputNomeActionPerformed
 
-    private void jTextFieldUsuario8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario8ActionPerformed
+    private void inputPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPrecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario8ActionPerformed
+    }//GEN-LAST:event_inputPrecoActionPerformed
 
-    private void jTextFieldUsuario9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario9ActionPerformed
+    private void inputQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputQuantidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario9ActionPerformed
+    }//GEN-LAST:event_inputQuantidadeActionPerformed
+
+    private void inputIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,13 +238,16 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroProduto().setVisible(true);
+                new TelaCadastroProduto(/*petshop*/).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField inputID;
+    private javax.swing.JTextField inputNome;
+    private javax.swing.JTextField inputPreco;
+    private javax.swing.JTextField inputQuantidade;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
@@ -217,9 +255,6 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldUsuario6;
-    private javax.swing.JTextField jTextFieldUsuario7;
-    private javax.swing.JTextField jTextFieldUsuario8;
-    private javax.swing.JTextField jTextFieldUsuario9;
+    private javax.swing.JButton onClick;
     // End of variables declaration//GEN-END:variables
 }

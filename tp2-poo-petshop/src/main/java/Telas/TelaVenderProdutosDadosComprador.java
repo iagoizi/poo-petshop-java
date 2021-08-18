@@ -40,7 +40,7 @@ public class TelaVenderProdutosDadosComprador extends javax.swing.JFrame {
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel23.setText("Vender Produtos");

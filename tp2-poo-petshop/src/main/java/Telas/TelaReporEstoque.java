@@ -46,7 +46,7 @@ public class TelaReporEstoque extends javax.swing.JFrame {
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButton1.setText("Listar Produtos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

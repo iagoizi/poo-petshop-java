@@ -53,6 +53,7 @@ public class TelaVenderProdutosComprador extends javax.swing.JFrame {
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel24.setText("O comprador possui cadastro?");
+        jLabel24.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButton3.setText("Sim");
         jButton3.addActionListener(new java.awt.event.ActionListener() {

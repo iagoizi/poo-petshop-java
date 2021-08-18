@@ -25,6 +25,7 @@ public class Veterinario extends Usuario{
                 itr.remove();
             }
         } 
+        
         ordem.setObservacao(tratamento);
         this.petshop.getHistoricoServicos().add(ordem);
     }

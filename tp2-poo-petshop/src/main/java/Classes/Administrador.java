@@ -37,7 +37,7 @@ public class Administrador extends Usuario {
         compra.pagar();
         petshop.getCompras().add(compra);
         for(Produto produtos : petshop.getProdutos()){
-            if(produtos == produto){ //não sei se ta certo
+            if(produtos == produto){ 
                 produtos.setQuantidade(produtos.getQuantidade() + quantidade);
                 if(produtos.getQuantidade() < 0){
                     produtos.setQuantidade(0);
@@ -56,9 +56,13 @@ public class Administrador extends Usuario {
         petshop.getUsuarios().add(vendedor);
     }
     
-    public void cadastrarProduto(String nome, double preco, int quantidade, long id){
+    public boolean cadastrarProduto(String nome, double preco, int quantidade, long id){
         Produto produto = new Produto(nome, preco, quantidade, id);
+        if(petshop.getProdutos().contains(produto)){
+            return false;
+        }
         petshop.getProdutos().add(produto);
+        return true;
     }
     
     public boolean cadastrarServico(String nome, double preco, long id){
@@ -70,10 +74,14 @@ public class Administrador extends Usuario {
         return true;
     }
 
-    public void pagarConta(String descricao, Data dataVencimento, double valor){
+    public boolean pagarConta(String descricao, Data dataVencimento, double valor){
         Conta conta = new Conta(descricao, dataVencimento, valor);
         conta.pagar();
+        if(petshop.getContas().contains(conta)){
+            return false;
+        }
         petshop.getContas().add(conta);
+        return true;
     }
     
     public void comprarEquipamentos(String equipamento, double preco, int quantidade){
