@@ -27,82 +27,83 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
-        jButton1 = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
-        jTextFieldUsuario6 = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        jTextFieldUsuario7 = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jTextFieldUsuario8 = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
-        jTextFieldUsuario9 = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
+        selectCargo = new javax.swing.ButtonGroup();
+        botaoCadastrar = new javax.swing.JButton();
+        labelNome = new javax.swing.JLabel();
+        inputNome = new javax.swing.JTextField();
+        labelUsuario = new javax.swing.JLabel();
+        inputUsuario = new javax.swing.JTextField();
+        labelSenha = new javax.swing.JLabel();
+        inputSenha = new javax.swing.JTextField();
+        labelSalario = new javax.swing.JLabel();
+        inputSalario = new javax.swing.JTextField();
+        tituloPagina = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-
-        jTextField1.setText("jTextField1");
-
-        jCheckBox1.setText("jCheckBox1");
+        labelCargo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botaoCadastrar.setText("Cadastrar");
+        botaoCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoCadastrarMouseClicked(evt);
+            }
+        });
+        botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botaoCadastrarActionPerformed(evt);
             }
         });
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel19.setText("Nome");
+        labelNome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelNome.setText("Nome");
 
-        jTextFieldUsuario6.addActionListener(new java.awt.event.ActionListener() {
+        inputNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario6ActionPerformed(evt);
+                inputNomeActionPerformed(evt);
             }
         });
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel20.setText("Usuário");
+        labelUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelUsuario.setText("Usuário");
 
-        jTextFieldUsuario7.addActionListener(new java.awt.event.ActionListener() {
+        inputUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario7ActionPerformed(evt);
+                inputUsuarioActionPerformed(evt);
             }
         });
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel21.setText("Senha");
+        labelSenha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelSenha.setText("Senha");
 
-        jTextFieldUsuario8.addActionListener(new java.awt.event.ActionListener() {
+        inputSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario8ActionPerformed(evt);
+                inputSenhaActionPerformed(evt);
             }
         });
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel22.setText("Salário");
+        labelSalario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelSalario.setText("Salário");
 
-        jTextFieldUsuario9.addActionListener(new java.awt.event.ActionListener() {
+        inputSalario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario9ActionPerformed(evt);
+                inputSalarioActionPerformed(evt);
             }
         });
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel23.setText("Cadastro de Funcionários");
+        tituloPagina.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tituloPagina.setText("Cadastro de Funcionários");
 
-        buttonGroup1.add(jRadioButton1);
+        selectCargo.add(jRadioButton1);
         jRadioButton1.setText("Vendedor");
 
-        buttonGroup1.add(jRadioButton2);
+        selectCargo.add(jRadioButton2);
         jRadioButton2.setText("Veterinário");
+
+        labelCargo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelCargo.setText("Cargo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,15 +111,16 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(177, 177, 177)
-                .addComponent(jLabel23)
+                .addComponent(tituloPagina)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22))
+                    .addComponent(labelUsuario)
+                    .addComponent(labelNome)
+                    .addComponent(labelSenha)
+                    .addComponent(labelSalario)
+                    .addComponent(labelCargo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -126,64 +128,70 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jRadioButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextFieldUsuario9, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldUsuario8, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldUsuario6, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldUsuario7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
+                        .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputSalario, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inputSenha, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inputNome, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inputUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tituloPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jTextFieldUsuario6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelNome)
+                    .addComponent(inputNome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(jTextFieldUsuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelUsuario)
+                    .addComponent(inputUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jTextFieldUsuario8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelSenha)
+                    .addComponent(inputSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(jTextFieldUsuario9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelSalario)
+                    .addComponent(inputSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jRadioButton1)
+                        .addComponent(jRadioButton2)
+                        .addComponent(labelCargo)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botaoCadastrarActionPerformed
 
-    private void jTextFieldUsuario6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario6ActionPerformed
+    private void inputNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario6ActionPerformed
+    }//GEN-LAST:event_inputNomeActionPerformed
 
-    private void jTextFieldUsuario7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario7ActionPerformed
+    private void inputUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario7ActionPerformed
+    }//GEN-LAST:event_inputUsuarioActionPerformed
 
-    private void jTextFieldUsuario8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario8ActionPerformed
+    private void inputSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario8ActionPerformed
+    }//GEN-LAST:event_inputSenhaActionPerformed
 
-    private void jTextFieldUsuario9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario9ActionPerformed
+    private void inputSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSalarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario9ActionPerformed
+    }//GEN-LAST:event_inputSalarioActionPerformed
+
+    private void botaoCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoCadastrarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoCadastrarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -228,22 +236,19 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
+    private javax.swing.JButton botaoCadastrar;
+    private javax.swing.JTextField inputNome;
+    private javax.swing.JTextField inputSalario;
+    private javax.swing.JTextField inputSenha;
+    private javax.swing.JTextField inputUsuario;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldUsuario6;
-    private javax.swing.JTextField jTextFieldUsuario7;
-    private javax.swing.JTextField jTextFieldUsuario8;
-    private javax.swing.JTextField jTextFieldUsuario9;
+    private javax.swing.JLabel labelCargo;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelSalario;
+    private javax.swing.JLabel labelSenha;
+    private javax.swing.JLabel labelUsuario;
+    private javax.swing.ButtonGroup selectCargo;
+    private javax.swing.JLabel tituloPagina;
     // End of variables declaration//GEN-END:variables
 }
