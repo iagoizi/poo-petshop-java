@@ -30,6 +30,7 @@ public class ModeloTabelaOrdemServico extends AbstractTableModel {
 
     public void setListaOrdens(ArrayList<OrdemServico> listaOrdens) {
         this.listaOrdens = listaOrdens;
+        this.fireTableDataChanged();
     }
 
     public boolean isIncluirObservacao() {
@@ -47,7 +48,7 @@ public class ModeloTabelaOrdemServico extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return this.incluirObservacao ? 5 : 4;
+        return this.incluirObservacao ? 6 : 5;
     }
 
     @Override
@@ -57,15 +58,18 @@ public class ModeloTabelaOrdemServico extends AbstractTableModel {
                 return this.listaOrdens.get(linha).getId();
             }
             case 1:{
-                return this.listaOrdens.get(linha).getServico();
+                return this.listaOrdens.get(linha).getServico().getId();
             }
              case 2:{
-                return this.listaOrdens.get(linha).getServico();
+                return this.listaOrdens.get(linha).getServico().getNome();
             }
              case 3:{
                 return this.listaOrdens.get(linha).getData();
             }
              case 4:{
+                 return this.listaOrdens.get(linha).getCliente().getNome();
+             }
+             case 5:{
                 return this.incluirObservacao? this.listaOrdens.get(linha).getObservacao() : null;
             }
         }
@@ -88,6 +92,9 @@ public class ModeloTabelaOrdemServico extends AbstractTableModel {
                 return "Data";
             }
              case 4:{
+                 return "Cliente";
+             }
+             case 5:{
                 return this.incluirObservacao ? "Tratamento" : null;
             }
         }

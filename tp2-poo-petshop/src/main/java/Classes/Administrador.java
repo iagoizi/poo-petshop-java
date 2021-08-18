@@ -102,10 +102,6 @@ public class Administrador extends Usuario implements InterfaceVendedor, Interfa
     public ArrayList<Compra> listarVendas(){
         return this.petshop.getVendas();
     }
-    
-    public ArrayList<OrdemServico> listarOrdensServicos(){
-        return this.petshop.getOrdemServicos();
-    }
 
     public ArrayList<OrdemServico> listarHistoricoServicos(){
         return this.petshop.getHistoricoServicos();

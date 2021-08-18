@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package Telas;
-   
+
 import Classes.Administrador;
+import Classes.Lib;
+import Classes.OrdemServico;
 import Classes.PetShop;
 import Classes.TipoFuncionario;
 import Classes.Veterinario;
+import Model.ModeloTabelaOrdemServico;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,14 +19,25 @@ import javax.swing.JOptionPane;
  * @author vitor
  */
 public class TelaRegistrarTratamento extends javax.swing.JFrame {
+    
     private PetShop petshop;
+    
+    ModeloTabelaOrdemServico modeloTabelaOrdens;
 
     /**
      * Creates new form TelaCadastroCliente
      */
-    public TelaRegistrarTratamento(/*PetShop petshop*/) {
+    public TelaRegistrarTratamento(PetShop petshop) {
         initComponents();
         this.petshop = petshop;
+        this.modeloTabelaOrdens = new ModeloTabelaOrdemServico(false);
+        tabelaOrdens.setModel(modeloTabelaOrdens);
+        //Se o usuário for administrador ou veterinário...
+        if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR || petshop.getSessaoAtual().getCargo() == TipoFuncionario.VETERINARIO) {
+            this.modeloTabelaOrdens.setListaOrdens(
+                    (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VETERINARIO
+                            ? ((Veterinario) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).listarOrdensServicos(petshop));
+        }
     }
 
     /**
@@ -43,6 +57,8 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         inputDescricao = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabelaOrdens = new javax.swing.JTable();
 
         jTextField1.setText("jTextField1");
 
@@ -79,36 +95,57 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel23.setText("Registrar tratamento");
 
+        tabelaOrdens.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tabelaOrdens);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addComponent(jLabel23)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(onClick, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel19))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputID)
-                            .addComponent(inputDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel19))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(inputID)
+                                    .addComponent(inputDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(onClick, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(jLabel23)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(inputID, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -116,9 +153,9 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(inputDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(onClick, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -126,35 +163,27 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
 
     private void onClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClickActionPerformed
         // TODO add your handling code here:
-        if (inputNome.getText().isEmpty() || inputPreco.getText().isEmpty() || inputQuantidade.getText().isEmpty() || inputID.getText().isEmpty()) {
+        if (inputDescricao.getText().isEmpty() || inputID.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        String descricao = inputDescricao.getText();
+        
+        String tratamento = inputDescricao.getText();
         long id = Long.parseLong(inputID.getText());
         
-        if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR) {
-            Administrador admin = (Administrador) petshop.getSessaoAtual();
-            boolean sucesso = vet.registrarTratamento(descricao, id); // aqui vai ter que mudar o tipo da funcao e tal
+        if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR || petshop.getSessaoAtual().getCargo() == TipoFuncionario.VETERINARIO) {
+            OrdemServico ordem = (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VETERINARIO
+                    ? ((Veterinario) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).buscarOrdemServico(petshop, id);
+            
+            boolean sucesso = (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VETERINARIO
+                    ? ((Veterinario) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).registrarTratamento(petshop, ordem, tratamento);
             
             if (sucesso) {
-                JOptionPane.showMessageDialog(this,  "Tratamento registrado com sucesso", "Concluir", JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                JOptionPane.showMessageDialog(this, "Não foi possível registrar o tratamento", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-            inputDescricao.setText("");
-            inputID.setText("");
-        } else {
-            JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        if(petshop.getSessaoAtual().getCargo() == TipoFuncionario.VETERINARIO){
-            Veterinario vet = (Veterinario) petshop.getSessaoAtual();
-            boolean sucesso = vet.registrarTratamento(descricao, id); // aqui vai ter que mudar o tipo da funcao e tal
-            
-            if (sucesso) {
-                JOptionPane.showMessageDialog(this,  "Tratamento registrado com sucesso", "Concluir", JOptionPane.INFORMATION_MESSAGE);
-            }else{
+                JOptionPane.showMessageDialog(this, "Tratamento registrado com sucesso", "Concluir", JOptionPane.INFORMATION_MESSAGE);
+                this.modeloTabelaOrdens = new ModeloTabelaOrdemServico(false);
+                tabelaOrdens.setModel(this.modeloTabelaOrdens);
+                this.modeloTabelaOrdens.setListaOrdens(petshop.getOrdemServicos());
+            } else {
                 JOptionPane.showMessageDialog(this, "Não foi possível registrar o tratamento", "Erro", JOptionPane.ERROR_MESSAGE);
             }
             inputDescricao.setText("");
@@ -205,11 +234,11 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-
+        PetShop petshop = Lib.testesManuais();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaRegistrarTratamento(/*petshop*/).setVisible(true);
+                new TelaRegistrarTratamento(petshop).setVisible(true);
             }
         });
     }
@@ -221,7 +250,9 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton onClick;
+    private javax.swing.JTable tabelaOrdens;
     // End of variables declaration//GEN-END:variables
 }

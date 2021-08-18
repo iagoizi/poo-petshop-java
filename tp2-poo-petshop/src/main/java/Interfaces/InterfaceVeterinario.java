@@ -8,6 +8,7 @@ package Interfaces;
 import Classes.Cliente;
 import Classes.OrdemServico;
 import Classes.PetShop;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -15,45 +16,50 @@ import java.util.Iterator;
  * @author iagoi
  */
 public interface InterfaceVeterinario {
-    
 
-    default void registrarTratamento(PetShop petshop, OrdemServico ordem , String tratamento){
-           
-        Iterator <OrdemServico> itr = petshop.getOrdemServicos().iterator();        
-        while (itr.hasNext()){
-            OrdemServico obj = itr.next();
-            if (obj.getId() == ordem.getId()){
-                itr.remove();
-            }
-        } 
-        
-        ordem.setObservacao(tratamento);
-        petshop.getHistoricoServicos().add(ordem);
-    }
-    
-    default OrdemServico buscarOrdemServico(PetShop petshop, int id, boolean sucess){
-        Iterator <OrdemServico> itr = petshop.getOrdemServicos().iterator();        
+    default boolean registrarTratamento(PetShop petshop, OrdemServico ordem, String tratamento) {
+        if(ordem == null) return false;
+        boolean sucesso = false;
+        Iterator<OrdemServico> itr = petshop.getOrdemServicos().iterator();
         while (itr.hasNext()) {
             OrdemServico obj = itr.next();
-            if (obj.getId() == id) {                
-                sucess = true;
-                return (OrdemServico) itr;        
+            if (obj.getId() == ordem.getId()) {
+                itr.remove();
+                sucesso = true;
             }
-        } 
-        sucess = false;
-        return null;        
+        }
+        if (sucesso) {
+            ordem.setObservacao(tratamento);
+            petshop.getHistoricoServicos().add(ordem);
+        }
+        return sucesso;
     }
-    
-    default void listarOrdemServico(PetShop petshop){
-        for(OrdemServico listarServicos : petshop.getOrdemServicos()){
+
+    default OrdemServico buscarOrdemServico(PetShop petshop, long id) {
+        Iterator<OrdemServico> itr = petshop.getOrdemServicos().iterator();
+        while (itr.hasNext()) {
+            OrdemServico obj = itr.next();
+            if (obj.getId() == id) {
+                return obj;
+            }
+        }
+        return null;
+    }
+
+    default void listarOrdemServico(PetShop petshop) {
+        for (OrdemServico listarServicos : petshop.getOrdemServicos()) {
             System.out.println(listarServicos);
         }
     }
-    
-    default void listarClientes(PetShop petshop){
-        for(Cliente cliente : petshop.getClientes()){
+
+    default void listarClientes(PetShop petshop) {
+        for (Cliente cliente : petshop.getClientes()) {
             System.out.println(cliente);
         }
     }
-   
+    
+    default ArrayList<OrdemServico> listarOrdensServicos(PetShop petshop){
+        return petshop.getOrdemServicos();
+    }
+
 }

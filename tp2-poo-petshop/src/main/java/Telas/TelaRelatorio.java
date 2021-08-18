@@ -53,7 +53,7 @@ public class TelaRelatorio extends javax.swing.JFrame {
             this.modeloTabelaContas.setListaContas(admin.listarContas());
             this.modeloTabelaCompras.setListaCompras(admin.listarCompras());
             this.modeloTabelaVendas.setListaCompras(admin.listarVendas());
-            this.modeloTabelaOrdem.setListaOrdens(admin.listarOrdensServicos());
+            this.modeloTabelaOrdem.setListaOrdens(admin.listarOrdensServicos(petshop));
             this.modeloTabelaHistorico.setListaOrdens(admin.listarHistoricoServicos());
         }
     }
