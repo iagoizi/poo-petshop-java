@@ -19,6 +19,11 @@ public class TelaDeClientes extends javax.swing.JFrame {
     /**
      * Creates new form TelaDeClientes
      */
+    
+    public TelaDeClientes() {
+        initComponents();
+    }
+
     public TelaDeClientes(PetShop petshop) {
         initComponents();
         this.modeloTabelaCliente = new ModeloTabelaCliente();

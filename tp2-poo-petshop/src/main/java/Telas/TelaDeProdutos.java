@@ -8,6 +8,7 @@ package Telas;
 import Classes.PetShop;
 import Classes.Produto;
 import Model.ModeloTabelaProduto;
+import java.awt.HeadlessException;
 import java.util.ArrayList;
 
 /**
@@ -20,6 +21,11 @@ public class TelaDeProdutos extends javax.swing.JFrame {
     /**
      * Creates new form TelaDeProdutos
      */
+    
+    public TelaDeProdutos() {
+        initComponents();
+    }
+
     public TelaDeProdutos(PetShop petshop) {
         initComponents();
         this.modeloTabelaProduto = new ModeloTabelaProduto();
