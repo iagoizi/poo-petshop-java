@@ -44,13 +44,13 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         labelUsuario = new javax.swing.JLabel();
         inputUsuario = new javax.swing.JTextField();
         labelSenha = new javax.swing.JLabel();
-        inputSenha = new javax.swing.JTextField();
         labelSalario = new javax.swing.JLabel();
         inputSalario = new javax.swing.JTextField();
         tituloPagina = new javax.swing.JLabel();
         radioVendedor = new javax.swing.JRadioButton();
         radioVeterinario = new javax.swing.JRadioButton();
         labelCargo = new javax.swing.JLabel();
+        inputSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -88,12 +88,6 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         labelSenha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelSenha.setText("Senha");
 
-        inputSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputSenhaActionPerformed(evt);
-            }
-        });
-
         labelSalario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelSalario.setText("Salário");
 
@@ -123,26 +117,29 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                 .addGap(177, 177, 177)
                 .addComponent(tituloPagina)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelUsuario)
-                    .addComponent(labelNome)
-                    .addComponent(labelSenha)
-                    .addComponent(labelSalario)
-                    .addComponent(labelCargo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelUsuario)
+                            .addComponent(labelNome)
+                            .addComponent(labelSenha)
+                            .addComponent(labelSalario))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inputNome)
+                            .addComponent(inputUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
+                            .addComponent(inputSenha)
+                            .addComponent(inputSalario)))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelCargo)
+                        .addGap(18, 18, 18)
                         .addComponent(radioVendedor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(radioVeterinario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(inputSalario, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inputSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inputNome, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inputUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
+                        .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -159,21 +156,25 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                     .addComponent(labelUsuario)
                     .addComponent(inputUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelSenha)
-                    .addComponent(inputSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelSalario)
-                    .addComponent(inputSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(radioVendedor)
-                        .addComponent(radioVeterinario)
-                        .addComponent(labelCargo)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(radioVendedor)
+                                .addComponent(radioVeterinario)
+                                .addComponent(labelCargo)))
+                        .addGap(20, 20, 20))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(inputSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelSenha))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(inputSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelSalario))
+                        .addGap(68, 68, 68))))
         );
 
         pack();
@@ -190,10 +191,6 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private void inputUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputUsuarioActionPerformed
-
-    private void inputSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputSenhaActionPerformed
 
     private void inputSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSalarioActionPerformed
         // TODO add your handling code here:
@@ -282,7 +279,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton botaoCadastrar;
     private javax.swing.JTextField inputNome;
     private javax.swing.JTextField inputSalario;
-    private javax.swing.JTextField inputSenha;
+    private javax.swing.JPasswordField inputSenha;
     private javax.swing.JTextField inputUsuario;
     private javax.swing.JLabel labelCargo;
     private javax.swing.JLabel labelNome;

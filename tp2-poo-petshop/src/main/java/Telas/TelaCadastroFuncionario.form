@@ -35,28 +35,33 @@
               <Component id="tituloPagina" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labelUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelSenha" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelSalario" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelCargo" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelSalario" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="inputNome" alignment="0" max="32767" attributes="0"/>
+                          <Component id="inputUsuario" alignment="1" pref="464" max="32767" attributes="0"/>
+                          <Component id="inputSenha" max="32767" attributes="0"/>
+                          <Component id="inputSalario" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="labelCargo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="radioVendedor" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="radioVeterinario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="botaoCadastrar" min="-2" pref="113" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="inputSalario" alignment="0" max="32767" attributes="0"/>
-                  <Component id="inputSenha" alignment="0" max="32767" attributes="0"/>
-                  <Component id="inputNome" alignment="0" max="32767" attributes="0"/>
-                  <Component id="inputUsuario" alignment="0" pref="464" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -78,25 +83,32 @@
                   <Component id="inputUsuario" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelSenha" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="inputSenha" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelSalario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="inputSalario" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="botaoCadastrar" min="-2" pref="37" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="radioVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="radioVeterinario" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelCargo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="botaoCadastrar" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="radioVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="radioVeterinario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelCargo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="inputSenha" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="labelSenha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="13" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="inputSalario" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="labelSalario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -145,11 +157,6 @@
         <Property name="text" type="java.lang.String" value="Senha"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="inputSenha">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputSenhaActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="labelSalario">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -194,6 +201,8 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cargo"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="inputSenha">
     </Component>
   </SubComponents>
 </Form>
