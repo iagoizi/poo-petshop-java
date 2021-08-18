@@ -5,6 +5,14 @@
  */
 package Telas;
 
+import Classes.Cliente;
+import Classes.Compra;
+import Classes.PetShop;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import Classes.Produto;
+import Classes.Vendedor;
+
 /**
  *
  * @author vitor
@@ -14,8 +22,11 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastroCliente
      */
-    public TelaVenderProdutos() {
+    private PetShop petshop;
+
+    public TelaVenderProdutos(PetShop petshop) {
         initComponents();
+        this.petshop = petshop;
     }
 
     /**
@@ -29,27 +40,27 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
 
         jTextField1 = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        inputListarProduto = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
-        jTextFieldUsuario9 = new javax.swing.JTextField();
+        inputQuantidade = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jTextFieldUsuario8 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        inputId = new javax.swing.JTextField();
+        inputSair = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jButton1.setText("Listar Produtos");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        inputListarProduto.setText("Listar Produtos");
+        inputListarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                inputListarProdutoActionPerformed(evt);
             }
         });
 
@@ -59,17 +70,16 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
         jButton2.setText("Comprar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                onClick(evt);
             }
         });
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel24.setText("Deseja realizar a compra de algum item?");
-        jLabel24.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jTextFieldUsuario9.addActionListener(new java.awt.event.ActionListener() {
+        inputQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario9ActionPerformed(evt);
+                inputQuantidadeActionPerformed(evt);
             }
         });
 
@@ -79,16 +89,16 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel21.setText("ID");
 
-        jTextFieldUsuario8.addActionListener(new java.awt.event.ActionListener() {
+        inputId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario8ActionPerformed(evt);
+                inputIdActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Sair");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        inputSair.setText("Sair");
+        inputSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                inputSairActionPerformed(evt);
             }
         });
 
@@ -104,7 +114,7 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                         .addComponent(jLabel24)
                         .addGap(118, 118, 118))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(inputSair, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -114,7 +124,7 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(inputListarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(210, 210, 210)
                                 .addComponent(jLabel23)))
@@ -124,10 +134,10 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22)
                             .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsuario9)
-                            .addComponent(jTextFieldUsuario8))))
+                            .addComponent(inputQuantidade)
+                            .addComponent(inputId))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -136,46 +146,142 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputListarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jTextFieldUsuario8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextFieldUsuario9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputSair, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void inputListarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputListarProdutoActionPerformed
+        new TelaDeProdutos().setVisible(true);
+                        
+        this.setVisible(false);
+    }//GEN-LAST:event_inputListarProdutoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void onClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClick
+        //Pegar o id e a quantidade e ir para TelaVenderProdutosComprador
+        
+        if ( inputId.getText().isEmpty() || inputQuantidade.getText().isEmpty() ) {
+            JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        else{
+            long id = Long.parseLong(inputId.getText());
+            int quantidade = Integer.parseInt(inputQuantidade.getText());
+                
+            if(id < 0 || quantidade < 0){
+                JOptionPane.showMessageDialog(this, "Preencha com dados válidos", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            else{
+                //Arraylist também é classe e esta sendo inicializado
+                ArrayList <Produto> carrinho = new ArrayList<>();
 
-    private void jTextFieldUsuario9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario9ActionPerformed
+                for(Produto produto : petshop.getProdutos()){
 
-    private void jTextFieldUsuario8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario8ActionPerformed
+                    if( id == produto.getId()){
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+                        //Caso não tenha o produto em estoque
+                        if(produto.getQuantidade() == 0){
+                            JOptionPane.showMessageDialog(null, "Não temos produto em estoque!");
+                        }   
+                        //Caso tenha a quantidade para compra
+                        else if(produto.getQuantidade() >= quantidade){
+
+                            Produto compra = new Produto(produto.getNome(), produto.getPreco(), quantidade, id);                    
+                            carrinho.add(compra);                  
+
+                            //Para continuar comprando
+                            String message = "Deseja comprar outro produto?";
+                            String title = "Confirmação";
+                            int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+                            if (resposta == JOptionPane.NO_OPTION){
+
+                                message = "O comprador possui cadastro?";
+                                title = "Confirmação";
+                                resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+                                if (resposta == JOptionPane.YES_OPTION){
+                                    new TelaVenderProdutosDadosComprador(petshop, carrinho, null, null).setVisible(true);
+
+                                    this.setVisible(false);
+                                }
+                                else{
+                                    message = "Deseja cadastrar um novo cliente?";
+                                    title = "Confirmação";
+                                    resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+                                    //Venda do produto cadastrando produto
+                                    if (resposta == JOptionPane.YES_OPTION){
+
+                                        new TelaCadastroCliente().setVisible(true);
+
+                                        this.setVisible(false);
+
+                                        int tam = petshop.getClientes().size() - 1;                                                      
+                                        int cont = 0;
+                                        for(Cliente cliente : petshop.getClientes() ){                
+                                            if(cont == tam){
+                                                Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();
+                                                vendedor.vendaProduto(cliente, carrinho);
+                                                JOptionPane.showMessageDialog(null, "Venda concluída!");
+                                            }
+                                            cont++;
+                                        }                             
+                                    }
+                                    //Venda do produto sem cadastro do cliente
+                                    else{
+
+                                        Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();                                                            
+                                        vendedor.vendaProduto(null, carrinho);      
+                                        JOptionPane.showMessageDialog(null, "Venda concluída!");
+                                    }
+                                }                       
+                            }                                                                             
+                        }
+                        //Caso a quantidade solicitada seja maior que do estoque
+                        else{
+                            JOptionPane.showMessageDialog(null, "A quantidade em estoque está abaixo da solicitada!");
+                        }
+                    }           
+                    else{
+                        JOptionPane.showMessageDialog(null, "Produto inexiste!");
+                    }
+                }           
+            }         
+        }                               
+    }//GEN-LAST:event_onClick
+
+    private void inputQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputQuantidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_inputQuantidadeActionPerformed
+
+    private void inputIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputIdActionPerformed
+
+    private void inputSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSairActionPerformed
+        String message = "Deseja sair ?";
+        String title = "Confirmação";
+        int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+        if (resposta == JOptionPane.YES_OPTION){
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_inputSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,26 +310,29 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
+        PetShop petshop = new PetShop("petshop");
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            
             public void run() {
-                new TelaVenderProdutos().setVisible(true);
+                
+                new TelaVenderProdutos(petshop).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField inputId;
+    private javax.swing.JButton inputListarProduto;
+    private javax.swing.JTextField inputQuantidade;
+    private javax.swing.JButton inputSair;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldUsuario8;
-    private javax.swing.JTextField jTextFieldUsuario9;
     // End of variables declaration//GEN-END:variables
 }

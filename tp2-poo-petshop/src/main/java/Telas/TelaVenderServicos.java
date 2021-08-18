@@ -5,16 +5,34 @@
  */
 package Telas;
 
+
+import javax.swing.JOptionPane;
+
+import Classes.Cliente;
+import Classes.Data;
+import Classes.OrdemServico;
+import Classes.PetShop;
+import Classes.Servico;
+import Classes.Vendedor;
+
+
 /**
  *
  * @author vitor
  */
 public class TelaVenderServicos extends javax.swing.JFrame {
-
+    
+    PetShop petshop;
+    
     /**
      * Creates new form TelaCadastroCliente
      */
-    public TelaVenderServicos() {
+    public TelaVenderServicos(PetShop petshop) {
+        initComponents();
+        this.petshop = petshop;
+    }
+    
+    public TelaVenderServicos(){
         initComponents();
     }
 
@@ -29,40 +47,40 @@ public class TelaVenderServicos extends javax.swing.JFrame {
 
         jTextField1 = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        inputListarServico = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
-        jTextFieldUsuario9 = new javax.swing.JTextField();
+        inputDia = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jTextFieldUsuario8 = new javax.swing.JTextField();
+        inputId = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
-        jTextFieldUsuario10 = new javax.swing.JTextField();
+        inputMes = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        jTextFieldUsuario11 = new javax.swing.JTextField();
+        inputAno = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        jTextFieldUsuario12 = new javax.swing.JTextField();
+        inputHora = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        jTextFieldUsuario13 = new javax.swing.JTextField();
+        inputMinuto = new javax.swing.JTextField();
 
         jTextField1.setText("jTextField1");
 
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jButton1.setText("Listar Serviços");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        inputListarServico.setText("Listar Serviços");
+        inputListarServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                inputListarServicoActionPerformed(evt);
             }
         });
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel23.setText("Vender Produtos");
+        jLabel23.setText("Vender Serviço");
 
         jButton2.setText("Agendar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -73,11 +91,10 @@ public class TelaVenderServicos extends javax.swing.JFrame {
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel24.setText("Deseja agendar algum serviço?");
-        jLabel24.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jTextFieldUsuario9.addActionListener(new java.awt.event.ActionListener() {
+        inputDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario9ActionPerformed(evt);
+                inputDiaActionPerformed(evt);
             }
         });
 
@@ -87,9 +104,9 @@ public class TelaVenderServicos extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel21.setText("ID");
 
-        jTextFieldUsuario8.addActionListener(new java.awt.event.ActionListener() {
+        inputId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario8ActionPerformed(evt);
+                inputIdActionPerformed(evt);
             }
         });
 
@@ -103,36 +120,36 @@ public class TelaVenderServicos extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel25.setText("Mês");
 
-        jTextFieldUsuario10.addActionListener(new java.awt.event.ActionListener() {
+        inputMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario10ActionPerformed(evt);
+                inputMesActionPerformed(evt);
             }
         });
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel26.setText("Ano");
 
-        jTextFieldUsuario11.addActionListener(new java.awt.event.ActionListener() {
+        inputAno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario11ActionPerformed(evt);
+                inputAnoActionPerformed(evt);
             }
         });
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel27.setText("Hora");
 
-        jTextFieldUsuario12.addActionListener(new java.awt.event.ActionListener() {
+        inputHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario12ActionPerformed(evt);
+                inputHoraActionPerformed(evt);
             }
         });
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel28.setText("Minuto");
 
-        jTextFieldUsuario13.addActionListener(new java.awt.event.ActionListener() {
+        inputMinuto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario13ActionPerformed(evt);
+                inputMinutoActionPerformed(evt);
             }
         });
 
@@ -146,20 +163,20 @@ public class TelaVenderServicos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(inputListarServico, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(210, 210, 210)
                                 .addComponent(jLabel23)))
-                        .addGap(0, 176, Short.MAX_VALUE))
+                        .addGap(0, 188, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22)
                             .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsuario9)
-                            .addComponent(jTextFieldUsuario8))))
+                            .addComponent(inputId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputDia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -171,17 +188,17 @@ public class TelaVenderServicos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel28)
                         .addGap(10, 10, 10)
-                        .addComponent(jTextFieldUsuario13))
+                        .addComponent(inputMinuto))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel25)
                             .addComponent(jLabel26)
                             .addComponent(jLabel27))
-                        .addGap(25, 25, 25)
+                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsuario11, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldUsuario12)
-                            .addComponent(jTextFieldUsuario10)))
+                            .addComponent(inputAno)
+                            .addComponent(inputHora)
+                            .addComponent(inputMes)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -194,33 +211,33 @@ public class TelaVenderServicos extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputListarServico, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jTextFieldUsuario8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextFieldUsuario9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputDia, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jTextFieldUsuario10, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputMes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jTextFieldUsuario11, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputAno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
-                    .addComponent(jTextFieldUsuario12, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputHora, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(jTextFieldUsuario13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,41 +248,138 @@ public class TelaVenderServicos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void inputListarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputListarServicoActionPerformed
+        new TelaDeServicos().setVisible(true);
+                        
+        this.setVisible(false);
+    }//GEN-LAST:event_inputListarServicoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        
+        if ( inputId.getText().isEmpty() || inputDia.getText().isEmpty() || inputMes.getText().isEmpty() || inputAno.getText().isEmpty() 
+                || inputHora.getText().isEmpty() || inputMinuto.getText().isEmpty() ) {
+            
+            JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);           
+            return;
+        }
+        
+        else{
+            long id = Long.parseLong(inputId.getText());
+            int dia = Integer.parseInt(inputDia.getText());
+            int mes = Integer.parseInt(inputMes.getText());
+            int ano = Integer.parseInt(inputAno.getText());
+            int hora = Integer.parseInt(inputHora.getText());
+            int minuto = Integer.parseInt(inputMinuto.getText());
+
+            if(id < 0 || dia < 0 || mes < 0 || ano < 0 || hora < 0 || minuto < 0 || hora > 23 || minuto >= 60 ){
+                JOptionPane.showMessageDialog(this, "Preencha com dados válidos", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            else{
+                Data data = new Data(dia, mes, ano, hora, minuto);
+        
+                for(Servico servicos : petshop.getServicos()){
+
+                    if( id == servicos.getId()){
+
+                        Servico servico = new Servico(servicos.getNome(), servicos.getPreco(), id);
+
+                        for (OrdemServico ordemServico : this.petshop.getOrdemServicos() ){
+
+                            if(ordemServico.getData().equals(data)){
+
+                                    JOptionPane.showMessageDialog(null, "Horário indisponível, cadastre outro horário!");                       
+                            }
+                            else{
+                                //Chamar a tela se tem o cliente
+                                String message = "O comprador possui cadastro?";
+                                String title = "Confirmação";
+                                int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+                                if (resposta == JOptionPane.YES_OPTION){
+
+                                    new TelaVenderProdutosDadosComprador(petshop, null , servico, data).setVisible(true);
+
+                                    this.setVisible(false);
+                                }
+                                else{
+                                    message = "Deseja cadastrar um novo cliente?";
+                                    title = "Confirmação";
+                                    resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+                                    //Venda do servico cadastrando produto
+                                    if (resposta == JOptionPane.YES_OPTION){
+
+                                        new TelaCadastroCliente().setVisible(true);
+
+                                        this.setVisible(false);
+
+                                        int tam = petshop.getClientes().size() - 1;                                                      
+                                        int cont = 0;
+                                        for(Cliente cliente : petshop.getClientes() ){                
+                                            if(cont == tam){
+                                                Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();
+                                                vendedor.vendaServico(cliente, servico, data);
+                                                JOptionPane.showMessageDialog(null, "Serviço agendado!");
+                                            }
+                                            cont++;
+                                        }
+
+                                        //JOptionPane para dados
+                                        //JOptionPane.showInputDialog(message);                                                     
+                                    }
+                                    //Venda do servico sem cadastro do cliente
+                                    else{
+
+                                        Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();                                                            
+                                        vendedor.vendaServico(null, servico, data);
+                                        JOptionPane.showMessageDialog(null, "Serviço agendado!");
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+
+                    else {
+                        JOptionPane.showMessageDialog(null, "Serviço inexiste!");
+                    }
+                }
+            } 
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextFieldUsuario9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario9ActionPerformed
+    private void inputDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario9ActionPerformed
+    }//GEN-LAST:event_inputDiaActionPerformed
 
-    private void jTextFieldUsuario8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario8ActionPerformed
+    private void inputIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario8ActionPerformed
+    }//GEN-LAST:event_inputIdActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        String message = "Deseja sair ?";
+        String title = "Confirmação";
+        int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+        if (resposta == JOptionPane.YES_OPTION){
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextFieldUsuario10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario10ActionPerformed
+    private void inputMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputMesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario10ActionPerformed
+    }//GEN-LAST:event_inputMesActionPerformed
 
-    private void jTextFieldUsuario11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario11ActionPerformed
+    private void inputAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAnoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario11ActionPerformed
+    }//GEN-LAST:event_inputAnoActionPerformed
 
-    private void jTextFieldUsuario12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario12ActionPerformed
+    private void inputHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputHoraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario12ActionPerformed
+    }//GEN-LAST:event_inputHoraActionPerformed
 
-    private void jTextFieldUsuario13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario13ActionPerformed
+    private void inputMinutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputMinutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario13ActionPerformed
+    }//GEN-LAST:event_inputMinutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,7 +410,7 @@ public class TelaVenderServicos extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -306,7 +420,13 @@ public class TelaVenderServicos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField inputAno;
+    private javax.swing.JTextField inputDia;
+    private javax.swing.JTextField inputHora;
+    private javax.swing.JTextField inputId;
+    private javax.swing.JButton inputListarServico;
+    private javax.swing.JTextField inputMes;
+    private javax.swing.JTextField inputMinuto;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JCheckBox jCheckBox1;
@@ -319,11 +439,5 @@ public class TelaVenderServicos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldUsuario10;
-    private javax.swing.JTextField jTextFieldUsuario11;
-    private javax.swing.JTextField jTextFieldUsuario12;
-    private javax.swing.JTextField jTextFieldUsuario13;
-    private javax.swing.JTextField jTextFieldUsuario8;
-    private javax.swing.JTextField jTextFieldUsuario9;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,7 +5,9 @@
  */
 package Telas;
 
+import Classes.PetShop;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +21,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
     public TelaDeLogin() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,8 +36,8 @@ public class TelaDeLogin extends javax.swing.JFrame {
         jButtonEntrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextFieldUsuario = new javax.swing.JTextField();
-        jPasswordFieldSenhaUsuario = new javax.swing.JPasswordField();
+        inputLogin = new javax.swing.JTextField();
+        inputSenha = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jButtonSair = new javax.swing.JButton();
 
@@ -54,15 +57,15 @@ public class TelaDeLogin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Senha");
 
-        jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+        inputLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuarioActionPerformed(evt);
+                inputLoginActionPerformed(evt);
             }
         });
 
-        jPasswordFieldSenhaUsuario.addActionListener(new java.awt.event.ActionListener() {
+        inputSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordFieldSenhaUsuarioActionPerformed(evt);
+                inputSenhaActionPerformed(evt);
             }
         });
 
@@ -99,8 +102,8 @@ public class TelaDeLogin extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-                            .addComponent(jPasswordFieldSenhaUsuario))))
+                            .addComponent(inputLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                            .addComponent(inputSenha))))
                 .addGap(153, 153, 153))
         );
         jPanel1Layout.setVerticalGroup(
@@ -111,11 +114,11 @@ public class TelaDeLogin extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jPasswordFieldSenhaUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                    .addComponent(inputSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
                 .addGap(33, 33, 33)
                 .addComponent(jButtonEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
@@ -142,18 +145,33 @@ public class TelaDeLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
+    private void inputLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
+    }//GEN-LAST:event_inputLoginActionPerformed
 
-    private void jPasswordFieldSenhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaUsuarioActionPerformed
+    private void inputSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordFieldSenhaUsuarioActionPerformed
+    }//GEN-LAST:event_inputSenhaActionPerformed
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
-        // Ação do botão entrar
-        new TelaMenuVeterinario().setVisible(true);
-        this.setVisible(false);
+        
+        if ( inputLogin.getText().isEmpty() || inputSenha.getText().isEmpty() ) {
+            JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);           
+            return;
+        }
+        
+        else{
+            PetShop petshop = new PetShop("");
+            
+            String login = inputLogin.getText();
+            String senha = inputSenha.getText();
+            
+            boolean sucess = petshop.login(login, senha);
+            
+            if(sucess == false){
+                JOptionPane.showMessageDialog(this, "Login/Senha inválido", "Erro", JOptionPane.ERROR_MESSAGE);
+            }                         
+        }
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
@@ -203,13 +221,13 @@ public class TelaDeLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField inputLogin;
+    private javax.swing.JPasswordField inputSenha;
     private javax.swing.JButton jButtonEntrar;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordFieldSenhaUsuario;
-    private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,17 +5,32 @@
  */
 package Telas;
 
+import Classes.PetShop;
+import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import Classes.Cliente;
+import Classes.Produto;
+import Classes.Vendedor;
+import Classes.Servico;
+import Classes.Data;
+
 /**
  *
  * @author vitor
  */
 public class TelaVenderProdutosDadosComprador extends javax.swing.JFrame {
+    
+    PetShop petshop;
+    ArrayList <Produto> carrinho;
+    Servico servico;
+    Data dataservico;
 
     /**
      * Creates new form TelaCadastroCliente
      */
-    public TelaVenderProdutosDadosComprador() {
-        initComponents();
+    public TelaVenderProdutosDadosComprador(PetShop petshop, ArrayList <Produto> carrinho, Servico servico, Data dataservico) {
+         initComponents();
     }
 
     /**
@@ -29,11 +44,11 @@ public class TelaVenderProdutosDadosComprador extends javax.swing.JFrame {
 
         jTextField1 = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel23 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jTextFieldUsuario6 = new javax.swing.JTextField();
+        inputCpf = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButtonVoltar = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -42,25 +57,29 @@ public class TelaVenderProdutosDadosComprador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel23.setText("Vender Produtos");
-
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel25.setText("Insira os dados do comprador");
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel19.setText("CPF");
 
-        jTextFieldUsuario6.addActionListener(new java.awt.event.ActionListener() {
+        inputCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario6ActionPerformed(evt);
+                inputCpf(evt);
             }
         });
 
         jButton1.setText("Comprar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                onClick(evt);
+            }
+        });
+
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
             }
         });
 
@@ -69,51 +88,84 @@ public class TelaVenderProdutosDadosComprador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(186, 186, 186)
-                .addComponent(jLabel23)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldUsuario6)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(136, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 126, Short.MAX_VALUE)
                         .addComponent(jLabel25)
-                        .addGap(134, 134, 134))
+                        .addGap(135, 135, 135))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addGap(10, 10, 10)
+                        .addComponent(inputCpf)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jTextFieldUsuario6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldUsuario6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario6ActionPerformed
+    private void inputCpf(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputCpf
+              
+    }//GEN-LAST:event_inputCpf
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void onClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClick
+                
+        if (inputCpf.getText().isEmpty() ) {
+            JOptionPane.showMessageDialog(this, "Preencha o dado solicitado.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        long cpf = Long.parseLong(inputCpf.getText());
+                       
+        for( Cliente cliente : petshop.getClientes() ){
+            
+            if(cliente.getCpf() == cpf){
+                               
+                Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();
+                
+                //Venda produto
+                if(carrinho != null){
+                    vendedor.vendaProduto(cliente, carrinho);
+                    JOptionPane.showMessageDialog(null, "Venda concluída!");
+                }
+                //Venda servico
+                else{
+                    vendedor.vendaServico(cliente, servico, dataservico);
+                    JOptionPane.showMessageDialog(null, "Serviço agendado!");
+                }
+                
+       
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Cliente não encontado!");
+            }
+            
+        }                     
+    }//GEN-LAST:event_onClick
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,23 +199,27 @@ public class TelaVenderProdutosDadosComprador extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
+        
+        PetShop petshop = new PetShop("petshop");
+        ArrayList <Produto> carrinho = new ArrayList<>();
+        Servico servico = new Servico();
+        Data dataservico = new Data();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaVenderProdutosDadosComprador().setVisible(true);
+                new TelaVenderProdutosDadosComprador(petshop, carrinho,  servico, dataservico).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField inputCpf;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldUsuario6;
     // End of variables declaration//GEN-END:variables
 }
