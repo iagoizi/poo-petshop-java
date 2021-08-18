@@ -5,31 +5,18 @@
  */
 package Classes;
 
+import Interfaces.InterfaceVendedor;
+import Interfaces.InterfaceVeterinario;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
 /**
  *
  * @author vitor
  */
-public class Administrador extends Usuario {
+public class Administrador extends Usuario implements InterfaceVendedor, InterfaceVeterinario{
 
     public Administrador(PetShop petshop, String nome,  String usuario, String senha, double salario) {
         super(petshop, nome, TipoFuncionario.ADMINISTRADOR, usuario, senha, salario);
-    }
-    
-    /**
-     * @return the nome
-     */
-    public String getNome() {
-        return nome;
-    }
-
-    /**
-     * @param nome the nome to set
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public void reposicaoEstoque(Produto produto, int quantidade, String descricao, double preco){

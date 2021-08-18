@@ -249,7 +249,7 @@ public class TelaVenderServicos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inputListarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputListarServicoActionPerformed
-        new TelaDeServicos().setVisible(true);
+        new TelaDeServicos(petshop).setVisible(true);
                         
         this.setVisible(false);
     }//GEN-LAST:event_inputListarServicoActionPerformed
@@ -309,7 +309,7 @@ public class TelaVenderServicos extends javax.swing.JFrame {
                                     //Venda do servico cadastrando produto
                                     if (resposta == JOptionPane.YES_OPTION){
 
-                                        new TelaCadastroCliente().setVisible(true);
+                                        new TelaCadastroCliente(petshop).setVisible(true);
 
                                         this.setVisible(false);
 
@@ -318,7 +318,7 @@ public class TelaVenderServicos extends javax.swing.JFrame {
                                         for(Cliente cliente : petshop.getClientes() ){                
                                             if(cont == tam){
                                                 Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();
-                                                vendedor.vendaServico(cliente, servico, data);
+                                                vendedor.vendaServico(petshop,cliente, servico, data);
                                                 JOptionPane.showMessageDialog(null, "Serviço agendado!");
                                             }
                                             cont++;
@@ -331,7 +331,7 @@ public class TelaVenderServicos extends javax.swing.JFrame {
                                     else{
 
                                         Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();                                                            
-                                        vendedor.vendaServico(null, servico, data);
+                                        vendedor.vendaServico(petshop,null, servico, data);
                                         JOptionPane.showMessageDialog(null, "Serviço agendado!");
                                     }
                                 }

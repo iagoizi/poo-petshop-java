@@ -197,7 +197,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_inputSalarioActionPerformed
 
     private void botaoCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoCadastrarMouseClicked
-        if (inputNome.getText().isEmpty() || inputSalario.getText().isEmpty() || inputSenha.getText().isEmpty() || inputUsuario.getText().isEmpty() || (!radioVendedor.isSelected() && !radioVeterinario.isSelected())) {
+        if (inputNome.getText().isEmpty() || inputSalario.getText().isEmpty() || inputSenha.getPassword().length==0 || inputUsuario.getText().isEmpty() || (!radioVendedor.isSelected() && !radioVeterinario.isSelected())) {
             JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -207,7 +207,8 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
             String nome = inputNome.getText();
             String usuario = inputUsuario.getText();
-            String senha = inputSenha.getText();
+            String senha = String.copyValueOf(inputSenha.getPassword());
+            System.out.println(senha);
             double salario = Double.parseDouble(inputSalario.getText());
             Administrador admin = (Administrador) petshop.getSessaoAtual();
             boolean sucesso = false;

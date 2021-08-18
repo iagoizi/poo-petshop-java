@@ -204,7 +204,7 @@ public class TelaReporEstoque extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inputListarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputListarProdutosActionPerformed
-        new TelaDeProdutos().setVisible(true);
+        new TelaDeProdutos(petshop).setVisible(true);
                         
         this.setVisible(false);       
     }//GEN-LAST:event_inputListarProdutosActionPerformed

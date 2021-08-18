@@ -5,17 +5,28 @@
  */
 package Telas;
 
+import Classes.Administrador;
+import Classes.Cliente;
+import Classes.Lib;
+import Classes.PetShop;
+import Classes.TipoFuncionario;
+import Classes.Vendedor;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author vitor
  */
 public class TelaCadastroCliente extends javax.swing.JFrame {
 
+    private PetShop petshop;
+
     /**
      * Creates new form TelaCadastroCliente
      */
-    public TelaCadastroCliente() {
+    public TelaCadastroCliente(PetShop petshop) {
         initComponents();
+        this.petshop = petshop;
     }
 
     /**
@@ -29,20 +40,21 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
         jTextField1 = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
-        jTextFieldUsuario6 = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        jTextFieldUsuario7 = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jTextFieldUsuario8 = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
-        jTextFieldUsuario9 = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jTextFieldUsuario10 = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        jTextFieldUsuario11 = new javax.swing.JTextField();
+        botaoCadastrar = new javax.swing.JButton();
+        labelNome = new javax.swing.JLabel();
+        inputNome = new javax.swing.JTextField();
+        labelEndereco = new javax.swing.JLabel();
+        inputEndereco = new javax.swing.JTextField();
+        labelTelefone = new javax.swing.JLabel();
+        inputTelefone = new javax.swing.JTextField();
+        labelCpf = new javax.swing.JLabel();
+        inputCpf = new javax.swing.JTextField();
+        tituloTela = new javax.swing.JLabel();
+        labelTipoPet = new javax.swing.JLabel();
+        inputTipoPet = new javax.swing.JTextField();
+        labelNomePet = new javax.swing.JLabel();
+        inputNomePet = new javax.swing.JTextField();
+        labelObservacao = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -51,170 +63,219 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jButton1.setText("Concluir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botaoCadastrar.setText("Cadastrar");
+        botaoCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoCadastrarMouseClicked(evt);
+            }
+        });
+        botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botaoCadastrarActionPerformed(evt);
             }
         });
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel19.setText("Nome");
+        labelNome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelNome.setText("Nome");
 
-        jTextFieldUsuario6.addActionListener(new java.awt.event.ActionListener() {
+        inputNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario6ActionPerformed(evt);
+                inputNomeActionPerformed(evt);
             }
         });
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel20.setText("Endereço");
+        labelEndereco.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelEndereco.setText("Endereço");
 
-        jTextFieldUsuario7.addActionListener(new java.awt.event.ActionListener() {
+        inputEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario7ActionPerformed(evt);
+                inputEnderecoActionPerformed(evt);
             }
         });
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel21.setText("Telefone");
+        labelTelefone.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelTelefone.setText("Telefone*");
 
-        jTextFieldUsuario8.addActionListener(new java.awt.event.ActionListener() {
+        inputTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario8ActionPerformed(evt);
+                inputTelefoneActionPerformed(evt);
             }
         });
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel22.setText("CPF");
+        labelCpf.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelCpf.setText("CPF*");
 
-        jTextFieldUsuario9.addActionListener(new java.awt.event.ActionListener() {
+        inputCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario9ActionPerformed(evt);
+                inputCpfActionPerformed(evt);
             }
         });
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel23.setText("Cadastro de Clientes");
+        tituloTela.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tituloTela.setText("Cadastro de Clientes");
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel24.setText("Tipo do Pet");
+        labelTipoPet.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelTipoPet.setText("Tipo do Pet");
 
-        jTextFieldUsuario10.addActionListener(new java.awt.event.ActionListener() {
+        inputTipoPet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario10ActionPerformed(evt);
+                inputTipoPetActionPerformed(evt);
             }
         });
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel25.setText("Nome do Pet");
+        labelNomePet.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelNomePet.setText("Nome do Pet");
 
-        jTextFieldUsuario11.addActionListener(new java.awt.event.ActionListener() {
+        inputNomePet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuario11ActionPerformed(evt);
+                inputNomePetActionPerformed(evt);
             }
         });
+
+        labelObservacao.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        labelObservacao.setText("*Apenas números");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(195, 195, 195)
-                .addComponent(jLabel23)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel22))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsuario7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldUsuario8, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldUsuario9)
-                            .addComponent(jTextFieldUsuario6)))
+                        .addComponent(labelObservacao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel25))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(labelTipoPet)
+                            .addComponent(labelNomePet))
+                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsuario11)
-                            .addComponent(jTextFieldUsuario10, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE))))
+                            .addComponent(inputNomePet)
+                            .addComponent(inputTipoPet)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelEndereco)
+                            .addComponent(labelNome)
+                            .addComponent(labelTelefone)
+                            .addComponent(labelCpf))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inputEndereco, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(inputTelefone, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(inputCpf)
+                            .addComponent(inputNome))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(195, 195, 195)
+                .addComponent(tituloTela)
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tituloTela, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jTextFieldUsuario6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelNome)
+                    .addComponent(inputNome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(jTextFieldUsuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelEndereco)
+                    .addComponent(inputEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jTextFieldUsuario8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTelefone)
+                    .addComponent(inputTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(jTextFieldUsuario9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelCpf)
+                    .addComponent(inputCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(jTextFieldUsuario11, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelNomePet)
+                    .addComponent(inputNomePet, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(jTextFieldUsuario10, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                    .addComponent(labelTipoPet)
+                    .addComponent(inputTipoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelObservacao))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botaoCadastrarActionPerformed
 
-    private void jTextFieldUsuario6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario6ActionPerformed
+    private void inputNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario6ActionPerformed
+    }//GEN-LAST:event_inputNomeActionPerformed
 
-    private void jTextFieldUsuario7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario7ActionPerformed
+    private void inputEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEnderecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario7ActionPerformed
+    }//GEN-LAST:event_inputEnderecoActionPerformed
 
-    private void jTextFieldUsuario8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario8ActionPerformed
+    private void inputTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTelefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario8ActionPerformed
+    }//GEN-LAST:event_inputTelefoneActionPerformed
 
-    private void jTextFieldUsuario9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario9ActionPerformed
+    private void inputCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputCpfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario9ActionPerformed
+    }//GEN-LAST:event_inputCpfActionPerformed
 
-    private void jTextFieldUsuario10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario10ActionPerformed
+    private void inputTipoPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTipoPetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario10ActionPerformed
+    }//GEN-LAST:event_inputTipoPetActionPerformed
 
-    private void jTextFieldUsuario11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuario11ActionPerformed
+    private void inputNomePetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomePetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuario11ActionPerformed
+    }//GEN-LAST:event_inputNomePetActionPerformed
+
+    private void botaoCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoCadastrarMouseClicked
+        if (inputNome.getText().isEmpty() || inputCpf.getText().isEmpty() || inputEndereco.getText().isEmpty() || inputNomePet.getText().isEmpty() || inputTelefone.getText().isEmpty() || inputTipoPet.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //Se o usuário for administrador ou vendedor...
+        if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR || petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR) {
+
+            String nome = inputNome.getText();
+            String tipoPet = inputTipoPet.getText();
+            String nomePet = inputNomePet.getText();
+            String endereco = inputEndereco.getText();
+            long telefone = Long.parseLong(inputTelefone.getText());
+            long cpf = Long.parseLong(inputCpf.getText());
+            TipoFuncionario cargo = petshop.getSessaoAtual().getCargo();
+            //Fazendo o casting para o tipo adequado de usuário
+            Cliente clienteCadastrado
+                    = (cargo == TipoFuncionario.VENDEDOR
+                            ? ((Vendedor) petshop.getSessaoAtual()) : (Administrador) petshop.getSessaoAtual())
+                            .cadastrarCliente(petshop, nome, tipoPet, nomePet, endereco, telefone, cpf);
+            if (clienteCadastrado != null) {
+                JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Cliente já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            inputNome.setText("");
+            inputCpf.setText("");
+            inputEndereco.setText("");
+            inputNomePet.setText("");
+            inputTelefone.setText("");
+            inputTipoPet.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botaoCadastrarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -243,30 +304,33 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        //Testes feitos na mão pra ver se tá funcionando.
+        PetShop petshop = Lib.testesManuais();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroCliente().setVisible(true);
+                new TelaCadastroCliente(petshop).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botaoCadastrar;
+    private javax.swing.JTextField inputCpf;
+    private javax.swing.JTextField inputEndereco;
+    private javax.swing.JTextField inputNome;
+    private javax.swing.JTextField inputNomePet;
+    private javax.swing.JTextField inputTelefone;
+    private javax.swing.JTextField inputTipoPet;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldUsuario10;
-    private javax.swing.JTextField jTextFieldUsuario11;
-    private javax.swing.JTextField jTextFieldUsuario6;
-    private javax.swing.JTextField jTextFieldUsuario7;
-    private javax.swing.JTextField jTextFieldUsuario8;
-    private javax.swing.JTextField jTextFieldUsuario9;
+    private javax.swing.JLabel labelCpf;
+    private javax.swing.JLabel labelEndereco;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelNomePet;
+    private javax.swing.JLabel labelObservacao;
+    private javax.swing.JLabel labelTelefone;
+    private javax.swing.JLabel labelTipoPet;
+    private javax.swing.JLabel tituloTela;
     // End of variables declaration//GEN-END:variables
 }

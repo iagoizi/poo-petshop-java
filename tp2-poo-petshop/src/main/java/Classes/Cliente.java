@@ -145,7 +145,12 @@ public class Cliente {
                  this.nomePet, this.endereco, this.telefone, this.cpf);
          
     }
-    public boolean equals(Cliente cliente) {
-        return (cliente.getCpf() == this.cpf);
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Cliente))return false;
+        Cliente comp = (Cliente) obj;
+        return this.cpf == comp.getCpf();
     }
+    
 }

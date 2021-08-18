@@ -168,7 +168,7 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inputListarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputListarProdutoActionPerformed
-        new TelaDeProdutos().setVisible(true);
+        new TelaDeProdutos(petshop).setVisible(true);
                         
         this.setVisible(false);
     }//GEN-LAST:event_inputListarProdutoActionPerformed
@@ -228,7 +228,7 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                     //Venda do produto cadastrando produto
                                     if (resposta == JOptionPane.YES_OPTION){
 
-                                        new TelaCadastroCliente().setVisible(true);
+                                        new TelaCadastroCliente(petshop).setVisible(true);
 
                                         this.setVisible(false);
 
@@ -237,7 +237,7 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                         for(Cliente cliente : petshop.getClientes() ){                
                                             if(cont == tam){
                                                 Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();
-                                                vendedor.vendaProduto(cliente, carrinho);
+                                                vendedor.vendaProduto(petshop,cliente, carrinho);
                                                 JOptionPane.showMessageDialog(null, "Venda concluída!");
                                             }
                                             cont++;
@@ -247,7 +247,7 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                     else{
 
                                         Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();                                                            
-                                        vendedor.vendaProduto(null, carrinho);      
+                                        vendedor.vendaProduto(petshop,null, carrinho);      
                                         JOptionPane.showMessageDialog(null, "Venda concluída!");
                                     }
                                 }                       
