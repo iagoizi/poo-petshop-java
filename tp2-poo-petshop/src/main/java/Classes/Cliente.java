@@ -131,9 +131,14 @@ public class Cliente {
     public String toString() {
         return "" + this.nome + " " + this.cpf + " " +
                 this.telefone + " " + this.endereco + " " + 
-                " " + this.nomePet + " " + this.tipoAnimal + " " +
-                " " /*this.compras.toString();*/;
+                " " + this.nomePet + " " + this.tipoAnimal + " ";
      }
+    public String getDadosCompras(){
+        for(Compra comp: this.compras)
+           return comp.toString();
+        
+        return " ";
+    }
     @Override
     public Cliente clone(){
          return new Cliente(this.nome, this.tipoAnimal, 
