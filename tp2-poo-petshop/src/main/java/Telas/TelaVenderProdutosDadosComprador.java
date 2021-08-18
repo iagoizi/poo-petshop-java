@@ -145,12 +145,12 @@ public class TelaVenderProdutosDadosComprador extends javax.swing.JFrame {
                 
                 //Venda produto
                 if(carrinho != null){
-                    vendedor.vendaProduto(cliente, carrinho);
+                    vendedor.vendaProduto(petshop,cliente, carrinho);
                     JOptionPane.showMessageDialog(null, "Venda concluída!");
                 }
                 //Venda servico
                 else{
-                    vendedor.vendaServico(cliente, servico, dataservico);
+                    vendedor.vendaServico(petshop,cliente, servico, dataservico);
                     JOptionPane.showMessageDialog(null, "Serviço agendado!");
                 }
                 
