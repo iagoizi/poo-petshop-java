@@ -46,14 +46,22 @@ public class Administrador extends Usuario {
         }
     }
     
-    public void cadastrarVeterinario(String nome, String usuario, String senha, double salario){
+    public boolean cadastrarVeterinario(String nome, String usuario, String senha, double salario){
         Veterinario veterinario = new Veterinario(petshop, nome,  usuario, senha, salario);
+        if(petshop.getUsuarios().contains(veterinario)){
+            return false;
+        }
         petshop.getUsuarios().add(veterinario);
+        return true;
     }
     
-    public void cadastrarVendedor(String nome, String usuario, String senha, double salario){
+    public boolean cadastrarVendedor(String nome, String usuario, String senha, double salario){
         Vendedor vendedor = new Vendedor(petshop, nome, usuario, senha, salario);
+        if(petshop.getUsuarios().contains(vendedor)){
+            return false;
+        }
         petshop.getUsuarios().add(vendedor);
+        return true;
     }
     
     public boolean cadastrarProduto(String nome, double preco, int quantidade, long id){

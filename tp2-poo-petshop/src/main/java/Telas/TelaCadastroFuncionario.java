@@ -215,11 +215,9 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             Administrador admin = (Administrador) petshop.getSessaoAtual();
             boolean sucesso = false;
             if (radioVendedor.isSelected()) {
-                admin.cadastrarVendedor(nome, usuario, senha, salario);
-                sucesso = true;
+                sucesso = admin.cadastrarVendedor(nome, usuario, senha, salario);
             } else if (radioVeterinario.isSelected()) {
-                admin.cadastrarVeterinario(nome, usuario, senha, salario);
-                sucesso = true;
+                sucesso = admin.cadastrarVeterinario(nome, usuario, senha, salario);
             }
             if (sucesso) {
                 JOptionPane.showMessageDialog(this, "Funcionário cadastrado com sucesso", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
