@@ -5,17 +5,22 @@
  */
 package Telas;
 
+import Classes.Lib;
+import Classes.PetShop;
+
 /**
  *
  * @author vitor
  */
 public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
+    private PetShop petshop;
     /**
      * Creates new form TelaCadastroCliente
      */
-    public TelaCadastroFuncionario() {
+    public TelaCadastroFuncionario(PetShop petshop) {
         initComponents();
+        this.petshop = petshop;
     }
 
     /**
@@ -226,11 +231,14 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        
+        //Testes feitos na mão pra ver se tá funcionando.
+        PetShop petshop = Lib.testesManuais();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroFuncionario().setVisible(true);
+                new TelaCadastroFuncionario(petshop).setVisible(true);
             }
         });
     }
