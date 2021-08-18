@@ -5,17 +5,28 @@
  */
 package Telas;
 
+import Classes.Administrador;
+import Classes.Cliente;
+import Classes.Lib;
+import Classes.PetShop;
+import Classes.TipoFuncionario;
+import Classes.Vendedor;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author vitor
  */
 public class TelaCadastroCliente extends javax.swing.JFrame {
 
+    private PetShop petshop;
+
     /**
      * Creates new form TelaCadastroCliente
      */
-    public TelaCadastroCliente() {
+    public TelaCadastroCliente(PetShop petshop) {
         initComponents();
+        this.petshop = petshop;
     }
 
     /**
@@ -43,7 +54,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         inputTipoPet = new javax.swing.JTextField();
         labelNomePet = new javax.swing.JLabel();
         inputNomePet = new javax.swing.JTextField();
-        labelCpf2 = new javax.swing.JLabel();
+        labelObservacao = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -83,7 +94,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         });
 
         labelTelefone.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        labelTelefone.setText("Telefone");
+        labelTelefone.setText("Telefone*");
 
         inputTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,29 +132,29 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             }
         });
 
-        labelCpf2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        labelCpf2.setText("*Apenas números");
+        labelObservacao.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        labelObservacao.setText("*Apenas números");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(195, 195, 195)
-                .addComponent(tituloTela)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoCadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(labelObservacao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelTipoPet)
                             .addComponent(labelNomePet))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(inputNomePet)
-                            .addComponent(inputTipoPet, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)))
+                            .addComponent(inputTipoPet)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelEndereco)
@@ -158,9 +169,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                             .addComponent(inputNome))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelCpf2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(195, 195, 195)
+                .addComponent(tituloTela)
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,9 +194,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCpf)
                     .addComponent(inputCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addComponent(labelCpf2)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNomePet)
                     .addComponent(inputNomePet, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -194,7 +203,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                     .addComponent(labelTipoPet)
                     .addComponent(inputTipoPet, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelObservacao))
                 .addContainerGap())
         );
 
@@ -230,7 +241,40 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_inputNomePetActionPerformed
 
     private void botaoCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoCadastrarMouseClicked
-        // TODO add your handling code here:
+        if (inputNome.getText().isEmpty() || inputCpf.getText().isEmpty() || inputEndereco.getText().isEmpty() || inputNomePet.getText().isEmpty() || inputTelefone.getText().isEmpty() || inputTipoPet.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //Se o usuário for administrador ou vendedor...
+        if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR || petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR) {
+
+            String nome = inputNome.getText();
+            String tipoPet = inputTipoPet.getText();
+            String nomePet = inputNomePet.getText();
+            String endereco = inputEndereco.getText();
+            long telefone = Long.parseLong(inputTelefone.getText());
+            long cpf = Long.parseLong(inputCpf.getText());
+            TipoFuncionario cargo = petshop.getSessaoAtual().getCargo();
+            //Fazendo o casting para o tipo adequado de usuário
+            Cliente clienteCadastrado
+                    = (cargo == TipoFuncionario.VENDEDOR
+                            ? ((Vendedor) petshop.getSessaoAtual()) : (Administrador) petshop.getSessaoAtual())
+                            .cadastrarCliente(petshop, nome, tipoPet, nomePet, endereco, telefone, cpf);
+            if (clienteCadastrado != null) {
+                JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Cliente já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            inputNome.setText("");
+            inputCpf.setText("");
+            inputEndereco.setText("");
+            inputNomePet.setText("");
+            inputTelefone.setText("");
+            inputTipoPet.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_botaoCadastrarMouseClicked
 
     /**
@@ -260,10 +304,12 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        //Testes feitos na mão pra ver se tá funcionando.
+        PetShop petshop = Lib.testesManuais();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroCliente().setVisible(true);
+                new TelaCadastroCliente(petshop).setVisible(true);
             }
         });
     }
@@ -279,10 +325,10 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelCpf;
-    private javax.swing.JLabel labelCpf2;
     private javax.swing.JLabel labelEndereco;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelNomePet;
+    private javax.swing.JLabel labelObservacao;
     private javax.swing.JLabel labelTelefone;
     private javax.swing.JLabel labelTipoPet;
     private javax.swing.JLabel tituloTela;
