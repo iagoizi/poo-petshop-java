@@ -18,7 +18,6 @@ public class Usuario {
     protected String usuario;
     protected String senha;
     protected double salario;
-    public Cliente[] Cliente; /*não lembro se inicializa kk*/
     
     public Usuario(PetShop petshop, String nome, TipoFuncionario cargo, String usuario, String senha,double salario) {
         this.nome = nome;
@@ -109,6 +108,20 @@ public class Usuario {
         sucess = false;
         return null;  
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "petshop=" + petshop + ", nome=" + nome + ", cargo=" + cargo + ", usuario=" + usuario + ", senha=" + senha + ", salario=" + salario + '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Usuario)) return false;
+        Usuario comp = (Usuario) obj;
+        return this.usuario.equalsIgnoreCase(comp.getUsuario());
+    }
+    
+    
     
 }    
 
