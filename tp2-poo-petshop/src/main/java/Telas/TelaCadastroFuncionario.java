@@ -231,11 +231,6 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-        
-        System.out.println("\n\n\n\n\n\n");
-        for(Usuario user : this.petshop.getUsuarios()){
-            System.out.println(user);
-        }
     }//GEN-LAST:event_botaoCadastrarMouseClicked
 
     /**
