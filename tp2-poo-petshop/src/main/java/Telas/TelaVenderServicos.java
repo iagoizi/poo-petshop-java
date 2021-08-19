@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 import Classes.Cliente;
 import Classes.Data;
+import Classes.Lib;
 import Classes.OrdemServico;
 import Classes.PetShop;
 import Classes.Servico;
@@ -31,10 +32,7 @@ public class TelaVenderServicos extends javax.swing.JFrame {
         initComponents();
         this.petshop = petshop;
     }
-    
-    public TelaVenderServicos(){
-        initComponents();
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -411,10 +409,11 @@ public class TelaVenderServicos extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         
+        PetShop petshop = Lib.testesManuais();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaVenderServicos().setVisible(true);
+                new TelaVenderServicos(petshop).setVisible(true);
             }
         });
     }

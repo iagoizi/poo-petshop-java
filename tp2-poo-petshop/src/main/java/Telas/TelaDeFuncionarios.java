@@ -7,6 +7,7 @@ package Telas;
 
 import Classes.Administrador;
 import Classes.Cliente;
+import Classes.Lib;
 import Classes.PetShop;
 import Classes.Usuario;
 import Classes.Vendedor;
@@ -125,15 +126,8 @@ public class TelaDeFuncionarios extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        PetShop petshop = new PetShop("Teste");
-        Administrador admin = new Administrador(petshop, "Lore", "admin", "admin", 5000.0);
-        Veterinario veterinario = new Veterinario(petshop, "Julia", "Ju", "123", 3000.0);
-        Vendedor vendedor = new Vendedor(petshop, "Patricia", "Patri", "123", 3000.0);
-        ArrayList<Usuario> usuarios = new ArrayList<>();
-        usuarios.add(admin);
-        usuarios.add(veterinario);
-        usuarios.add(vendedor);
-        petshop.setUsuarios(usuarios);
+        PetShop petshop = Lib.testesManuais();
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
       

@@ -31,6 +31,7 @@ public class TelaVenderProdutosDadosComprador extends javax.swing.JFrame {
      */
     public TelaVenderProdutosDadosComprador(PetShop petshop, ArrayList <Produto> carrinho, Servico servico, Data dataservico) {
          initComponents();
+         this.petshop = petshop;
     }
 
     /**

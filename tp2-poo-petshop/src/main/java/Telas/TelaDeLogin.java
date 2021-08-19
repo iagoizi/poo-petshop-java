@@ -5,6 +5,7 @@
  */
 package Telas;
 
+import Classes.Lib;
 import Classes.PetShop;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
@@ -15,11 +16,13 @@ import java.util.ArrayList;
  */
 public class TelaDeLogin extends javax.swing.JFrame {
 
+    PetShop petshop;
     /**
      * Creates new form TelaDeLogin
      */
-    public TelaDeLogin() {
+    public TelaDeLogin(PetShop petshop) {
         initComponents();
+        this.petshop = petshop;
     }
     
 
@@ -161,7 +164,6 @@ public class TelaDeLogin extends javax.swing.JFrame {
         }
         
         else{
-            PetShop petshop = new PetShop("");
             
             String login = inputLogin.getText();
             String senha = inputSenha.getText();
@@ -170,6 +172,8 @@ public class TelaDeLogin extends javax.swing.JFrame {
             
             if(sucess == false){
                 JOptionPane.showMessageDialog(this, "Login/Senha inválido", "Erro", JOptionPane.ERROR_MESSAGE);
+            }else{
+                //Vai pra tela
             }                         
         }
     }//GEN-LAST:event_jButtonEntrarActionPerformed
@@ -212,10 +216,11 @@ public class TelaDeLogin extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        PetShop petshop = Lib.testesManuais();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaDeLogin().setVisible(true);
+                new TelaDeLogin(petshop).setVisible(true);
             }
         });
     }

@@ -6,6 +6,7 @@
 package Telas;
 
 import Classes.Cliente;
+import Classes.Lib;
 import Classes.PetShop;
 import Model.ModeloTabelaCliente;
 import java.util.ArrayList;
@@ -133,15 +134,7 @@ public class TelaDeClientes extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
        // Cliente cliente1 = new Cliente(nome, tipoAnimal, nomePet, endereco, cpf, telefone);7
-        PetShop petshop = new PetShop("Teste");
-        Cliente cliente2 = new Cliente("Belo", "Gato", "Lorenzinho", "Rua Pioedosa", 2133321, 577415);
-        ArrayList<Cliente> clientes = new ArrayList<>();
-        clientes.add(cliente2);
-        Cliente clone = cliente2.clone();
-        clientes.add(clone);
-        clone.setNome("Nome do clone mudado");
-        clone.setNomePet("Pet do clone");
-        petshop.setClientes(clientes);
+        PetShop petshop = Lib.testesManuais();
        
         
         /* Create and display the form */

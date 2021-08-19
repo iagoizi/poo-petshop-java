@@ -6,6 +6,7 @@
 package Telas;
 
 import Classes.Compra;
+import Classes.Lib;
 import Classes.PetShop;
 import Classes.Produto;
 
@@ -25,10 +26,6 @@ public class TelaReporEstoque extends javax.swing.JFrame {
     public TelaReporEstoque(PetShop petshop) {
         initComponents();
         this.petshop = petshop;
-    }
-    
-    public TelaReporEstoque() {
-        initComponents();
     }
 
     /**
@@ -231,7 +228,7 @@ public class TelaReporEstoque extends javax.swing.JFrame {
                 Compra compra = new Compra(descricao, preco);
                 compra.pagar();
                 petshop.getCompras().add(compra);
-
+                
                 for(Produto produto : petshop.getProdutos()){
 
                     if(produto.getId() == id){
@@ -302,10 +299,11 @@ public class TelaReporEstoque extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
+       PetShop petshop = Lib.testesManuais();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaReporEstoque().setVisible(true);
+                new TelaReporEstoque(petshop).setVisible(true);
             }
         });
     }

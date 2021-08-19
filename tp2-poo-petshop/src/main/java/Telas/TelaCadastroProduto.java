@@ -6,6 +6,7 @@
 package Telas;
 
 import Classes.Administrador;
+import Classes.Lib;
 import Classes.PetShop;
 import Classes.TipoFuncionario;
 import javax.swing.JOptionPane;
@@ -21,7 +22,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastroCliente
      */
-    public TelaCadastroProduto(/*PetShop petshop*/) {
+    public TelaCadastroProduto(PetShop petshop) {
         initComponents();
         this.petshop = petshop;
     }
@@ -235,10 +236,11 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
+        PetShop petshop = Lib.testesManuais();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroProduto(/*petshop*/).setVisible(true);
+                new TelaCadastroProduto(petshop).setVisible(true);
             }
         });
     }

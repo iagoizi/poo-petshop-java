@@ -5,6 +5,7 @@
  */
 package Telas;
 
+import Classes.Lib;
 import Classes.PetShop;
 import Classes.Servico;
 import Model.ModeloTabelaServico;
@@ -23,10 +24,6 @@ public class TelaDeServicos extends javax.swing.JFrame {
      * Creates new form TelaDeServicos
      */
     
-    public TelaDeServicos() {
-        initComponents();
-    }
-
     public TelaDeServicos(PetShop petshop) {
         initComponents();
         this.modeloTabelaServico = new ModeloTabelaServico();
@@ -133,10 +130,7 @@ public class TelaDeServicos extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         // para teste
-        PetShop petshop = new PetShop("Teste");
-        ArrayList<Servico> servicos = new ArrayList<>();
-        servicos.add(new Servico("Banho", 100, 100));
-        petshop.setServicos(servicos);
+        PetShop petshop = Lib.testesManuais();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

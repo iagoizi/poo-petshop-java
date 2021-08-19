@@ -5,6 +5,8 @@
  */
 package Telas;
 
+import Classes.Lib;
+import Classes.PetShop;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,11 +15,13 @@ import javax.swing.JOptionPane;
  */
 public class TelaMenuVeterinario extends javax.swing.JFrame {
 
+     PetShop petshop;
     /**
      * Creates new form TelaMenuVeterinario
      */
-    public TelaMenuVeterinario() {
+    public TelaMenuVeterinario(PetShop petshop) {
         initComponents();
+        this.petshop = petshop;
     }
 
     /**
@@ -145,7 +149,7 @@ public class TelaMenuVeterinario extends javax.swing.JFrame {
         int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
         if (resposta == JOptionPane.YES_OPTION){
             this.setVisible(false);
-            new TelaDeLogin().setVisible(true);
+            new TelaDeLogin(petshop).setVisible(true);
         }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
@@ -176,10 +180,11 @@ public class TelaMenuVeterinario extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        PetShop petshop = Lib.testesManuais();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaMenuVeterinario().setVisible(true);
+                new TelaMenuVeterinario(petshop).setVisible(true);
             }
         });
     }

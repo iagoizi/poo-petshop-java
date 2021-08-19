@@ -22,10 +22,6 @@ public class TelaDeProdutos extends javax.swing.JFrame {
      * Creates new form TelaDeProdutos
      */
     
-    public TelaDeProdutos() {
-        initComponents();
-    }
-
     public TelaDeProdutos(PetShop petshop) {
         initComponents();
         this.modeloTabelaProduto = new ModeloTabelaProduto();

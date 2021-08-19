@@ -7,6 +7,7 @@ package Telas;
 
 import Classes.Administrador;
 import Classes.Data;
+import Classes.Lib;
 import Classes.PetShop;
 import Classes.TipoFuncionario;
 import javax.swing.JOptionPane;
@@ -21,7 +22,7 @@ public class TelaPagarContas extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastroCliente
      */
-    public TelaPagarContas(/*PetShop petshop*/) {
+    public TelaPagarContas(PetShop petshop) {
         initComponents();
         this.petshop = petshop;
     }
@@ -238,7 +239,7 @@ public class TelaPagarContas extends javax.swing.JFrame {
             inputDia.setText("");
             inputMes.setText("");
             inputAno.setText("");
-            inputAno.setText("");
+            inputValor.setText("");
         } else {
             JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
         }
@@ -299,10 +300,11 @@ public class TelaPagarContas extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
+        PetShop petshop = Lib.testesManuais();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPagarContas(/*petshop*/).setVisible(true);
+                new TelaPagarContas(petshop).setVisible(true);
             }
         });
     }

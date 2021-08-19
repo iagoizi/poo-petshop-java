@@ -208,7 +208,6 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             String nome = inputNome.getText();
             String usuario = inputUsuario.getText();
             String senha = String.copyValueOf(inputSenha.getPassword());
-            System.out.println(senha);
             double salario = Double.parseDouble(inputSalario.getText());
             Administrador admin = (Administrador) petshop.getSessaoAtual();
             boolean sucesso = false;
