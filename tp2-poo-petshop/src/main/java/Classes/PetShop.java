@@ -11,12 +11,14 @@ import Telas.TelaMenuVendedor;
 import Telas.TelaMenuAdministrador;
 import Telas.TelaMenuVeterinario;
 import java.util.Stack;
+import javax.swing.JFrame;
 
 /**
  *
  * @author iagoi
  */
 public class PetShop {
+
     private String nome;
     private Usuario sessaoAtual;
     private ArrayList<Usuario> usuarios;
@@ -28,7 +30,7 @@ public class PetShop {
     private ArrayList<OrdemServico> historicoServicos;
     private ArrayList<Compra> compras;
     private ArrayList<Compra> vendas;
-    private Stack<javax.swing.JFrame> historicoTelas;
+    private Stack<JFrame> historicoTelas;
 
     public PetShop(String nome) {
         this.nome = nome;
@@ -123,54 +125,53 @@ public class PetShop {
     public void setVendas(ArrayList<Compra> vendas) {
         this.vendas = vendas;
     }
-    
-    public Usuario getSessaoAtual(){
+
+    public Usuario getSessaoAtual() {
         return this.sessaoAtual;
     }
-    
-    public boolean login(String usuario, String senha){
-        for (Usuario item : this.usuarios)
-    {
-        if (item.getUsuario().equals(usuario) && item.getSenha().equals(senha))
-        {
-            this.sessaoAtual = item;
-            
-            switch (item.getCargo())
-            {
-            case VENDEDOR:{                
-                new TelaMenuVendedor(this).setVisible(true);                                         
-                break;
+
+    public boolean login(String usuario, String senha) {
+        for (Usuario item : this.usuarios) {
+            if (item.getUsuario().equals(usuario) && item.getSenha().equals(senha)) {
+                this.sessaoAtual = item;
+
+                switch (item.getCargo()) {
+                    case VENDEDOR: {
+                        irPara(new TelaMenuVendedor(this));
+                        break;
+                    }
+                    case VETERINARIO: {
+                        irPara(new TelaMenuVeterinario(this));
+                        break;
+                    }
+                    case ADMINISTRADOR: {
+                        irPara(new TelaMenuAdministrador(this));
+                        break;
+                    }
+
+                }
+                return true;
             }
-            case VETERINARIO:{                
-                new TelaMenuVeterinario(this).setVisible(true);                
-                break;
-            }
-            case ADMINISTRADOR:{                
-                new TelaMenuAdministrador(this).setVisible(true);                
-                break;
-            }
-                
-            
-            }
-            return true;
         }
-    }
         return false;
     }
-    
-    void logOut(){
+
+    void logOut() {
         //chama método para salvar informações em arquivo
     }
-    
-    public void irPara(javax.swing.JFrame destino){        
-        this.historicoTelas.lastElement().setVisible(false);
+
+    public void irPara(JFrame destino) {
+        if (!this.historicoTelas.empty()) {
+            
+            this.historicoTelas.lastElement().setVisible(false);
+        }
         destino.setVisible(true);
         this.historicoTelas.push(destino);
     }
-    
-    public void voltar(){
+
+    public void voltar() {
         this.historicoTelas.pop().setVisible(false);
-        if(this.historicoTelas.empty()){
+        if (this.historicoTelas.empty()) {
             return;
         }
         this.historicoTelas.lastElement().setVisible(true);
