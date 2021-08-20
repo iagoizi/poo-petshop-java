@@ -162,13 +162,13 @@ public class PetShop {
         //chama método para salvar informações em arquivo
     }
     
-    void irPara(javax.swing.JFrame destino){        
+    public void irPara(javax.swing.JFrame destino){        
         this.historicoTelas.lastElement().setVisible(false);
         destino.setVisible(true);
         this.historicoTelas.push(destino);
     }
     
-    void voltar(){
+    public void voltar(){
         this.historicoTelas.pop().setVisible(false);
         if(this.historicoTelas.empty()){
             return;
