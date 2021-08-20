@@ -25,7 +25,10 @@ public class TelaDeLogin extends javax.swing.JFrame {
         this.petshop = petshop;
     }
     
-
+    public void limparCampos(){
+        inputLogin.setText("");
+        inputSenha.setText("");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -173,8 +176,8 @@ public class TelaDeLogin extends javax.swing.JFrame {
             if(sucess == false){
                 JOptionPane.showMessageDialog(this, "Login/Senha inválido", "Erro", JOptionPane.ERROR_MESSAGE);
             }else{
-                this.setVisible(false);
-            }                         
+                limparCampos();
+            }                        
         }
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
@@ -220,7 +223,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaDeLogin(petshop).setVisible(true);
+                petshop.irPara(new TelaDeLogin(petshop));
             }
         });
     }

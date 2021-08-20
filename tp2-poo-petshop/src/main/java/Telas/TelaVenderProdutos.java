@@ -167,10 +167,8 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputListarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputListarProdutoActionPerformed
-        new TelaDeProdutos(petshop).setVisible(true);
-                        
-        this.setVisible(false);
+    private void inputListarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputListarProdutoActionPerformed        
+        petshop.irPara(new TelaDeProdutos(petshop)); 
     }//GEN-LAST:event_inputListarProdutoActionPerformed
 
     private void onClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClick

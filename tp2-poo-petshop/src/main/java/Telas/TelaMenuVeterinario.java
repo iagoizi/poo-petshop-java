@@ -5,7 +5,6 @@
  */
 package Telas;
 
-import Classes.Lib;
 import Classes.PetShop;
 import javax.swing.JOptionPane;
 
@@ -144,13 +143,11 @@ public class TelaMenuVeterinario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarClientesActionPerformed
-        new TelaDeClientes(petshop).setVisible(true);                       
-        this.setVisible(false);      
+        petshop.irPara(new TelaDeClientes(petshop)); 
     }//GEN-LAST:event_jButtonListarClientesActionPerformed
 
     private void jButtonListarOrdensDeServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarOrdensDeServicoActionPerformed
-        new TelaDeServicos(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaDeClientes(petshop)); 
     }//GEN-LAST:event_jButtonListarOrdensDeServicoActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
@@ -159,19 +156,16 @@ public class TelaMenuVeterinario extends javax.swing.JFrame {
         String title = "Confirmação";
         int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
         if (resposta == JOptionPane.YES_OPTION){
-            this.setVisible(false);
-            new TelaDeLogin(petshop).setVisible(true);
+            petshop.voltar();
         }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void jButtonBuscarOrdensDeServioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarOrdensDeServioActionPerformed
-        new TelaBuscaOrdensServico().setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaBuscaOrdensServico()); 
     }//GEN-LAST:event_jButtonBuscarOrdensDeServioActionPerformed
 
     private void jButtonRegistrarTratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarTratamentoActionPerformed
-        new TelaRegistrarTratamento(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaRegistrarTratamento(petshop)); 
     }//GEN-LAST:event_jButtonRegistrarTratamentoActionPerformed
 
 

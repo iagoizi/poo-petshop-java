@@ -239,79 +239,64 @@ public class TelaMenuAdministrador extends javax.swing.JFrame {
         String title = "Confirmação";
         int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
         if (resposta == JOptionPane.YES_OPTION){
-            this.setVisible(false);
-            new TelaDeLogin(petshop).setVisible(true);
+            petshop.voltar();
         }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void jButtonGerarRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarRelatoriosActionPerformed
-        new TelaRelatorio(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaRelatorio(petshop));         
     }//GEN-LAST:event_jButtonGerarRelatoriosActionPerformed
 
     private void jButtonPagarContasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagarContasActionPerformed
-        new TelaPagarContas(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaPagarContas(petshop));   
     }//GEN-LAST:event_jButtonPagarContasActionPerformed
 
     private void jButtonReporEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReporEstoqueActionPerformed
-        new TelaReporEstoque(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaReporEstoque(petshop)); 
     }//GEN-LAST:event_jButtonReporEstoqueActionPerformed
 
     private void jButtonRegistrarTratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarTratamentoActionPerformed
-        new TelaRegistrarTratamento(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaRegistrarTratamento(petshop)); 
     }//GEN-LAST:event_jButtonRegistrarTratamentoActionPerformed
 
     private void jButtonListarOrdensServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarOrdensServicoActionPerformed
-        new TelaDeServicos(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaDeServicos(petshop)); 
     }//GEN-LAST:event_jButtonListarOrdensServicoActionPerformed
 
     private void jButtonListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarClientesActionPerformed
-        new TelaDeClientes(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaDeClientes(petshop)); 
     }//GEN-LAST:event_jButtonListarClientesActionPerformed
 
     private void jButtonListarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarFuncionariosActionPerformed
-        new TelaDeFuncionarios(petshop).setVisible(true);              
-        this.setVisible(false);
+        petshop.irPara(new TelaDeFuncionarios(petshop)); 
     }//GEN-LAST:event_jButtonListarFuncionariosActionPerformed
 
     private void jButtonVenderServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderServicosActionPerformed
-        new TelaVenderServicos(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaVenderServicos(petshop)); 
     }//GEN-LAST:event_jButtonVenderServicosActionPerformed
 
     private void jButtonVenderProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderProdutosActionPerformed
-        new TelaVenderProdutos(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaVenderProdutos(petshop)); 
     }//GEN-LAST:event_jButtonVenderProdutosActionPerformed
 
     private void jButtonCadastrarNovoServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoServicoActionPerformed
-        new TelaCadastroServico(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaCadastroServico(petshop)); 
     }//GEN-LAST:event_jButtonCadastrarNovoServicoActionPerformed
 
     private void jButtonCadastrarNovoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoProdutoActionPerformed
-        new TelaCadastroProduto(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaCadastroProduto(petshop)); 
     }//GEN-LAST:event_jButtonCadastrarNovoProdutoActionPerformed
 
     private void jButtonCadastrarNovoVeterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoVeterinarioActionPerformed
-        new TelaCadastroFuncionario(petshop).setVisible(true);                        
-        this.setVisible(false);
+        petshop.irPara(new TelaCadastroFuncionario(petshop)); 
     }//GEN-LAST:event_jButtonCadastrarNovoVeterinarioActionPerformed
 
     private void jButtonCadastrarNovoVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoVendedorActionPerformed
-        new TelaCadastroFuncionario(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaCadastroFuncionario(petshop)); 
     }//GEN-LAST:event_jButtonCadastrarNovoVendedorActionPerformed
 
     private void jButtonCadastrarNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoClienteActionPerformed
-        new TelaCadastroCliente(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaCadastroCliente(petshop)); 
     }//GEN-LAST:event_jButtonCadastrarNovoClienteActionPerformed
            
 

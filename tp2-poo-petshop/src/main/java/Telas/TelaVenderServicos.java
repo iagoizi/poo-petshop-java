@@ -247,9 +247,7 @@ public class TelaVenderServicos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inputListarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputListarServicoActionPerformed
-        new TelaDeServicos(petshop).setVisible(true);
-                        
-        this.setVisible(false);
+        petshop.irPara(new TelaDeServicos(petshop)); 
     }//GEN-LAST:event_inputListarServicoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
