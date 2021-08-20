@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import Telas.TelaMenuVendedor;
 import Telas.TelaMenuAdministrador;
 import Telas.TelaMenuVeterinario;
+import java.util.Stack;
 
 /**
  *
@@ -27,6 +28,7 @@ public class PetShop {
     private ArrayList<OrdemServico> historicoServicos;
     private ArrayList<Compra> compras;
     private ArrayList<Compra> vendas;
+    private Stack<javax.swing.JFrame> historicoTelas;
 
     public PetShop(String nome) {
         this.nome = nome;
@@ -39,6 +41,7 @@ public class PetShop {
         this.historicoServicos = new ArrayList<>();
         this.compras = new ArrayList<>();
         this.vendas = new ArrayList<>();
+        this.historicoTelas = new Stack<>();
     }
 
     public String getNome() {
@@ -157,5 +160,19 @@ public class PetShop {
     
     void logOut(){
         //chama método para salvar informações em arquivo
+    }
+    
+    void irPara(javax.swing.JFrame destino){        
+        this.historicoTelas.lastElement().setVisible(false);
+        destino.setVisible(true);
+        this.historicoTelas.push(destino);
+    }
+    
+    void voltar(){
+        this.historicoTelas.pop().setVisible(false);
+        if(this.historicoTelas.empty()){
+            return;
+        }
+        this.historicoTelas.lastElement().setVisible(true);
     }
 }
