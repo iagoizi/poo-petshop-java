@@ -6,6 +6,7 @@
 package Telas;
 
 
+import Classes.Administrador;
 import javax.swing.JOptionPane;
 
 import Classes.Cliente;
@@ -13,7 +14,9 @@ import Classes.Data;
 import Classes.Lib;
 import Classes.OrdemServico;
 import Classes.PetShop;
+import Classes.Produto;
 import Classes.Servico;
+import Classes.TipoFuncionario;
 import Classes.Vendedor;
 
 
@@ -281,11 +284,16 @@ public class TelaVenderServicos extends javax.swing.JFrame {
             else{
                 Data data = new Data(dia, mes, ano, hora, minuto);
         
-                for(Servico servicos : petshop.getServicos()){
+                
+                if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR || petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR) {                                     
+                    
+                    boolean sucess = false;
+                    Servico servico = (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
+                        ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).buscarServicos(petshop, id, sucess);                                                      
 
-                    if( id == servicos.getId()){
+                    if(sucess == true){
 
-                        Servico servico = new Servico(servicos.getNome(), servicos.getPreco(), id);
+                        //Servico servico = new Servico(servicos.getNome(), servicos.getPreco(), id);
 
                         for (OrdemServico ordemServico : this.petshop.getOrdemServicos() ){
 
@@ -300,9 +308,29 @@ public class TelaVenderServicos extends javax.swing.JFrame {
                                 int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
                                 if (resposta == JOptionPane.YES_OPTION){
 
-                                    new TelaVenderProdutosDadosComprador(petshop, null , servico, data).setVisible(true);
-
-                                    this.setVisible(false);
+                                    String msg = JOptionPane.showInputDialog("Digite o CPF: ");
+                                    int cpf = Integer.parseInt(msg);
+                                    
+                                    sucess = false;
+                                    for(Cliente cliente : petshop.getClientes() ){
+                                        
+                                        if(cliente.getCpf() == cpf){  
+                                            
+                                            //Acrescentar o if ternário
+                                            Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();
+                                            vendedor.vendaServico(petshop,cliente, servico, data);
+                                                                
+                                            sucess = true;
+                                            break;
+                                        }                                                                                
+                                    }
+                                    
+                                    if(sucess == true){
+                                        JOptionPane.showMessageDialog(null, "Serviço agendado!");
+                                    }
+                                    else {
+                                        JOptionPane.showMessageDialog(null, "Cliente não encontado!");
+                                    }
                                 }
                                 else{
                                     message = "Deseja cadastrar um novo cliente?";

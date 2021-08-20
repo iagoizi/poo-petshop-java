@@ -5,13 +5,17 @@
  */
 package Telas;
 
+import Classes.Administrador;
 import Classes.Cliente;
 import Classes.Compra;
+import Classes.OrdemServico;
 import Classes.PetShop;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import Classes.Produto;
+import Classes.TipoFuncionario;
 import Classes.Vendedor;
+import Classes.Veterinario;
 
 /**
  *
@@ -194,11 +198,13 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
             else{
                 //Arraylist também é classe e esta sendo inicializado
                 ArrayList <Produto> carrinho = new ArrayList<>();
-
-                for(Produto produto : petshop.getProdutos()){
                 
+                if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR || petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR) {                                     
                     
-                    
+                    Produto produto = (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
+                        ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).buscarProduto(petshop, id);
+                
+                                                                                        
                     if( id == produto.getId()){
 
                         //Caso não tenha o produto em estoque
@@ -221,10 +227,30 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                 title = "Confirmação";
                                 resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
                                 if (resposta == JOptionPane.YES_OPTION){
-                                    new TelaVenderProdutosDadosComprador(petshop, carrinho, null, null).setVisible(true);
-
-                                    this.setVisible(false);
-                                    return;
+                                                                        
+                                    String msg = JOptionPane.showInputDialog("Digite o CPF: ");
+                                    int cpf = Integer.parseInt(msg);
+                                    
+                                    boolean sucess = false;
+                                    for(Cliente cliente : petshop.getClientes() ){
+                                        
+                                        if(cliente.getCpf() == cpf){  
+                                                                                        
+                                            Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();
+                                            vendedor.vendaProduto(petshop,cliente, carrinho);
+                                            
+                                            sucess = true;
+                                            break;
+                                        }                                                                                
+                                    }
+                                    
+                                    if(sucess == true){
+                                        JOptionPane.showMessageDialog(null, "Venda concluída!");
+                                    }
+                                    else {
+                                        JOptionPane.showMessageDialog(null, "Cliente não encontado!");
+                                    }
+                                                                      
                                 }
                                 else{
                                     message = "Deseja cadastrar um novo cliente?";
@@ -241,8 +267,10 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                         int cont = 0;
                                         for(Cliente cliente : petshop.getClientes() ){                
                                             if(cont == tam){
+                                                
                                                 Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();
                                                 vendedor.vendaProduto(petshop,cliente, carrinho);
+                                                                                                                                               
                                                 JOptionPane.showMessageDialog(null, "Venda concluída!");
                                             }
                                             cont++;
@@ -265,8 +293,8 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                     }           
                     else{
                         JOptionPane.showMessageDialog(null, "Produto inexiste!");
-                    }
-                }           
+                    }                
+                }                
             }         
         }                               
     }//GEN-LAST:event_onClick
