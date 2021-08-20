@@ -48,7 +48,7 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         inputId = new javax.swing.JTextField();
-        inputSair = new javax.swing.JButton();
+        botaoVoltar = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -95,10 +95,10 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
             }
         });
 
-        inputSair.setText("Sair");
-        inputSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputSairActionPerformed(evt);
+        botaoVoltar.setText("Voltar");
+        botaoVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoVoltarMouseClicked(evt);
             }
         });
 
@@ -107,17 +107,9 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel24)
-                        .addGap(118, 118, 118))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(inputSair, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addContainerGap(144, Short.MAX_VALUE)
+                .addComponent(jLabel24)
+                .addGap(118, 118, 118))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -139,6 +131,12 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                             .addComponent(inputQuantidade)
                             .addComponent(inputId))))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,20 +156,18 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                     .addComponent(jLabel22)
                     .addComponent(inputQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputSair, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputListarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputListarProdutoActionPerformed
-        new TelaDeProdutos(petshop).setVisible(true);
-                        
-        this.setVisible(false);
-    }//GEN-LAST:event_inputListarProdutoActionPerformed
+    private void inputListarProdutoActionPerformed(java.awt.event.ActionEvent evt) {                                                           
+        petshop.irPara(new TelaDeProdutos(petshop)); 
+    }                                                  
 
     private void onClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClick
         //Pegar o id e a quantidade e ir para TelaVenderProdutosComprador
@@ -283,21 +279,16 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputIdActionPerformed
 
-    private void inputSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSairActionPerformed
-        String message = "Deseja sair ?";
-        String title = "Confirmação";
-        int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
-        if (resposta == JOptionPane.YES_OPTION){
-            this.setVisible(false);
-        }
-    }//GEN-LAST:event_inputSairActionPerformed
+    private void botaoVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoVoltarMouseClicked
+        petshop.voltar();
+    }//GEN-LAST:event_botaoVoltarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoVoltar;
     private javax.swing.JTextField inputId;
     private javax.swing.JButton inputListarProduto;
     private javax.swing.JTextField inputQuantidade;
-    private javax.swing.JButton inputSair;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel21;

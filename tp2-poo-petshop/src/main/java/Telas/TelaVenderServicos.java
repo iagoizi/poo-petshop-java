@@ -53,7 +53,6 @@ public class TelaVenderServicos extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         inputId = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         inputMes = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
@@ -62,6 +61,7 @@ public class TelaVenderServicos extends javax.swing.JFrame {
         inputHora = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         inputMinuto = new javax.swing.JTextField();
+        botaoVoltar = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -108,13 +108,6 @@ public class TelaVenderServicos extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Sair");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel25.setText("Mês");
 
@@ -148,6 +141,13 @@ public class TelaVenderServicos extends javax.swing.JFrame {
         inputMinuto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputMinutoActionPerformed(evt);
+            }
+        });
+
+        botaoVoltar.setText("Voltar");
+        botaoVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoVoltarMouseClicked(evt);
             }
         });
 
@@ -198,7 +198,8 @@ public class TelaVenderServicos extends javax.swing.JFrame {
                             .addComponent(inputHora)
                             .addComponent(inputMes)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(botaoVoltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -236,10 +237,10 @@ public class TelaVenderServicos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
                     .addComponent(inputMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
@@ -247,9 +248,7 @@ public class TelaVenderServicos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inputListarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputListarServicoActionPerformed
-        new TelaDeServicos(petshop).setVisible(true);
-                        
-        this.setVisible(false);
+        petshop.irPara(new TelaDeServicos(petshop)); 
     }//GEN-LAST:event_inputListarServicoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -359,15 +358,6 @@ public class TelaVenderServicos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputIdActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String message = "Deseja sair ?";
-        String title = "Confirmação";
-        int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
-        if (resposta == JOptionPane.YES_OPTION){
-            this.setVisible(false);
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void inputMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputMesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputMesActionPerformed
@@ -384,8 +374,13 @@ public class TelaVenderServicos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputMinutoActionPerformed
 
+    private void botaoVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoVoltarMouseClicked
+        petshop.voltar();
+    }//GEN-LAST:event_botaoVoltarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoVoltar;
     private javax.swing.JTextField inputAno;
     private javax.swing.JTextField inputDia;
     private javax.swing.JTextField inputHora;
@@ -394,7 +389,6 @@ public class TelaVenderServicos extends javax.swing.JFrame {
     private javax.swing.JTextField inputMes;
     private javax.swing.JTextField inputMinuto;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;

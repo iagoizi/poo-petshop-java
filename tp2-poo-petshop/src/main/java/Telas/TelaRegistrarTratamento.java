@@ -49,9 +49,7 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        onClick = new javax.swing.JButton();
+        botaoRegistrar = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         inputID = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
@@ -59,18 +57,15 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaOrdens = new javax.swing.JTable();
-
-        jTextField1.setText("jTextField1");
-
-        jCheckBox1.setText("jCheckBox1");
+        botaoVoltar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        onClick.setText("Registrar");
-        onClick.addActionListener(new java.awt.event.ActionListener() {
+        botaoRegistrar.setText("Registrar");
+        botaoRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                onClickActionPerformed(evt);
+                botaoRegistrarActionPerformed(evt);
             }
         });
 
@@ -108,6 +103,13 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tabelaOrdens);
 
+        botaoVoltar2.setText("Voltar");
+        botaoVoltar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoVoltar2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,7 +119,7 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel20)
                                     .addComponent(jLabel19))
@@ -125,9 +127,10 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(inputID)
                                     .addComponent(inputDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(onClick, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(botaoVoltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botaoRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(196, 196, 196)
                         .addComponent(jLabel23)
@@ -154,14 +157,16 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
                     .addComponent(jLabel20)
                     .addComponent(inputDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(onClick, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botaoVoltar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botaoRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void onClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClickActionPerformed
+    private void botaoRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRegistrarActionPerformed
         // TODO add your handling code here:
         if (inputDescricao.getText().isEmpty() || inputID.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -191,7 +196,7 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_onClickActionPerformed
+    }//GEN-LAST:event_botaoRegistrarActionPerformed
 
     private void inputIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIDActionPerformed
         // TODO add your handling code here:
@@ -201,17 +206,22 @@ public class TelaRegistrarTratamento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputDescricaoActionPerformed
 
+    private void botaoVoltar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoVoltar2MouseClicked
+        petshop.voltar();
+    }//GEN-LAST:event_botaoVoltar2MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoRegistrar;
+    private javax.swing.JButton botaoVoltar;
+    private javax.swing.JButton botaoVoltar1;
+    private javax.swing.JButton botaoVoltar2;
     private javax.swing.JTextField inputDescricao;
     private javax.swing.JTextField inputID;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JButton onClick;
     private javax.swing.JTable tabelaOrdens;
     // End of variables declaration//GEN-END:variables
 }

@@ -117,24 +117,20 @@ public class TelaMenuVendedor extends javax.swing.JFrame {
         String title = "Confirmação";
         int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
         if (resposta == JOptionPane.YES_OPTION){
-            this.setVisible(false);
-            new TelaDeLogin(petshop).setVisible(true);
+            petshop.voltar();
         }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void jButtonCadastrarNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoClienteActionPerformed
-        new TelaCadastroCliente(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaCadastroCliente(petshop)); 
     }//GEN-LAST:event_jButtonCadastrarNovoClienteActionPerformed
 
     private void jButtonVenderProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderProdutosActionPerformed
-        new TelaVenderProdutos(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaVenderProdutos(petshop)); 
     }//GEN-LAST:event_jButtonVenderProdutosActionPerformed
 
     private void jButtonVenderServiçosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderServiçosActionPerformed
-        new TelaVenderServicos(petshop).setVisible(true);                       
-        this.setVisible(false);
+        petshop.irPara(new TelaVenderServicos(petshop)); 
     }//GEN-LAST:event_jButtonVenderServiçosActionPerformed
           
 

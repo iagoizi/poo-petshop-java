@@ -4,12 +4,7 @@
  * and open the template in the editor.
  */
 package Classes;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
 
 /**
  *
@@ -23,10 +18,10 @@ public class Lib {
  * @return petshop - Petshop com valores de teste
  */
     public static PetShop testesManuais(){
-        PetShop petshop = new PetShop("s");
+        PetShop petshop = new PetShop("Puppy cat");
         Administrador admin = new Administrador(petshop, "Lore", "admin", "admin", 5000.0);
-        Veterinario veterinario = new Veterinario(petshop, "Julia", "Ju", "123", 3000.0);
-        Vendedor vendedor = new Vendedor(petshop, "Patricia", "Patri", "123", 3000.0);
+        Veterinario veterinario = new Veterinario(petshop, "Julia", "vet", "vet", 3000.0);
+        Vendedor vendedor = new Vendedor(petshop, "Patricia", "vend", "vend", 3000.0);
         ArrayList<Usuario> usuarios = new ArrayList<>();
         usuarios.add(admin);
         usuarios.add(veterinario);
