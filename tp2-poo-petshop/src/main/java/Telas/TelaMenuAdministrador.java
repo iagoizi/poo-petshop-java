@@ -228,7 +228,7 @@ public class TelaMenuAdministrador extends javax.swing.JFrame {
                     .addComponent(jButtonGerarRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonVoltar)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -245,99 +245,75 @@ public class TelaMenuAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void jButtonGerarRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarRelatoriosActionPerformed
-        // TODO add your handling code here:
+        new TelaRelatorio(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonGerarRelatoriosActionPerformed
 
     private void jButtonPagarContasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagarContasActionPerformed
-        // TODO add your handling code here:
+        new TelaPagarContas(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonPagarContasActionPerformed
 
     private void jButtonReporEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReporEstoqueActionPerformed
-        // TODO add your handling code here:
+        new TelaReporEstoque(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonReporEstoqueActionPerformed
 
     private void jButtonRegistrarTratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarTratamentoActionPerformed
-        // TODO add your handling code here:
+        new TelaRegistrarTratamento(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonRegistrarTratamentoActionPerformed
 
     private void jButtonListarOrdensServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarOrdensServicoActionPerformed
-        // TODO add your handling code here:
+        new TelaDeServicos(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonListarOrdensServicoActionPerformed
 
     private void jButtonListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarClientesActionPerformed
-        // TODO add your handling code here:
+        new TelaDeClientes(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonListarClientesActionPerformed
 
     private void jButtonListarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarFuncionariosActionPerformed
-        // TODO add your handling code here:
+        new TelaDeFuncionarios(petshop).setVisible(true);              
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonListarFuncionariosActionPerformed
 
     private void jButtonVenderServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderServicosActionPerformed
-        // TODO add your handling code here:
+        new TelaVenderServicos(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonVenderServicosActionPerformed
 
     private void jButtonVenderProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderProdutosActionPerformed
-        // TODO add your handling code here:
+        new TelaVenderProdutos(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonVenderProdutosActionPerformed
 
     private void jButtonCadastrarNovoServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoServicoActionPerformed
-        // TODO add your handling code here:
+        new TelaCadastroServico(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonCadastrarNovoServicoActionPerformed
 
     private void jButtonCadastrarNovoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoProdutoActionPerformed
-        // TODO add your handling code here:
+        new TelaCadastroProduto(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonCadastrarNovoProdutoActionPerformed
 
     private void jButtonCadastrarNovoVeterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoVeterinarioActionPerformed
-        // TODO add your handling code here:
+        new TelaCadastroFuncionario(petshop).setVisible(true);                        
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonCadastrarNovoVeterinarioActionPerformed
 
     private void jButtonCadastrarNovoVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoVendedorActionPerformed
-        // TODO add your handling code here:
+        new TelaCadastroFuncionario(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonCadastrarNovoVendedorActionPerformed
 
     private void jButtonCadastrarNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoClienteActionPerformed
-        // TODO add your handling code here:
+        new TelaCadastroCliente(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonCadastrarNovoClienteActionPerformed
-    
-   
-    
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        PetShop petshop = Lib.testesManuais();
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaMenuAdministrador(petshop).setVisible(true);
-            }
-        });
-    }
+           
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrarNovoCliente;

@@ -124,11 +124,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="BUSCAR ORDENS DE SERVI&#xc7;O"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscarOrdensDeServioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonRegistrarTratamento">
           <Properties>
             <Property name="text" type="java.lang.String" value="REGISTRAR TRATAMENTO"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRegistrarTratamentoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonVoltar">
           <Properties>

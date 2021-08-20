@@ -62,8 +62,18 @@ public class TelaMenuVeterinario extends javax.swing.JFrame {
         });
 
         jButtonBuscarOrdensDeServio.setText("BUSCAR ORDENS DE SERVIÇO");
+        jButtonBuscarOrdensDeServio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarOrdensDeServioActionPerformed(evt);
+            }
+        });
 
         jButtonRegistrarTratamento.setText("REGISTRAR TRATAMENTO");
+        jButtonRegistrarTratamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarTratamentoActionPerformed(evt);
+            }
+        });
 
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -134,12 +144,13 @@ public class TelaMenuVeterinario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarClientesActionPerformed
-        // AÇÕES DO BOTÃO LISTAR CLINTES:
-        
+        new TelaDeClientes(petshop).setVisible(true);                       
+        this.setVisible(false);      
     }//GEN-LAST:event_jButtonListarClientesActionPerformed
 
     private void jButtonListarOrdensDeServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarOrdensDeServicoActionPerformed
-        // TODO add your handling code here:
+        new TelaDeServicos(petshop).setVisible(true);                       
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonListarOrdensDeServicoActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
@@ -153,41 +164,16 @@ public class TelaMenuVeterinario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuVeterinario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jButtonBuscarOrdensDeServioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarOrdensDeServioActionPerformed
+        new TelaBuscaOrdensServico().setVisible(true);                       
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonBuscarOrdensDeServioActionPerformed
 
-        PetShop petshop = Lib.testesManuais();
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaMenuVeterinario(petshop).setVisible(true);
-            }
-        });
-    }
+    private void jButtonRegistrarTratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarTratamentoActionPerformed
+        new TelaRegistrarTratamento(petshop).setVisible(true);                       
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonRegistrarTratamentoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscarOrdensDeServio;

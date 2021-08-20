@@ -180,6 +180,12 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
+        else if(petshop.getProdutos().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Nenhum produto cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;           
+        }
+        
         else{
             long id = Long.parseLong(inputId.getText());
             int quantidade = Integer.parseInt(inputQuantidade.getText());
@@ -194,7 +200,9 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                 ArrayList <Produto> carrinho = new ArrayList<>();
 
                 for(Produto produto : petshop.getProdutos()){
-
+                
+                    
+                    
                     if( id == produto.getId()){
 
                         //Caso não tenha o produto em estoque
@@ -220,6 +228,7 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                     new TelaVenderProdutosDadosComprador(petshop, carrinho, null, null).setVisible(true);
 
                                     this.setVisible(false);
+                                    return;
                                 }
                                 else{
                                     message = "Deseja cadastrar um novo cliente?";
@@ -283,44 +292,6 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inputSairActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaVenderProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaVenderProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaVenderProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaVenderProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        PetShop petshop = new PetShop("petshop");
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            
-            public void run() {
-                
-                new TelaVenderProdutos(petshop).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField inputId;

@@ -129,24 +129,6 @@ public class TelaDeClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-       // Cliente cliente1 = new Cliente(nome, tipoAnimal, nomePet, endereco, cpf, telefone);7
-        PetShop petshop = Lib.testesManuais();
-       
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-      
-                new TelaDeClientes(petshop).setVisible(true);
-                  
-                
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonVoltar;

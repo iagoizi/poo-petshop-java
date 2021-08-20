@@ -173,7 +173,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
             if(sucess == false){
                 JOptionPane.showMessageDialog(this, "Login/Senha inválido", "Erro", JOptionPane.ERROR_MESSAGE);
             }else{
-                //Vai pra tela
+                this.setVisible(false);
             }                         
         }
     }//GEN-LAST:event_jButtonEntrarActionPerformed

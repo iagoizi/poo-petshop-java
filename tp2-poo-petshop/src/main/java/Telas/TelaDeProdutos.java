@@ -111,23 +111,7 @@ public class TelaDeProdutos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        // para teste
-        PetShop petshop = new PetShop("Teste");
-        ArrayList<Produto> produtos = new ArrayList<>();
-        produtos.add(new Produto("Coleira", 100, 3, 1));
-        petshop.setProdutos(produtos);
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaDeProdutos(petshop).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonVoltar;

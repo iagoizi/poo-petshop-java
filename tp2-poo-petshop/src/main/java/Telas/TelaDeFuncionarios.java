@@ -122,21 +122,6 @@ public class TelaDeFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        PetShop petshop = Lib.testesManuais();
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-      
-                new TelaDeFuncionarios(petshop).setVisible(true);
-                  
-                
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonVoltar;
