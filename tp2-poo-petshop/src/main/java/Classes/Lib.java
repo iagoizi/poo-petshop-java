@@ -33,7 +33,7 @@ public class Lib {
         usuarios.add(vendedor);
         petshop.setUsuarios(usuarios);
         
-        petshop.login("admin", "admin");
+        //petshop.login("admin", "admin");
         
         Cliente cliente = new Cliente("Belo", "Gato", "Lorenzinho", "Rua Pioedosa", 2133321, 577415);
         ArrayList<Cliente> clientes = new ArrayList<>();
@@ -55,6 +55,11 @@ public class Lib {
         petshop.getVendas().add(new Compra("Bala", new Data(12, 12, 2021), 769));
         petshop.getVendas().add(new Compra("Alguma coisa", new Data(12, 12, 2021), 769));
         petshop.getVendas().add(new Compra("Semente", new Data(12, 12, 2021), 769));
+        
+        petshop.getProdutos().add(new Produto("Arroz", 15, 55, 1));
+        petshop.getProdutos().add(new Produto("Feijão", 5, 56, 2));
+        
+        petshop.getClientes().add(new Cliente("João", "Cachorro", "Rex", "Rua Não Sei", 9999, 111));
         
         ArrayList<Servico> servicos = new ArrayList<>();
         servicos.add(new Servico("Banho", 100, 100));

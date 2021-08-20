@@ -5,7 +5,11 @@
  */
 package Classes;
 
+import Telas.TelaDeProdutos;
 import java.util.ArrayList;
+import Telas.TelaMenuVendedor;
+import Telas.TelaMenuAdministrador;
+import Telas.TelaMenuVeterinario;
 
 /**
  *
@@ -130,15 +134,20 @@ public class PetShop {
             
             switch (item.getCargo())
             {
-            case VENDEDOR:
-                //Chama tela de vendedor aqui
+            case VENDEDOR:{                
+                new TelaMenuVendedor(this).setVisible(true);                                         
                 break;
-            case VETERINARIO:
-                //Chama tela de vet aqui
+            }
+            case VETERINARIO:{                
+                new TelaMenuVeterinario(this).setVisible(true);                
                 break;
-            case ADMINISTRADOR:
-                //Chama tela de admin aqui
+            }
+            case ADMINISTRADOR:{                
+                new TelaMenuAdministrador(this).setVisible(true);                
                 break;
+            }
+                
+            
             }
             return true;
         }
