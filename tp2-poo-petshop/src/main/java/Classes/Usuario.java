@@ -98,14 +98,13 @@ public class Usuario {
         this.salario = salario;
     }
     
-    public Cliente buscarCadastro(long cpf, boolean sucess){
+    public Cliente buscarCadastro(long cpf){
         for(Cliente clientes : petshop.getClientes()){
             if(clientes.getCpf() == cpf){
-                sucess = true;
                 return clientes;
             }
         }
-        sucess = false;
+
         return null;  
     }
 

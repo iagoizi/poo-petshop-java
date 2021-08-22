@@ -25,6 +25,13 @@ public class Cliente {
      */
 
     public Cliente() {
+        this.nome = "Desconhecido";
+        this.tipoAnimal = "-";
+        this.nomePet = "-";
+        this.endereco = "-";
+        this.telefone = -1;
+        this.cpf = -1;
+        this.compras = new ArrayList<>();
     }
 
     public Cliente(String nome, String tipoAnimal, String nomePet, String endereco, long telefone, long cpf) {
@@ -35,8 +42,7 @@ public class Cliente {
         this.telefone = telefone;
         this.cpf = cpf;
         this.compras = new ArrayList<>();
-    }
-    
+    }            
     
     public String getNome() {
         return nome;

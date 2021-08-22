@@ -169,134 +169,117 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputListarProdutoActionPerformed(java.awt.event.ActionEvent evt) {                                                           
-        petshop.irPara(new TelaDeProdutos(petshop)); 
-    }                                                  
+    private void inputListarProdutoActionPerformed(java.awt.event.ActionEvent evt) {
+        petshop.irPara(new TelaDeProdutos(petshop));
+    }
 
     private void onClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClick
         //Pegar o id e a quantidade e ir para TelaVenderProdutosComprador
-        
-        if ( inputId.getText().isEmpty() || inputQuantidade.getText().isEmpty() ) {
+        Cliente cliente;
+
+        if (inputId.getText().isEmpty() || inputQuantidade.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
-        }
-        
-        else if(petshop.getProdutos().isEmpty()){
+        } else if (petshop.getProdutos().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nenhum produto cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;           
-        }
-        
-        else{
+            return;
+        } else {
             long id = Long.parseLong(inputId.getText());
             int quantidade = Integer.parseInt(inputQuantidade.getText());
-                
-            if(id < 0 || quantidade < 0){
+
+            if (id < 0 || quantidade < 0) {
                 JOptionPane.showMessageDialog(this, "Preencha com dados válidos", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
-            }
-            
-            else{
+            } else {
                 //Arraylist também é classe e esta sendo inicializado
-                ArrayList <Produto> carrinho = new ArrayList<>();
-                
-                if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR || petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR) {                                     
+                ArrayList<Produto> carrinho = new ArrayList<>();
+
+                if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR || petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR) {
+                    
+                    
                     
                     Produto produto = (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
-                        ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).buscarProduto(petshop, id);
-                
-                                                                                        
-                    if( id == produto.getId()){
+                            ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).buscarProduto(petshop, id);
+                    
+                    
+                    if (produto != null && id == produto.getId()) {
 
                         //Caso não tenha o produto em estoque
-                        if(produto.getQuantidade() == 0){
+                        if (produto.getQuantidade() == 0) {
                             JOptionPane.showMessageDialog(null, "Não temos produto em estoque!");
-                        }   
-                        //Caso tenha a quantidade para compra
-                        else if(produto.getQuantidade() >= quantidade){
+                        } //Caso tenha a quantidade para compra
+                        else if (produto.getQuantidade() >= quantidade) {
 
-                            Produto compra = new Produto(produto.getNome(), produto.getPreco(), quantidade, id);                    
-                            carrinho.add(compra);                  
+                            Produto compra = new Produto(produto.getNome(), produto.getPreco(), quantidade, id);
+                            carrinho.add(compra);
 
                             //Para continuar comprando
                             String message = "Deseja comprar outro produto?";
                             String title = "Confirmação";
                             int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
-                            if (resposta == JOptionPane.NO_OPTION){
+                            if (resposta == JOptionPane.NO_OPTION) {
 
                                 message = "O comprador possui cadastro?";
                                 title = "Confirmação";
                                 resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
-                                if (resposta == JOptionPane.YES_OPTION){
-                                                                        
+                                if (resposta == JOptionPane.YES_OPTION) {
+
                                     String msg = JOptionPane.showInputDialog("Digite o CPF: ");
                                     int cpf = Integer.parseInt(msg);
-                                    
-                                    boolean sucess = false;
-                                    for(Cliente cliente : petshop.getClientes() ){
-                                        
-                                        if(cliente.getCpf() == cpf){  
-                                                                                        
-                                            Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();
-                                            vendedor.vendaProduto(petshop,cliente, carrinho);
-                                            
-                                            sucess = true;
-                                            break;
-                                        }                                                                                
-                                    }
-                                    
-                                    if(sucess == true){
+
+                                    cliente = petshop.getSessaoAtual().buscarCadastro(cpf);
+
+                                    if (cliente != null) {
+                                        (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
+                                                ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).vendaProduto(petshop, cliente, carrinho);
+
                                         JOptionPane.showMessageDialog(null, "Venda concluída!");
-                                    }
-                                    else {
+                                    } else {
                                         JOptionPane.showMessageDialog(null, "Cliente não encontado!");
                                     }
-                                                                      
-                                }
-                                else{
+
+                                } else {
                                     message = "Deseja cadastrar um novo cliente?";
                                     title = "Confirmação";
                                     resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
                                     //Venda do produto cadastrando produto
-                                    if (resposta == JOptionPane.YES_OPTION){
+                                    if (resposta == JOptionPane.YES_OPTION) {
 
                                         new TelaCadastroCliente(petshop).setVisible(true);
 
                                         this.setVisible(false);
 
-                                        int tam = petshop.getClientes().size() - 1;                                                      
+                                        int tam = petshop.getClientes().size() - 1;
                                         int cont = 0;
-                                        for(Cliente cliente : petshop.getClientes() ){                
-                                            if(cont == tam){
-                                                
-                                                Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();
-                                                vendedor.vendaProduto(petshop,cliente, carrinho);
-                                                                                                                                               
+                                        for (Cliente clientes : petshop.getClientes()) {
+                                            if (cont == tam) {
+                                                (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
+                                                        ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).vendaProduto(petshop, clientes, carrinho);
                                                 JOptionPane.showMessageDialog(null, "Venda concluída!");
+                                                break;
                                             }
                                             cont++;
-                                        }                             
-                                    }
-                                    //Venda do produto sem cadastro do cliente
-                                    else{
-
-                                        Vendedor vendedor = (Vendedor) petshop.getSessaoAtual();                                                            
-                                        vendedor.vendaProduto(petshop,null, carrinho);      
+                                        }
+                                    } //Venda do produto sem cadastro do cliente
+                                    else {
+                                        Cliente clienteDesconhecido = new Cliente();
+                                        (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
+                                                ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).vendaProduto(petshop, clienteDesconhecido, carrinho);
                                         JOptionPane.showMessageDialog(null, "Venda concluída!");
                                     }
-                                }                       
-                            }                                                                             
-                        }
-                        //Caso a quantidade solicitada seja maior que do estoque
-                        else{
+                                }
+                            }
+                        } //Caso a quantidade solicitada seja maior que do estoque
+                        else {
                             JOptionPane.showMessageDialog(null, "A quantidade em estoque está abaixo da solicitada!");
                         }
-                    }           
-                    else{
+                    } 
+                    else {
                         JOptionPane.showMessageDialog(null, "Produto inexiste!");
-                    }                
-                }                
-            }         
-        }                               
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_onClick
 
     private void inputQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputQuantidadeActionPerformed
