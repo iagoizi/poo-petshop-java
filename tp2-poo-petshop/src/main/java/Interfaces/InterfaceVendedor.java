@@ -42,9 +42,7 @@ public interface InterfaceVendedor {
         for (Produto produtos : petshop.getProdutos()) {
             if (produtos.getId() == id) {
                 return produtos;
-            } else {
-                return null;
-            }
+            } 
         }
         return null;
     }
@@ -55,14 +53,10 @@ public interface InterfaceVendedor {
         }
     }
 
-    default Servico buscarServicos(PetShop petshop, long id, boolean sucess) {
+    default Servico buscarServicos(PetShop petshop, long id) {
         for (Servico servicos : petshop.getServicos()) {
             if (servicos.getId() == id) {
-                sucess = true;
                 return servicos;
-            } else {
-                sucess = false;
-                return null;
             }
         }
         return null;

@@ -46,12 +46,6 @@ public interface InterfaceVeterinario {
         return null;
     }
 
-    default void listarOrdemServico(PetShop petshop) {
-        for (OrdemServico listarServicos : petshop.getOrdemServicos()) {
-            System.out.println(listarServicos);
-        }
-    }
-
     default void listarClientes(PetShop petshop) {
         for (Cliente cliente : petshop.getClientes()) {
             System.out.println(cliente);
