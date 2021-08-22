@@ -73,6 +73,11 @@ public class TelaDeClientes extends javax.swing.JFrame {
                 botaoVoltarMouseClicked(evt);
             }
         });
+        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,6 +132,10 @@ public class TelaDeClientes extends javax.swing.JFrame {
     private void botaoVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoVoltarMouseClicked
         petshop.voltar();
     }//GEN-LAST:event_botaoVoltarMouseClicked
+
+    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoVoltarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

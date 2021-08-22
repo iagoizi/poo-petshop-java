@@ -25,38 +25,41 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jButtonPagarContas" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonRegistrarTratamento" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonListarClientes" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonVenderServicos" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonCadastrarNovoServico" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonCadastrarNovoVeterinario" alignment="0" pref="290" max="32767" attributes="0"/>
-                          <Component id="jButtonCadastrarNovoCliente" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jButtonReporEstoque" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonListarOrdensServico" alignment="0" pref="290" max="32767" attributes="0"/>
-                          <Component id="jButtonListarFuncionarios" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonVenderProdutos" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonCadastrarNovoVendedor" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonCadastrarNovoProduto" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonGerarRelatorios" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonVoltar" min="-2" pref="79" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jButtonVoltar" min="-2" pref="79" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jButtonListarProdutos" max="32767" attributes="0"/>
+                                  <Component id="jButtonPagarContas" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonRegistrarTratamento" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonListarClientes" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonVenderServicos" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonCadastrarNovoServico" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonCadastrarNovoVeterinario" alignment="0" pref="290" max="32767" attributes="0"/>
+                                  <Component id="jButtonCadastrarNovoCliente" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jButtonReporEstoque" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonListarOrdensServico" alignment="0" pref="290" max="32767" attributes="0"/>
+                                  <Component id="jButtonListarFuncionarios" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonVenderProdutos" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonCadastrarNovoVendedor" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonCadastrarNovoProduto" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonGerarRelatorios" max="32767" attributes="0"/>
+                                  <Component id="jButtonBuscarOrdens" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,8 +104,13 @@
                   <Component id="jButtonGerarRelatorios" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButtonListarProdutos" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="jButtonBuscarOrdens" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
               <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -234,6 +242,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVoltarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonListarProdutos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="LISTAR PRODUTOS"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonListarProdutosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonBuscarOrdens">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="BUSCAR ORDENS DE SERVI&#xc7;O"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscarOrdensActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

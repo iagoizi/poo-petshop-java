@@ -17,8 +17,9 @@ import javax.swing.JOptionPane;
  * @author vitor
  */
 public class TelaPagarContas extends javax.swing.JFrame {
-    
+
     private PetShop petshop;
+
     /**
      * Creates new form TelaCadastroCliente
      */
@@ -215,36 +216,40 @@ public class TelaPagarContas extends javax.swing.JFrame {
 
     private void onClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClickActionPerformed
         // TODO add your handling code here:
-        if (inputDescricao.getText().isEmpty() || inputDia.getText().isEmpty() || 
-                inputMes.getText().isEmpty()|| inputAno.getText().isEmpty() || 
-                inputValor.getText().isEmpty()) {
+        if (inputDescricao.getText().isEmpty() || inputDia.getText().isEmpty()
+                || inputMes.getText().isEmpty() || inputAno.getText().isEmpty()
+                || inputValor.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         String descricao = inputDescricao.getText();
         int dia = Integer.parseInt(inputDia.getText());
         int mes = Integer.parseInt(inputMes.getText());
         int ano = Integer.parseInt(inputAno.getText());
         double valor = Double.parseDouble(inputValor.getText());
         Data dataVencimento = new Data(dia, mes, ano);
-
-         //Se o usuário for administrador...
-        if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR) {
-            Administrador admin = (Administrador) petshop.getSessaoAtual();
-            boolean sucesso = admin.pagarConta(descricao, dataVencimento , valor);
-            if (sucesso) {
-                JOptionPane.showMessageDialog(this,  "Conta paga com sucesso", "Pagamento", JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                JOptionPane.showMessageDialog(this, "Não foi possível efetuar o pagamento", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-            inputDescricao.setText("");
-            inputDia.setText("");
-            inputMes.setText("");
-            inputAno.setText("");
-            inputValor.setText("");
+        if (dia < 0 || dia > 31 || mes < 0 || mes > 12 || ano < 0) {
+            JOptionPane.showMessageDialog(this, "Preencha com dados válidos", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
         } else {
-            JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
+            //Se o usuário for administrador...
+            if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR) {
+                Administrador admin = (Administrador) petshop.getSessaoAtual();
+                boolean sucesso = admin.pagarConta(descricao, dataVencimento, valor);
+                if (sucesso) {
+                    JOptionPane.showMessageDialog(this, "Conta paga com sucesso", "Pagamento", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Não foi possível efetuar o pagamento", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+                inputDescricao.setText("");
+                inputDia.setText("");
+                inputMes.setText("");
+                inputAno.setText("");
+                inputValor.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
         }
 
     }//GEN-LAST:event_onClickActionPerformed

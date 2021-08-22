@@ -5,17 +5,30 @@
  */
 package Telas;
 
+import Classes.OrdemServico;
+import Classes.PetShop;
+import Model.ModeloTabelaCliente;
+import Model.ModeloTabelaOrdemServico;
+import java.util.ArrayList;
+
 /**
  *
  * @author danny
  */
 public class TelaBuscaOrdensServico extends javax.swing.JFrame {
 
+    private ModeloTabelaOrdemServico modeloTabelaOrdens;
+    private final PetShop petshop;
+
     /**
      * Creates new form TelaBuscaOrdensServico
      */
-    public TelaBuscaOrdensServico() {
+    public TelaBuscaOrdensServico(PetShop petshop) {
         initComponents();
+        this.modeloTabelaOrdens = new ModeloTabelaOrdemServico(false);
+        this.jTableOrdenDeServico.setModel(modeloTabelaOrdens);
+        this.modeloTabelaOrdens.setListaOrdens(petshop.getOrdemServicos());
+        this.petshop = petshop;
     }
 
     /**
@@ -29,58 +42,69 @@ public class TelaBuscaOrdensServico extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButtonVoltar = new javax.swing.JButton();
-        jButtonBuscarOrdemDeServico = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldCampoPesquisa = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableOrdenDeServico = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Busca de Ordens de Serviço");
 
         jButtonVoltar.setText("Voltar");
-
-        jButtonBuscarOrdemDeServico.setText("Buscar");
-        jButtonBuscarOrdemDeServico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarOrdemDeServicoActionPerformed(evt);
+        jButtonVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonVoltarMouseClicked(evt);
             }
         });
 
-        jLabel1.setText("Lista de Ordens de Serviço");
+        jTextFieldCampoPesquisa.setToolTipText("Código/Nome do Serviço/Nome do Cliente");
+        jTextFieldCampoPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCampoPesquisaActionPerformed(evt);
+            }
+        });
+        jTextFieldCampoPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldCampoPesquisaKeyReleased(evt);
+            }
+        });
 
-        jLabel2.setText("ID da Ordem de Serviço");
+        jTableOrdenDeServico.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableOrdenDeServico);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonVoltar)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonBuscarOrdemDeServico, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 51, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonVoltar, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldCampoPesquisa, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))))
+                .addGap(0, 33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(80, 80, 80)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBuscarOrdemDeServico)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
-                .addComponent(jButtonVoltar))
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(jTextFieldCampoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonVoltar)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -103,17 +127,48 @@ public class TelaBuscaOrdensServico extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonBuscarOrdemDeServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarOrdemDeServicoActionPerformed
+    private void jTextFieldCampoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCampoPesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonBuscarOrdemDeServicoActionPerformed
+    }//GEN-LAST:event_jTextFieldCampoPesquisaActionPerformed
+
+    private void jTextFieldCampoPesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCampoPesquisaKeyReleased
+        ArrayList<OrdemServico> ordensTemporarias = new ArrayList<>();
+        
+        this.modeloTabelaOrdens = new ModeloTabelaOrdemServico(false);
+        jTableOrdenDeServico.setModel(this.modeloTabelaOrdens);
+        
+        String pesquisa = jTextFieldCampoPesquisa.getText();
+       // Long id = Long.parseLong(pesquisa);
+        
+        if(pesquisa.isEmpty()){
+            this.modeloTabelaOrdens = new ModeloTabelaOrdemServico(false);
+            this.modeloTabelaOrdens.setListaOrdens(petshop.getOrdemServicos());
+            jTableOrdenDeServico.setModel(this.modeloTabelaOrdens);
+        }
+        
+        for(OrdemServico ordem : petshop.getOrdemServicos()){
+            
+            if(ordem.getCliente().getNome().startsWith(pesquisa) || (ordem.getId() + "").startsWith(pesquisa)
+                    || ordem.getServico().getNome().startsWith(pesquisa)){
+                ordensTemporarias.add(ordem);
+            }
+            
+        }
+        this.modeloTabelaOrdens = new ModeloTabelaOrdemServico(false);
+        jTableOrdenDeServico.setModel(this.modeloTabelaOrdens);
+        this.modeloTabelaOrdens.setListaOrdens(ordensTemporarias);
+    }//GEN-LAST:event_jTextFieldCampoPesquisaKeyReleased
+
+    private void jButtonVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVoltarMouseClicked
+        petshop.voltar();
+    }//GEN-LAST:event_jButtonVoltarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBuscarOrdemDeServico;
     private javax.swing.JButton jButtonVoltar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableOrdenDeServico;
+    private javax.swing.JTextField jTextFieldCampoPesquisa;
     // End of variables declaration//GEN-END:variables
 }
