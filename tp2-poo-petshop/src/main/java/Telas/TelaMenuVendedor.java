@@ -124,7 +124,7 @@ public class TelaMenuVendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void jButtonCadastrarNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoClienteActionPerformed
-        petshop.irPara(new TelaCadastroCliente(petshop)); 
+        petshop.irPara(new TelaCadastroCliente(petshop, false)); 
     }//GEN-LAST:event_jButtonCadastrarNovoClienteActionPerformed
 
     private void jButtonVenderProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderProdutosActionPerformed

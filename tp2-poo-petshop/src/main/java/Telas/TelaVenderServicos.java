@@ -313,10 +313,8 @@ public class TelaVenderServicos extends javax.swing.JFrame {
                                     resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
                                     //Venda do servico cadastrando produto
                                     if (resposta == JOptionPane.YES_OPTION) {
-
-                                        new TelaCadastroCliente(petshop).setVisible(true);
-
-                                        this.setVisible(false);
+                                        
+                                        petshop.irPara(new TelaCadastroCliente(petshop, true));                                        
 
                                         int tam = petshop.getClientes().size() - 1;
                                         int cont = 0;

@@ -321,7 +321,7 @@ public class TelaMenuAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCadastrarNovoVendedorActionPerformed
 
     private void jButtonCadastrarNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoClienteActionPerformed
-        petshop.irPara(new TelaCadastroCliente(petshop)); 
+        petshop.irPara(new TelaCadastroCliente(petshop, false)); 
     }//GEN-LAST:event_jButtonCadastrarNovoClienteActionPerformed
 
     private void jButtonListarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarProdutosActionPerformed

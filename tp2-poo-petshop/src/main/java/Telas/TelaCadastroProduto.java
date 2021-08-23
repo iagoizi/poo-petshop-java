@@ -178,29 +178,49 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+        System.out.println("1 - O preco é: "+ inputPreco.getText());
+        
         String nome = inputNome.getText();
         double preco = Double.parseDouble(inputPreco.getText());
         int quantidade = Integer.parseInt(inputQuantidade.getText());
         long id = Long.parseLong(inputID.getText());
-        
-        //Se o usuário for administrador...
-        if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR) {
-            Administrador admin = (Administrador) petshop.getSessaoAtual();
-            boolean sucesso = admin.cadastrarProduto(nome, preco, quantidade, id);
-            
-            if (sucesso) {
-                JOptionPane.showMessageDialog(this,  "Produto cadastrado com sucesso", "Concluir", JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                JOptionPane.showMessageDialog(this, "Produto já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+
+        //Verificar ID
+        boolean idRepetido = false;
+        for(Produto produto : petshop.getProdutos()){
+            if(produto.getId() == id){
+                idRepetido = true;
             }
+        }                
+        
+        if(idRepetido == true){
+            JOptionPane.showMessageDialog(this, "Preencha com dados válidos", "Erro", JOptionPane.ERROR_MESSAGE);
             inputNome.setText("");
             inputPreco.setText("");
             inputID.setText("");
             inputQuantidade.setText("");
-        } else {
-            JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
         }
+        else{
+            //Se o usuário for administrador...
+            if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR) {
+
+                Administrador admin = (Administrador) petshop.getSessaoAtual();
+                boolean sucesso = admin.cadastrarProduto(nome, preco, quantidade, id);
+
+                if (sucesso) {
+                    JOptionPane.showMessageDialog(this,  "Produto cadastrado com sucesso", "Concluir", JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(this, "Produto já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+                inputNome.setText("");
+                inputPreco.setText("");
+                inputID.setText("");
+                inputQuantidade.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
+            }            
+        }                
     }//GEN-LAST:event_onClickActionPerformed
 
     private void inputNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeActionPerformed

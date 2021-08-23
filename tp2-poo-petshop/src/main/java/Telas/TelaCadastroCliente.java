@@ -20,12 +20,13 @@ import javax.swing.JOptionPane;
 public class TelaCadastroCliente extends javax.swing.JFrame {
 
     private PetShop petshop;
-
+    private boolean apenasUmCadastro;
     /**
      * Creates new form TelaCadastroCliente
      */
-    public TelaCadastroCliente(PetShop petshop) {
+    public TelaCadastroCliente(PetShop petshop, boolean apenasUmCadastro) {
         initComponents();
+        this.apenasUmCadastro = apenasUmCadastro;
         this.petshop = petshop;
     }
 
@@ -262,35 +263,67 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Preencha todos os dados", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
+        if(apenasUmCadastro == false){
+            //Se o usuário for administrador ou vendedor...
+            if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR || petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR) {
 
-        //Se o usuário for administrador ou vendedor...
-        if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR || petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR) {
-
-            String nome = inputNome.getText();
-            String tipoPet = inputTipoPet.getText();
-            String nomePet = inputNomePet.getText();
-            String endereco = inputEndereco.getText();
-            long telefone = Long.parseLong(inputTelefone.getText());
-            long cpf = Long.parseLong(inputCpf.getText());
-            TipoFuncionario cargo = petshop.getSessaoAtual().getCargo();
-            //Fazendo o casting para o tipo adequado de usuário
-            Cliente clienteCadastrado
-                    = (cargo == TipoFuncionario.VENDEDOR
-                            ? ((Vendedor) petshop.getSessaoAtual()) : (Administrador) petshop.getSessaoAtual())
-                            .cadastrarCliente(petshop, nome, tipoPet, nomePet, endereco, telefone, cpf);
-            if (clienteCadastrado != null) {
-                JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+                String nome = inputNome.getText();
+                String tipoPet = inputTipoPet.getText();
+                String nomePet = inputNomePet.getText();
+                String endereco = inputEndereco.getText();
+                long telefone = Long.parseLong(inputTelefone.getText());
+                long cpf = Long.parseLong(inputCpf.getText());
+                TipoFuncionario cargo = petshop.getSessaoAtual().getCargo();
+                //Fazendo o casting para o tipo adequado de usuário
+                Cliente clienteCadastrado
+                        = (cargo == TipoFuncionario.VENDEDOR
+                                ? ((Vendedor) petshop.getSessaoAtual()) : (Administrador) petshop.getSessaoAtual())
+                                .cadastrarCliente(petshop, nome, tipoPet, nomePet, endereco, telefone, cpf);
+                if (clienteCadastrado != null) {
+                    JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Cliente já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+                inputNome.setText("");
+                inputCpf.setText("");
+                inputEndereco.setText("");
+                inputNomePet.setText("");
+                inputTelefone.setText("");
+                inputTipoPet.setText("");
             } else {
-                JOptionPane.showMessageDialog(this, "Cliente já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
             }
-            inputNome.setText("");
-            inputCpf.setText("");
-            inputEndereco.setText("");
-            inputNomePet.setText("");
-            inputTelefone.setText("");
-            inputTipoPet.setText("");
-        } else {
-            JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        else /* if(apenasUmCadastro == true)*/{
+            //Se o usuário for administrador ou vendedor...
+            if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR || petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR) {
+
+                String nome = inputNome.getText();
+                String tipoPet = inputTipoPet.getText();
+                String nomePet = inputNomePet.getText();
+                String endereco = inputEndereco.getText();
+                long telefone = Long.parseLong(inputTelefone.getText());
+                long cpf = Long.parseLong(inputCpf.getText());
+                TipoFuncionario cargo = petshop.getSessaoAtual().getCargo();
+                //Fazendo o casting para o tipo adequado de usuário
+                Cliente clienteCadastrado
+                        = (cargo == TipoFuncionario.VENDEDOR
+                                ? ((Vendedor) petshop.getSessaoAtual()) : (Administrador) petshop.getSessaoAtual())
+                                .cadastrarCliente(petshop, nome, tipoPet, nomePet, endereco, telefone, cpf);
+                if (clienteCadastrado != null) {
+                    JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Cliente já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+                
+                /*"Botão voltar"*/
+                petshop.voltar();
+                
+            } else {
+                JOptionPane.showMessageDialog(this, "Acesso negado", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            
         }
     }//GEN-LAST:event_botaoCadastrarMouseClicked
 

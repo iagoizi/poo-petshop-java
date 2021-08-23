@@ -16,6 +16,10 @@ import Classes.Produto;
 import Classes.TipoFuncionario;
 import Classes.Vendedor;
 import Classes.Veterinario;
+import javax.swing.JFrame;
+
+ import java.util.Scanner;
+ import java.lang.Thread;
 
 /**
  *
@@ -240,12 +244,11 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                     message = "Deseja cadastrar um novo cliente?";
                                     title = "Confirmação";
                                     resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
-                                    //Venda do produto cadastrando produto                                    
-                                    if (resposta == JOptionPane.YES_OPTION) {
-
-                                        new TelaCadastroCliente(petshop).setVisible(true);
-                                        this.setVisible(false);
-
+                                    //Venda do produto cadastrando produto      
+                                    if (resposta == JOptionPane.YES_OPTION) {                                        
+                                        
+                                        petshop.irPara(new TelaCadastroCliente(petshop, true));
+                                                                               
                                         int tam = petshop.getClientes().size() - 1;
                                         int cont = 0;
                                         for (Cliente clientes : petshop.getClientes()) {
@@ -257,7 +260,8 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                                 break;
                                             }
                                             cont++;
-                                        }
+                                        }                                        
+                                        
                                     } //Venda do produto sem cadastro do cliente
                                     else {
                                         Cliente clienteDesconhecido = new Cliente();
@@ -266,6 +270,7 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                         JOptionPane.showMessageDialog(null, "Venda concluída!");
                                         carrinho.clear();
                                     }
+                                                                        
                                 }
                             }
                         } //Caso a quantidade solicitada seja maior que do estoque
@@ -277,6 +282,9 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                     }
                 }
             }
+            
+            inputId.setText("");
+            inputQuantidade.setText("");            
         }
     }//GEN-LAST:event_onClick
 
