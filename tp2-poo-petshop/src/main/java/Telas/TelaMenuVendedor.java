@@ -7,6 +7,8 @@ package Telas;
 
 import Classes.Lib;
 import Classes.PetShop;
+import Classes.Produto;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -126,7 +128,8 @@ public class TelaMenuVendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCadastrarNovoClienteActionPerformed
 
     private void jButtonVenderProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderProdutosActionPerformed
-        petshop.irPara(new TelaVenderProdutos(petshop)); 
+        ArrayList<Produto> carrinho = new ArrayList<>();
+        petshop.irPara(new TelaVenderProdutos(petshop, carrinho)); 
     }//GEN-LAST:event_jButtonVenderProdutosActionPerformed
 
     private void jButtonVenderServiçosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderServiçosActionPerformed

@@ -7,6 +7,8 @@ package Telas;
 
 import Classes.Lib;
 import Classes.PetShop;
+import Classes.Produto;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -245,7 +247,7 @@ public class TelaMenuAdministrador extends javax.swing.JFrame {
                     .addComponent(jButtonPagarContas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonGerarRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonListarProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBuscarOrdens, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
@@ -298,7 +300,8 @@ public class TelaMenuAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVenderServicosActionPerformed
 
     private void jButtonVenderProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderProdutosActionPerformed
-        petshop.irPara(new TelaVenderProdutos(petshop)); 
+        ArrayList<Produto> carrinho = new ArrayList<>();
+        petshop.irPara(new TelaVenderProdutos(petshop, carrinho)); 
     }//GEN-LAST:event_jButtonVenderProdutosActionPerformed
 
     private void jButtonCadastrarNovoServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarNovoServicoActionPerformed
