@@ -27,9 +27,11 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
      * Creates new form TelaCadastroCliente
      */
     private PetShop petshop;
+    ArrayList<Produto> carrinho;
 
-    public TelaVenderProdutos(PetShop petshop) {
+    public TelaVenderProdutos(PetShop petshop, ArrayList<Produto> carrinho) {
         initComponents();
+        this.carrinho = new ArrayList<>();
         this.petshop = petshop;
     }
 
@@ -192,16 +194,12 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                 return;
             } else {
                 //Arraylist também é classe e esta sendo inicializado
-                ArrayList<Produto> carrinho = new ArrayList<>();
 
                 if (petshop.getSessaoAtual().getCargo() == TipoFuncionario.ADMINISTRADOR || petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR) {
-                    
-                    
-                    
+
                     Produto produto = (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
                             ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).buscarProduto(petshop, id);
-                    
-                    
+
                     if (produto != null && id == produto.getId()) {
 
                         //Caso não tenha o produto em estoque
@@ -234,19 +232,18 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                                 ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).vendaProduto(petshop, cliente, carrinho);
 
                                         JOptionPane.showMessageDialog(null, "Venda concluída!");
+                                        carrinho.clear();
                                     } else {
                                         JOptionPane.showMessageDialog(null, "Cliente não encontado!");
                                     }
-
                                 } else {
                                     message = "Deseja cadastrar um novo cliente?";
                                     title = "Confirmação";
                                     resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
-                                    //Venda do produto cadastrando produto
+                                    //Venda do produto cadastrando produto                                    
                                     if (resposta == JOptionPane.YES_OPTION) {
 
                                         new TelaCadastroCliente(petshop).setVisible(true);
-
                                         this.setVisible(false);
 
                                         int tam = petshop.getClientes().size() - 1;
@@ -256,6 +253,7 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                                 (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
                                                         ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).vendaProduto(petshop, clientes, carrinho);
                                                 JOptionPane.showMessageDialog(null, "Venda concluída!");
+                                                carrinho.clear();
                                                 break;
                                             }
                                             cont++;
@@ -266,6 +264,7 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                         (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
                                                 ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).vendaProduto(petshop, clienteDesconhecido, carrinho);
                                         JOptionPane.showMessageDialog(null, "Venda concluída!");
+                                        carrinho.clear();
                                     }
                                 }
                             }
@@ -273,8 +272,7 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                         else {
                             JOptionPane.showMessageDialog(null, "A quantidade em estoque está abaixo da solicitada!");
                         }
-                    } 
-                    else {
+                    } else {
                         JOptionPane.showMessageDialog(null, "Produto inexiste!");
                     }
                 }
