@@ -30,6 +30,7 @@ public interface InterfaceVendedor {
         if (petshop.getClientes().contains(cliente)) {
             return null;
         }
+        /*adicionando o cliente no vetor de clientes*/
         petshop.getClientes().add(cliente);
         return cliente;
     }
@@ -46,14 +47,18 @@ public interface InterfaceVendedor {
         }
         return null;
     }
-
+    
+    /*realiza a listagem dos produtos*/
     default void listarProdutos(PetShop petshop) {
+        /*percorre o vetor de produtos e realiza a impressão em seguida*/
         for (Produto produtos : petshop.getProdutos()) {
             System.out.println(produtos.toString());
         }
     }
-
+    
+    /*procura um determinado serviço e realiza o retorno deste por meio da função*/
     default Servico buscarServicos(PetShop petshop, long id) {
+        /*percorre o vetor e faz comparações por meio do if*/
         for (Servico servicos : petshop.getServicos()) {
             if (servicos.getId() == id) {
                 return servicos;
@@ -61,13 +66,16 @@ public interface InterfaceVendedor {
         }
         return null;
     }
-
+    
+    /*realiza a listagem de todos os serviços*/
     default void listarServicos(PetShop petshop) {
+        /*percorre o vetor de serviços e faz a impressão dos dados*/
         for (Servico servicos : petshop.getServicos()) {
             System.out.println(servicos.toString());
         }
     }
 
+    /*método responsável por realizar a venda de um determinado serviço*/
     default void vendaServico(PetShop petshop, Cliente cliente, Servico servico, Data dataServico) {
         long id = 0;
         //Se o vetor não estiver vazio, passamos para o próximo id
@@ -76,14 +84,16 @@ public interface InterfaceVendedor {
         }
         //criamos a ordem de serviço utilizando as informações presentes no vetor
         OrdemServico ordemservico = new OrdemServico(servico, cliente, dataServico, id, "");
+        //adicionamos a ordem de serviço no vetor de ordens do petshop
         petshop.getOrdemServicos().add(ordemservico);
     }
-
+    
+    /*método responsável por realizar a venda de um determinado produto*/
     default void vendaProduto(PetShop petshop, Cliente cliente, ArrayList<Produto> carrinho) {
 
         String descricaoCompra = "";
         double preco = 0.0;
-
+        //percorre a lista de produtos
         for (Produto produto : carrinho) {
             descricaoCompra += produto.getQuantidade() + "x " + produto.getNome() + " (R$ " + produto.getPreco() + " cada)";
             if (produto.getId() != carrinho.get(carrinho.size() - 1).getId()) {
@@ -91,7 +101,7 @@ public interface InterfaceVendedor {
             }
 
             preco += produto.getPreco() * produto.getQuantidade();
-
+            //faz com que a venda aconteça
             for (Produto produtoEstoque : petshop.getProdutos()) {
                 if (produto.equals(produtoEstoque)) {
                     produtoEstoque.setQuantidade(produtoEstoque.getQuantidade() - produto.getQuantidade());
@@ -101,10 +111,13 @@ public interface InterfaceVendedor {
                 }
             }
         }
-
+        //cria uma nova compra com as informações presentes acima
         Compra venda = new Compra(descricaoCompra, preco);
+        //faz o pagamento
         venda.pagar();
+        //adiciona a venda no vetor de vendas do petshop
         petshop.getVendas().add(venda);
+        //verifica se o cliente existe
         for (Cliente clientes : petshop.getClientes()) {
             if (cliente.equals(clientes)) {
                 clientes.getCompras().add(venda);

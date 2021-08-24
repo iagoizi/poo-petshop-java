@@ -15,8 +15,10 @@ import javax.swing.JOptionPane;
  *
  * @author vitor
  */
-public class Vendedor extends Usuario implements InterfaceVendedor{
 
+/*criando a classe vendedor e fazendo ela herdar os dados da classe usuário*/
+public class Vendedor extends Usuario implements InterfaceVendedor{
+    /*criando o construtor de vendedor*/
     public Vendedor(PetShop petshop, String nome, String usuario, String senha, double salario) {
         super(petshop, nome, TipoFuncionario.VENDEDOR, usuario, senha, salario);
     }

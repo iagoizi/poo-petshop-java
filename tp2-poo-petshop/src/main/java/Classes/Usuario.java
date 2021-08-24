@@ -12,6 +12,7 @@ import java.util.List;
  * @author vitor
  */
 public class Usuario {
+    /*criando os atributos que serão usados*/
     protected PetShop petshop;
     protected String nome;
     protected TipoFuncionario cargo;
@@ -19,6 +20,7 @@ public class Usuario {
     protected String senha;
     protected double salario;
     
+    /*criando o construtor da classse*/
     public Usuario(PetShop petshop, String nome, TipoFuncionario cargo, String usuario, String senha,double salario) {
         this.nome = nome;
         this.cargo = cargo;
@@ -28,78 +30,56 @@ public class Usuario {
         this.petshop = petshop;
     }
     
-    /**
-     * @return the nome
-     */
+    /* 
+        os métodos gets retornam os dados
+        os métodos sets fazem as alterações dos dados
+    */
+    
     public String getNome() {
         return nome;
     }
 
-    /**
-     * @param nome the nome to set
-     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    /**
-     * @return the cargo
-     */
     public TipoFuncionario getCargo() {
         return cargo;
     }
 
-    /**
-     * @param cargo the cargo to set
-     */
     public void setCargo(TipoFuncionario cargo) {
         this.cargo = cargo;
     }
 
-    /**
-     * @return the usuario
-     */
     public String getUsuario() {
         return usuario;
     }
-
-    /**
-     * @param usuario the usuario to set
-     */
+    
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
-    /**
-     * @return the senha
-     */
     public String getSenha() {
         return senha;
     }
 
-    /**
-     * @param senha the senha to set
-     */
     public void setSenha(String senha) {
         this.senha = senha;
     }
 
-    /**
-     * @return the salario
-     */
     public double getSalario() {
         return salario;
     }
-
-    /**
-     * @param salario the salario to set
-     */
+    
     public void setSalario(double salario) {
         this.salario = salario;
     }
     
+    /*método responsável por buscar um cadastro de um determinado cliente*/
     public Cliente buscarCadastro(long cpf){
+        //percorre o vetor de clientes contido no petshop
         for(Cliente clientes : petshop.getClientes()){
+            //realiza a comparação por meio do cpf. sendo verdadeiro, retorna o cliente. sendo falso, retorna null.
             if(clientes.getCpf() == cpf){
                 return clientes;
             }
