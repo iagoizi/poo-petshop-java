@@ -18,8 +18,10 @@ import Classes.Vendedor;
 import Classes.Veterinario;
 import javax.swing.JFrame;
 
- import java.util.Scanner;
- import java.lang.Thread;
+import java.util.Scanner;
+import java.lang.Thread;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,11 +34,13 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
      */
     private PetShop petshop;
     ArrayList<Produto> carrinho;
+    private boolean estaEsperando;
 
     public TelaVenderProdutos(PetShop petshop, ArrayList<Produto> carrinho) {
         initComponents();
         this.carrinho = new ArrayList<>();
         this.petshop = petshop;
+        estaEsperando = false;
     }
 
     /**
@@ -66,6 +70,11 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         inputListarProduto.setText("Listar Produtos");
         inputListarProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -244,33 +253,19 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                                     message = "Deseja cadastrar um novo cliente?";
                                     title = "Confirmação";
                                     resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
-                                    //Venda do produto cadastrando produto      
-                                    if (resposta == JOptionPane.YES_OPTION) {                                        
-                                        
+                                    //Se ele quiser cadastrar o cliente, vamos para a tela de cadastro.      
+                                    if (resposta == JOptionPane.YES_OPTION) {
                                         petshop.irPara(new TelaCadastroCliente(petshop, true));
-                                                                               
-                                        int tam = petshop.getClientes().size() - 1;
-                                        int cont = 0;
-                                        for (Cliente clientes : petshop.getClientes()) {
-                                            if (cont == tam) {
-                                                (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
-                                                        ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).vendaProduto(petshop, clientes, carrinho);
-                                                JOptionPane.showMessageDialog(null, "Venda concluída!");
-                                                carrinho.clear();
-                                                break;
-                                            }
-                                            cont++;
-                                        }                                        
-                                        
-                                    } //Venda do produto sem cadastro do cliente
-                                    else {
+                                        //A finalização da compra vai acontecer quando a tela voltar a aparecer (listener de "component shown").
+                                        estaEsperando = true;
+                                    } else {//Venda do produto sem cadastro do cliente
                                         Cliente clienteDesconhecido = new Cliente();
                                         (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
                                                 ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).vendaProduto(petshop, clienteDesconhecido, carrinho);
                                         JOptionPane.showMessageDialog(null, "Venda concluída!");
                                         carrinho.clear();
                                     }
-                                                                        
+
                                 }
                             }
                         } //Caso a quantidade solicitada seja maior que do estoque
@@ -282,9 +277,9 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
                     }
                 }
             }
-            
+
             inputId.setText("");
-            inputQuantidade.setText("");            
+            inputQuantidade.setText("");
         }
     }//GEN-LAST:event_onClick
 
@@ -299,6 +294,17 @@ public class TelaVenderProdutos extends javax.swing.JFrame {
     private void botaoVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoVoltarMouseClicked
         petshop.voltar();
     }//GEN-LAST:event_botaoVoltarMouseClicked
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        if (estaEsperando) {
+            estaEsperando = false;
+            Cliente cliente = petshop.getClientes().get(petshop.getClientes().size() - 1);
+            (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
+                    ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).vendaProduto(petshop, cliente, carrinho);
+            JOptionPane.showMessageDialog(null, "Venda concluída!");
+            carrinho.clear();
+        }
+    }//GEN-LAST:event_formComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
