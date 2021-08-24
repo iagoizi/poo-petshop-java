@@ -10,8 +10,11 @@ import Interfaces.InterfaceVeterinario;
  *
  * @author danilo
  */
-public class Veterinario extends Usuario implements InterfaceVeterinario{
 
+//criação da classe Veterinario, sendo especificado que ela herda da classe usuario
+//e suas funcionalidades estão em InterfaceVeterinario
+public class Veterinario extends Usuario implements InterfaceVeterinario{
+    //construturo de veterinario
     public Veterinario(PetShop petshop, String nome,  String usuario, String senha, double salario) {
         super(petshop, nome, TipoFuncionario.VETERINARIO, usuario, senha, salario);
     }

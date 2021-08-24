@@ -14,7 +14,7 @@ public class OrdemServico {
     /**
      * @return the data
      */
-    
+    //definição dos atributos da classe
     private Servico servico;
     private Cliente cliente;
     private Data data; 
@@ -22,6 +22,7 @@ public class OrdemServico {
     private String observacao; 
      
     
+    //construtor da classe Ordem de Serviço
     public OrdemServico (Servico servico, Cliente cliente, Data data, long id, String observacao) {
         setServico(servico);
         setCliente(cliente);
@@ -29,10 +30,11 @@ public class OrdemServico {
         setId(id);
         setObservacao(observacao);
     }
-    
+        
     public OrdemServico (){
     }
-   
+    
+    //Getters e Setters
     public Servico getServico (){
         return servico;
     }
@@ -72,7 +74,8 @@ public class OrdemServico {
     public void setId(long id){
         this.id = id;
     }
-
+    
+    //sobrecarga do método equals
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof OrdemServico)) return false;
@@ -81,16 +84,13 @@ public class OrdemServico {
          return this.id == comp.getId();
      }
     }
-    
-    
-    
-    
+                
     @Override
+    //sobrecarga do método toString
     public String toString() {
         return "" + 
                 this.data + "|" + this.id + "|" + 
                 this.servico + "|" + this.cliente.getNome() 
                 + "|" + this.observacao;
-    }
-    
+    }    
 }   
