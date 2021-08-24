@@ -49,22 +49,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonListarClientes" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonListarOrdensDeServico" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonBuscarOrdensDeServio" pref="348" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonRegistrarTratamento" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jButtonListarClientes" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jButtonListarOrdensDeServico" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jButtonBuscarOrdensDeServio" alignment="0" pref="348" max="32767" attributes="0"/>
+                              <Component id="jButtonRegistrarTratamento" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jButtonVoltar" alignment="0" min="-2" max="-2" attributes="0"/>

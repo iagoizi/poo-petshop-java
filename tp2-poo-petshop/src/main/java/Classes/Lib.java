@@ -50,14 +50,22 @@ public class Lib {
         petshop.getProdutos().add(new Produto("Ração", 15, 55, 1));
         petshop.getProdutos().add(new Produto("Bala", 5, 56, 2));
         
-        petshop.getClientes().add(new Cliente("João", "Cachorro", "Rex", "Rua Não Sei", 9999, 111));
-        
+        petshop.getClientes().add(new Cliente("João", "Cachorro", "Rex", "Rua Viegas", 9999, 111));
+        Cliente cliente2 = new Cliente("Maria", "Hamister", "Nino", "Rua Lourdes", 122623, 123);
+        petshop.getClientes().add(cliente2); 
+                
         ArrayList<Servico> servicos = new ArrayList<>();
         servicos.add(new Servico("Banho", 100, 100));
         servicos.add(new Servico("Consulta", 100, 0));
         petshop.setServicos(servicos);
         
-        petshop.getOrdemServicos().add(new OrdemServico(new Servico("Consulta", 0.0, 0), cliente, new Data(12, 12, 2021), 0, ""));
+        petshop.getOrdemServicos().add(new OrdemServico(new Servico("Consulta", 50.0, 0), cliente, new Data(12, 12, 2021), 0, ""));
+        petshop.getOrdemServicos().add(new OrdemServico(new Servico("Banho", 100.0, 1), cliente2, new Data(13, 7, 2021), 1, ""));
+        petshop.getOrdemServicos().add(new OrdemServico(new Servico("Tosa", 150.0, 2), petshop.getClientes().get(1), new Data(20, 8, 2021), 2, ""));
+        petshop.getOrdemServicos().add(new OrdemServico(new Servico("Tosa", 150.0, 3), petshop.getClientes().get(2), new Data(30, 11, 2021), 3, ""));
+
+        
+
         return petshop;
     }
 }

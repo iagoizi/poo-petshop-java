@@ -87,18 +87,12 @@ public class TelaMenuVeterinario extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jButtonListarClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jButtonListarOrdensDeServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jButtonBuscarOrdensDeServio, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonListarClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonListarOrdensDeServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonBuscarOrdensDeServio, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
                             .addComponent(jButtonRegistrarTratamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jButtonVoltar)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -147,7 +141,7 @@ public class TelaMenuVeterinario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonListarClientesActionPerformed
 
     private void jButtonListarOrdensDeServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarOrdensDeServicoActionPerformed
-        petshop.irPara(new TelaDeClientes(petshop)); 
+        petshop.irPara(new TelaOrdensDeServico(petshop)); 
     }//GEN-LAST:event_jButtonListarOrdensDeServicoActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
