@@ -137,10 +137,12 @@ public class TelaMenuVeterinario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarClientesActionPerformed
+        //chama a tela de listagem de cliente e insere no historico de telas
         petshop.irPara(new TelaDeClientes(petshop)); 
     }//GEN-LAST:event_jButtonListarClientesActionPerformed
 
     private void jButtonListarOrdensDeServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarOrdensDeServicoActionPerformed
+        //chama a tela de listagem de Ordens de Serviços e insere no historico de telas
         petshop.irPara(new TelaOrdensDeServico(petshop)); 
     }//GEN-LAST:event_jButtonListarOrdensDeServicoActionPerformed
 
@@ -155,10 +157,12 @@ public class TelaMenuVeterinario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void jButtonBuscarOrdensDeServioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarOrdensDeServioActionPerformed
+        //chama a tela de listagem Busca de Orden de Serviço e insere no historico de telas
         petshop.irPara(new TelaBuscaOrdensServico(petshop)); 
     }//GEN-LAST:event_jButtonBuscarOrdensDeServioActionPerformed
 
     private void jButtonRegistrarTratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarTratamentoActionPerformed
+        //chama a tela de Registro de Tratamento e insere no historico de telas
         petshop.irPara(new TelaRegistrarTratamento(petshop)); 
     }//GEN-LAST:event_jButtonRegistrarTratamentoActionPerformed
 

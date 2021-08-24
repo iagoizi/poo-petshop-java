@@ -20,9 +20,7 @@ public class Cliente {
     private long cpf;
     ArrayList<Compra> compras;
     
-    /**
-     * @return the nome
-     */
+    
 
     public Cliente() {
         this.nome = "Desconhecido";
@@ -33,7 +31,7 @@ public class Cliente {
         this.cpf = -1;
         this.compras = new ArrayList<>();
     }
-
+    /*Construtor de Cliente*/
     public Cliente(String nome, String tipoAnimal, String nomePet, String endereco, long telefone, long cpf) {
         this.nome = nome;
         this.tipoAnimal = tipoAnimal;
@@ -43,84 +41,62 @@ public class Cliente {
         this.cpf = cpf;
         this.compras = new ArrayList<>();
     }            
-    
+    // getters e setters de Cliente
     public String getNome() {
         return nome;
     }
 
-    /**
-     * @param nome the nome to set
-     */
+    
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    /**
-     * @return the tipoAnimal
-     */
+    
     public String getTipoAnimal() {
         return tipoAnimal;
     }
 
-    /**
-     * @param tipoAnimal the tipoAnimal to set
-     */
+   
     public void setTipoAnimal(String tipoAnimal) {
         this.tipoAnimal = tipoAnimal;
     }
 
-    /**
-     * @return the nomePet
-     */
+    
     public String getNomePet() {
         return nomePet;
     }
 
-    /**
-     * @param nomePet the nomePet to set
-     */
+    
     public void setNomePet(String nomePet) {
         this.nomePet = nomePet;
     }
 
-    /**
-     * @return the endereco
-     */
+    
     public String getEndereco() {
         return endereco;
     }
 
-    /**
-     * @param endereco the endereco to set
-     */
+    
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
-    /**
-     * @return the telefone
-     */
+   
     public long getTelefone() {
         return telefone;
     }
 
-    /**
-     * @param telefone the telefone to set
-     */
+    
     public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
 
-    /**
-     * @return the cpf
-     */
+    
     public long getCpf() {
         return cpf;
     }
 
-    /**
-     * @param cpf the cpf to set
-     */
+    
     public void setCpf(long cpf) {
         this.cpf = cpf;
     }
@@ -132,26 +108,28 @@ public class Cliente {
     public void setCompras(ArrayList<Compra> compras) {
         this.compras = compras;
     }
-
+    /* sobrecarga de toString para a classe Cliente*/
     @Override
     public String toString() {
         return "" + this.nome + " " + this.cpf + " " +
                 this.telefone + " " + this.endereco + " " + 
                 " " + this.nomePet + " " + this.tipoAnimal + " ";
      }
+    /* pega a impressão dos dados das compras de um cliente*/
     public String getDadosCompras(){
         for(Compra comp: this.compras)
            return comp.toString();
         
         return " ";
     }
+    /*sobrecarga do método clone, para clonar dois objetos da classe Cliente*/
     @Override
     public Cliente clone(){
          return new Cliente(this.nome, this.tipoAnimal, 
                  this.nomePet, this.endereco, this.telefone, this.cpf);
          
     }
-
+    /*Sobrecarga do método equals, onde dois clientes são iguais, se apresentarem o mesmo cpf*/
     @Override
     public boolean equals(Object obj) {
         if(!(obj instanceof Cliente))return false;

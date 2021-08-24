@@ -13,69 +13,59 @@ public class Servico {
     private String nome;
     private double preco;
     private long id;
-    /**
-     * @return the nome
-     */
+   
     
     public Servico() {
     }
-
+     /*Construtor de Serviço*/
     public Servico(String nome, double preco, long id) {
         this.nome = nome;
         this.preco = preco;
         this.id = id;
     }
     
+    /* getters e setters de Serviço*/
 
     public String getNome() {
         return nome;
     }
 
-    /**
-     * @param nome the nome to set
-     */
+    
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    /**
-     * @return the preco
-     */
+    
     public double getPreco() {
         return preco;
     }
 
-    /**
-     * @param preco the preco to set
-     */
+    
     public void setPreco(double preco) {
         this.preco = preco;
     }
 
-    /**
-     * @return the id
-     */
+    
     public long getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
+    
     public void setId(long id) {
         this.id = id;
     }
-
+     /* sobrecarga de toString para a classe Servico*/
     public String toString() {
         return "" + 
                 this.id + "|" + this.nome + "|" + 
                 this.preco;
     }
+    /*sobrecarga do método clone, para clocar dois objetos da classe Servico*/
     @Override
     public Servico clone(){
         return new Servico(this.getNome(), this.getPreco(), this.getId()); 
     }
-    
+    /*sobrecarga do método equals, em que dois serviços são iguais, se tiverem o mesmo Id */
     @Override
     public boolean equals(Object obj) {
      if (!(obj instanceof Servico)) return false;
