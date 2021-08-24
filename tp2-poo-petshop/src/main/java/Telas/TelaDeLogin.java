@@ -185,7 +185,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
         // Acção do botão sair
         String message = "Deseja realmente sair do sistema PetShop PuppyCat?";
         String title = "Confirmação";
-        int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+        int resposta = JOptionPane.showConfirmDialog(this,  message, title, JOptionPane.YES_NO_OPTION);
         if (resposta == JOptionPane.YES_OPTION){
             System.exit(0);
         }

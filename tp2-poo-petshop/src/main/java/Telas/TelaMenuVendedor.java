@@ -117,7 +117,7 @@ public class TelaMenuVendedor extends javax.swing.JFrame {
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         String message = "Deseja realmente sair do Menu de Vendedor?";
         String title = "Confirmação";
-        int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+        int resposta = JOptionPane.showConfirmDialog(this,  message, title, JOptionPane.YES_NO_OPTION);
         if (resposta == JOptionPane.YES_OPTION){
             petshop.voltar();
         }

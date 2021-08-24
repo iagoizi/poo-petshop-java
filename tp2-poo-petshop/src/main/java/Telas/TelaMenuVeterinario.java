@@ -154,7 +154,7 @@ public class TelaMenuVeterinario extends javax.swing.JFrame {
         // Ação do botao voltar de veterinario
         String message = "Deseja realmente sair do Menu de Veterinário?";
         String title = "Confirmação";
-        int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+        int resposta = JOptionPane.showConfirmDialog(this,  message, title, JOptionPane.YES_NO_OPTION);
         if (resposta == JOptionPane.YES_OPTION){
             petshop.voltar();
         }

@@ -233,7 +233,7 @@ public class TelaReporEstoque extends javax.swing.JFrame {
                         if(produto.getQuantidade() < 0){
                             produto.setQuantidade(0);
                         }
-                        JOptionPane.showMessageDialog(null, "Reposição de produto concluída!");
+                        JOptionPane.showMessageDialog(this,  "Reposição de produto concluída!");
                         return;
                     }
 
