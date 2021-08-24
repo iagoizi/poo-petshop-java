@@ -33,10 +33,6 @@ public class Lib {
         Cliente cliente = new Cliente("Belo", "Gato", "Lorenzinho", "Rua Pioedosa", 2133321, 577415);
         ArrayList<Cliente> clientes = new ArrayList<>();
         clientes.add(cliente);
-        Cliente clone = cliente.clone();
-        clientes.add(clone);
-        clone.setNome("Nome do clone mudado");
-        clone.setNomePet("Pet do clone");
         petshop.setClientes(clientes);
         
         petshop.getContas().add(new Conta("Conta de luz", new Data(11, 12, 2021), new Data(10, 12, 2021), 33.3));
@@ -51,16 +47,17 @@ public class Lib {
         petshop.getVendas().add(new Compra("Alguma coisa", new Data(12, 12, 2021), 769));
         petshop.getVendas().add(new Compra("Semente", new Data(12, 12, 2021), 769));
         
-        petshop.getProdutos().add(new Produto("Arroz", 15, 55, 1));
-        petshop.getProdutos().add(new Produto("Feijão", 5, 56, 2));
+        petshop.getProdutos().add(new Produto("Ração", 15, 55, 1));
+        petshop.getProdutos().add(new Produto("Bala", 5, 56, 2));
         
         petshop.getClientes().add(new Cliente("João", "Cachorro", "Rex", "Rua Não Sei", 9999, 111));
         
         ArrayList<Servico> servicos = new ArrayList<>();
         servicos.add(new Servico("Banho", 100, 100));
+        servicos.add(new Servico("Consulta", 100, 0));
         petshop.setServicos(servicos);
         
-        petshop.getOrdemServicos().add(new OrdemServico(new Servico("consulta", 0.0, 0), cliente, new Data(12, 12, 2021), 0, ""));
+        petshop.getOrdemServicos().add(new OrdemServico(new Servico("Consulta", 0.0, 0), cliente, new Data(12, 12, 2021), 0, ""));
         return petshop;
     }
 }
