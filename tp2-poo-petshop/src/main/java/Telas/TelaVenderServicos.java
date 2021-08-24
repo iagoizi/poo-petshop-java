@@ -25,6 +25,9 @@ import Classes.Vendedor;
 public class TelaVenderServicos extends javax.swing.JFrame {
 
     PetShop petshop;
+    private boolean estaEsperando;
+    private Data dataEscolhida;
+    private Servico servicoEscolhido;
 
     /**
      * Creates new form TelaCadastroCliente
@@ -32,6 +35,9 @@ public class TelaVenderServicos extends javax.swing.JFrame {
     public TelaVenderServicos(PetShop petshop) {
         initComponents();
         this.petshop = petshop;
+        this.estaEsperando = false;
+        this.dataEscolhida = null;
+        this.servicoEscolhido = null;
     }
 
     /**
@@ -69,6 +75,11 @@ public class TelaVenderServicos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         inputListarServico.setText("Listar Serviços");
         inputListarServico.addActionListener(new java.awt.event.ActionListener() {
@@ -286,56 +297,45 @@ public class TelaVenderServicos extends javax.swing.JFrame {
                         for (OrdemServico ordemServico : this.petshop.getOrdemServicos()) {
 
                             if (ordemServico.getData().equals(data)) {
-                                JOptionPane.showMessageDialog(null, "Horário indisponível, cadastre outro horário!");
+                                JOptionPane.showMessageDialog(this, "Horário indisponível, cadastre outro horário!");
                             } else {
                                 String message = "O comprador possui cadastro?";
                                 String title = "Confirmação";
-                                int resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+                                int resposta = JOptionPane.showConfirmDialog(this, message, title, JOptionPane.YES_NO_OPTION);
                                 if (resposta == JOptionPane.YES_OPTION) {
 
                                     String msg = JOptionPane.showInputDialog("Digite o CPF: ");
                                     int cpf = Integer.parseInt(msg);
-                                    
-                                    Cliente cliente = petshop.getSessaoAtual().buscarCadastro(cpf);                                   
+
+                                    Cliente cliente = petshop.getSessaoAtual().buscarCadastro(cpf);
                                     if (cliente != null) {
                                         (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
                                                 ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).vendaServico(petshop, cliente, servico, data);
 
-                                        JOptionPane.showMessageDialog(null, "Serviço agendado!");
-                                    } 
-                                    else {
-                                        JOptionPane.showMessageDialog(null, "Cliente não encontado!");
+                                        JOptionPane.showMessageDialog(this, "Serviço agendado!");
+                                    } else {
+                                        JOptionPane.showMessageDialog(this, "Cliente não encontado!");
                                     }
-                                } 
-                                else {
+                                } else {
                                     message = "Deseja cadastrar um novo cliente?";
                                     title = "Confirmação";
-                                    resposta = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+                                    resposta = JOptionPane.showConfirmDialog(this, message, title, JOptionPane.YES_NO_OPTION);
                                     //Venda do servico cadastrando produto
                                     if (resposta == JOptionPane.YES_OPTION) {
-                                        
-                                        petshop.irPara(new TelaCadastroCliente(petshop, true));                                        
-
-                                        int tam = petshop.getClientes().size() - 1;
-                                        int cont = 0;
-                                        for (Cliente cliente : petshop.getClientes()) {
-                                            if (cont == tam) {
-                                                (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
-                                                    ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).vendaServico(petshop, cliente, servico, data);
-                                                JOptionPane.showMessageDialog(null, "Serviço agendado!");
-                                            }
-                                            cont++;
-                                        }                                                  
-                                    } 
-                                    //Venda do servico sem cadastro do cliente
-                                    else {                                        
-                                        JOptionPane.showMessageDialog(null, "É preciso ter cadastro para agendar um serviço.");
+                                        //A finalização da compra vai acontecer depois quando voltarmos para essa tela
+                                        petshop.irPara(new TelaCadastroCliente(petshop, true));
+                                        this.estaEsperando = true;
+                                        this.dataEscolhida = data;
+                                        this.servicoEscolhido = servico;
+                                    } //Venda do servico sem cadastro do cliente
+                                    else {
+                                        JOptionPane.showMessageDialog(this, "É preciso ter cadastro para agendar um serviço.");
                                     }
                                 }
                             }
                         }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Serviço inexiste!");
+                        JOptionPane.showMessageDialog(this, "Serviço inexiste!");
                     }
                 }
             }
@@ -369,6 +369,16 @@ public class TelaVenderServicos extends javax.swing.JFrame {
     private void botaoVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoVoltarMouseClicked
         petshop.voltar();
     }//GEN-LAST:event_botaoVoltarMouseClicked
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        if (estaEsperando) {
+            this.estaEsperando = false;
+            Cliente cliente = petshop.getClientes().get(petshop.getClientes().size() - 1);
+            (petshop.getSessaoAtual().getCargo() == TipoFuncionario.VENDEDOR
+                    ? ((Vendedor) petshop.getSessaoAtual()) : ((Administrador) petshop.getSessaoAtual())).vendaServico(petshop, cliente, this.servicoEscolhido, this.dataEscolhida);
+            JOptionPane.showMessageDialog(this, "Venda concluída!");
+        }
+    }//GEN-LAST:event_formComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
