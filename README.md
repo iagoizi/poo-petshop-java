@@ -24,6 +24,18 @@ make
 make run
 ```
 
+### Acesso de um usuário vendedor
+
+[![Execução vendedor](https://i.imgur.com/vgayx8N.jpg)](https://drive.google.com/file/d/1njO1kDKBZ0QDM3US8wRvY0aK0jKiyqLU/view?usp=sharing "Funcionalidades de um vendedor")
+
+### Acesso de um usuário veterinário
+
+[![Execução veterinário](https://i.imgur.com/HX5FMWD.jpg)](https://drive.google.com/file/d/1ogoQGcZv1slSE_iwhIVkHeo6_1xPq4od/view?usp=sharing "Funcionalidades de um veterinário")
+
+### Acesso de um usuário administrador
+
+[![Execução administrador](https://i.imgur.com/yHoFqab.jpg)](https://drive.google.com/file/d/1NTj4VuvNO0vPL3vMDne_Vv5vK4ScmsSz/view?usp=sharing "Funcionalidades de um administrador")
+
 ## Descrição da arquitetura
 
 Cada tipo de usuário tem um certo conjunto de poderes, sendo o usuário administrador um "faz tudo". Na imagem abaixo, temos um diagrama de funcionalidades descrevendo o que cada um pode fazer.
