@@ -1,4 +1,4 @@
-# Sistema de PetShop em java (swift)
+# Sistema de PetShop em java (swing)
 
 ## Descrição do projeto
 
