@@ -40,9 +40,9 @@ make run
 
 Cada tipo de usuário tem um certo conjunto de poderes, sendo o usuário administrador um "faz tudo". Na imagem abaixo, temos um diagrama de funcionalidades descrevendo o que cada um pode fazer.
 
-![Funcionalidades](https://i.imgur.com/AaS21Xl.jpg)
+![Funcionalidades](./img/funcionalidades.jpg)
 
-![Usuários](https://i.imgur.com/UtUwtfm.jpg)
+![Usuários](./img/usuarios.jpg)
 
 **PetShop:** classe responsável pelo controle geral do estabelecimento, a qual possui acesso a todas as outras e contém todas as informações para o devido funcionamento da mesma.
 
@@ -58,7 +58,7 @@ Cada tipo de usuário tem um certo conjunto de poderes, sendo o usuário adminis
 
 **Administrador:** como essa classe, além de atributos e métodos especiais para ela, também possui os mesmos que qualquer outro funcionário do PetShop, foi implementada de forma que herdasse essas informações da classe usuário, veterinário e vendedor. Como citado, ela possui alguns métodos que são destinados a ter controle total sobre o estabelecimento.
 
-![Diagrama do petshop](https://i.imgur.com/BVg6hXf.jpg)
+![Diagrama do petshop](./img/diagrama-petshop.jpg)
 
 **PetShop:** classe responsável pelo controle geral do estabelecimento, a qual possui acesso a todas as outras e contém todas as informações para o devido funcionamento da mesma.
 
@@ -78,11 +78,11 @@ Cada tipo de usuário tem um certo conjunto de poderes, sendo o usuário adminis
 
 Para facilitar a visualização da arquitetura implementada, abaixo, temos todo o diagrama UML referente à representação dos dados do sistema.
 
-![Diagrama completo](https://i.imgur.com/efpGNGi.jpg)
+![Diagrama completo](./img/diagrama-completo.jpg)
 
 Com o intuito de auxiliar na visualização das telas e de seus caminhos, a seguir é apresentado o fluxo de telas para esclarecer o seu funcionamento e direcionamento.
 
-![Fluxo de telas](https://i.imgur.com/wkhRcMN.jpg)
+![Fluxo de telas](./img/fluxo-de-telas.jpg)
 
 ## Decisões de projeto
 
