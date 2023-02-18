@@ -76,7 +76,7 @@ Cada tipo de usuário tem um certo conjunto de poderes, sendo o usuário adminis
 
 **Data:** classe utilizada para guardar qualquer informação relacionada às datas. Datas de serviços, de pagamentos ou vencimentos de contas.
 
-Para facilitar a visualização da arquitetura implementada, na próxima página, temos todo o diagrama UML referente à representação dos dados do sistema.
+Para facilitar a visualização da arquitetura implementada, abaixo, temos todo o diagrama UML referente à representação dos dados do sistema.
 
 ![Diagrama completo](https://i.imgur.com/efpGNGi.jpg)
 
