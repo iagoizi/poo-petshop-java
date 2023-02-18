@@ -24,17 +24,17 @@ make
 make run
 ```
 
-### Acesso de um usuário vendedor
+### Acesso de um usuário vendedor (YouTube)
 
-[![Execução vendedor](https://i.imgur.com/vgayx8N.jpg)](https://drive.google.com/file/d/1njO1kDKBZ0QDM3US8wRvY0aK0jKiyqLU/view?usp=sharing "Funcionalidades de um vendedor")
+[![Execução vendedor](https://i.imgur.com/Dn0Q9bf.png)](https://youtu.be/VVQ7Sh889Ug "Vídeo no YouTube: Funcionalidades de um vendedor (Clique para assistir)")
 
-### Acesso de um usuário veterinário
+### Acesso de um usuário veterinário (YouTube)
 
-[![Execução veterinário](https://i.imgur.com/HX5FMWD.jpg)](https://drive.google.com/file/d/1ogoQGcZv1slSE_iwhIVkHeo6_1xPq4od/view?usp=sharing "Funcionalidades de um veterinário")
+[![Execução veterinário](https://i.imgur.com/4ecAnb0.png)](https://youtu.be/osH_Bfsr9DM "Vídeo no YouTube: Funcionalidades de um veterinário (Clique para assistir)")
 
-### Acesso de um usuário administrador
+### Acesso de um usuário administrador (YouTube)
 
-[![Execução administrador](https://i.imgur.com/yHoFqab.jpg)](https://drive.google.com/file/d/1NTj4VuvNO0vPL3vMDne_Vv5vK4ScmsSz/view?usp=sharing "Funcionalidades de um administrador")
+[![Execução administrador](https://i.imgur.com/AcKEPgr.png)](https://youtu.be/EY6K2Q2vHd8 "Vídeo no YouTube: Funcionalidades de um administrador (Clique para assistir)")
 
 ## Descrição da arquitetura
 
@@ -76,7 +76,7 @@ Cada tipo de usuário tem um certo conjunto de poderes, sendo o usuário adminis
 
 **Data:** classe utilizada para guardar qualquer informação relacionada às datas. Datas de serviços, de pagamentos ou vencimentos de contas.
 
-Para facilitar a visualização da arquitetura implementada, na próxima página, temos todo o diagrama UML referente à representação dos dados do sistema.
+Para facilitar a visualização da arquitetura implementada, abaixo, temos todo o diagrama UML referente à representação dos dados do sistema.
 
 ![Diagrama completo](https://i.imgur.com/efpGNGi.jpg)
 
