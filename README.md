@@ -26,15 +26,15 @@ make run
 
 ### Acesso de um usuário vendedor (YouTube)
 
-[![Execução vendedor](https://i.imgur.com/Dn0Q9bf.png)](https://youtu.be/VVQ7Sh889Ug "Vídeo no YouTube: Funcionalidades de um vendedor (Clique para assistir)")
+[![Execução vendedor](./img/vendedor.png)](https://youtu.be/VVQ7Sh889Ug "Vídeo no YouTube: Funcionalidades de um vendedor (Clique para assistir)")
 
 ### Acesso de um usuário veterinário (YouTube)
 
-[![Execução veterinário](https://i.imgur.com/4ecAnb0.png)](https://youtu.be/osH_Bfsr9DM "Vídeo no YouTube: Funcionalidades de um veterinário (Clique para assistir)")
+[![Execução veterinário](./img/veterinario.png)](https://youtu.be/osH_Bfsr9DM "Vídeo no YouTube: Funcionalidades de um veterinário (Clique para assistir)")
 
 ### Acesso de um usuário administrador (YouTube)
 
-[![Execução administrador](https://i.imgur.com/AcKEPgr.png)](https://youtu.be/EY6K2Q2vHd8 "Vídeo no YouTube: Funcionalidades de um administrador (Clique para assistir)")
+[![Execução administrador](./img/admin.png)](https://youtu.be/EY6K2Q2vHd8 "Vídeo no YouTube: Funcionalidades de um administrador (Clique para assistir)")
 
 ## Descrição da arquitetura
 
